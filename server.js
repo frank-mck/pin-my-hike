@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+const App = require('./client/src/App')
 //const Hikes = require('./models/hikes')
 const methodOverride = require('method-override')
 
