@@ -11,7 +11,7 @@ Click on a pin to highlight the route and view pictures of the hike.
 
 ## Repository
 
-[PinMyHike](https://github.com/Ashley-Slaney/PinMyHike)
+[PinMyHike](https://github.com/frank-mck/pin-my-hike)
 
 ## Team Members
 
