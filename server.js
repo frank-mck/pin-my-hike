@@ -1,11 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
-const App = require('./client/src/App')
+//const App = require('./client/src/App')
 //const Hikes = require('./models/hikes')
 const methodOverride = require('method-override')
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 mongoose.connect('mongodb://localhost/pin-my-hike', {
   useNewUrlParser: true, useUnifiedTopology: true 

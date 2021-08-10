@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState(null);
@@ -6,7 +6,8 @@ function App() {
   useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => setData(data.message)
+      ).catch(error => console.log(error));
   }, []);
 
   return (
