@@ -20,7 +20,6 @@ function App() {
         mapElement={<div style={{ height: "100%" }} />}
       />
     <Hikes />
-
   </div>
   );
 }
