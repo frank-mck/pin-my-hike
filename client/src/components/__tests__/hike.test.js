@@ -12,7 +12,7 @@ test("should render the component", () => {
   const hikeElement = screen.getByTestId("hike");
 
   expect(hikeElement).toBeInTheDocument();
-  expect(hikeElement).toHaveTextContent("hello");
+  expect(hikeElement).toHaveTextContent("Hello from server!");
 });
 
 test("should match the snapshot", () => {

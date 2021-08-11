@@ -4,7 +4,9 @@ exports[`should match the snapshot 1`] = `
 <div
   data-testid="hike"
 >
-  hello
-  <h1 />
+  Hello from server!
+  <h1
+    className="hikes"
+  />
 </div>
 `;
