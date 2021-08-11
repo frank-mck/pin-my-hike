@@ -10,8 +10,7 @@ export const Hikes = () => {
   }, []);
   return (
     <div>
-      hello
-      <h1>{data}</h1>
+      <h1 className ='hikes'>{data}</h1>
     </div>
   )
 }
