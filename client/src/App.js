@@ -1,19 +1,8 @@
 import { useEffect, useState } from "react";
-import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
-require('dotenv').config();
-
-
-
-function MyMap() {
-  return (
-  <GoogleMap 
-  defaultZoom={6}
-  defaultCenter={{ lat: 55.378052, lng: -3.435973 }} 
-  />
-  )
-}
-
+import { withScriptjs, withGoogleMap } from "react-google-maps";
+import MyMap from './components/maps/MyMap'
 const WrappedMap = withScriptjs(withGoogleMap(MyMap));
+require('dotenv').config();
 
 
 function App() {
@@ -31,7 +20,7 @@ function App() {
     <div className="App">
         <p>{!data ? "Loading..." : data}</p>
 
-        <div className="mapps-container" 
+        <div className="maps-container" 
         style={{
         width: '80vw', 
         height: '80vh',
