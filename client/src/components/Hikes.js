@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const Hikes = () => {
   const [data, setData] = React.useState(null);
@@ -9,10 +9,9 @@ export const Hikes = () => {
       .then((data) => setData(data.message));
   }, []);
   return (
-    <div>
+    <div data-testid="hike">
       hello
       <h1>{data}</h1>
     </div>
-  )
-}
-
+  );
+};
