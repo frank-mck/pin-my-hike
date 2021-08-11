@@ -4,23 +4,12 @@ const WrappedMap = withScriptjs(withGoogleMap(MyMap));
 require('dotenv').config();
 import React from "react";
 import "./App.css";
+import { Hikes } from './components/Hikes'
 
 function App() {
-  const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
-
-
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-
         <div className="maps-container" 
         style={{
         width: '80vw', 
@@ -34,10 +23,12 @@ function App() {
         loadingElement={<div style={{ height: "100%" }} />}
         containerElement={<div style={{ height: "100%" }} />}
         mapElement={<div style={{ height: "100%" }} />}
-
-
         />
         </div>
+
+  return (
+    <div className="App">
+      <Hikes />
     </div>
 
   );
