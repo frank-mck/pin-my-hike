@@ -1,14 +1,21 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
+<<<<<<< HEAD
 
+
+=======
+>>>>>>> a589a00ae4d44d6b090f00eb50e9f0f406bf1508
 orbs:
-  node: circleci/node@4.1
-
+  hello: circleci/hello-build@0.0.5
 workflows:
-  sample:
+  "Hello Workflow":
     jobs:
-      - node/test:
+<<<<<<< HEAD
+      - node/test: 'jest'
           version: '15.1'
           # This is the node version to use for the `cimg/node` tag
           # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
+          # https://circleci.com/developer/images/image/cimg/node  
+run: npm run test
+=======
+      - hello/hello-build
+>>>>>>> a589a00ae4d44d6b090f00eb50e9f0f406bf1508

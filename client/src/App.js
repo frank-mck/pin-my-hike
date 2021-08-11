@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
 import { withScriptjs, withGoogleMap } from "react-google-maps";
 import MyMap from './components/maps/MyMap'
 const WrappedMap = withScriptjs(withGoogleMap(MyMap));
 require('dotenv').config();
-
+import React from "react";
+import "./App.css";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = React.useState(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
-      .then((data) => setData(data.message)
-      ).catch(error => console.log(error));
+      .then((data) => setData(data.message));
   }, []);
 
 
   return (
     <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Loading..." : data}</p>
 
         <div className="maps-container" 
