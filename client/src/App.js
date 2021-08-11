@@ -18,8 +18,10 @@ function App() {
         containerElement={<div style={{ height: "100%" }} />}
         mapElement={<div style={{ height: "100%" }} />}
       />
-      <Hikes />
-    </div>
+
+    <Hikes />
+  </div>
+
   );
 }
 
