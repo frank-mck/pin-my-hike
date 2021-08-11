@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const Hikes = () => {
   const [data, setData] = React.useState(null);
@@ -12,6 +12,5 @@ export const Hikes = () => {
     <div>
       <h1 className ='hikes'>{data}</h1>
     </div>
-  )
-}
-
+  );
+};
