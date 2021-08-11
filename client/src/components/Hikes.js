@@ -7,10 +7,10 @@ export const Hikes = () => {
     fetch("/hikes/api")
       .then((res) => res.json())
       .then((data) => setData(data.message));
-  }, []);
-  return (
-    <div>
-      <h1 className ='hikes'>{data}</h1>
-    </div>
+    }, []);
+    return (
+      <div>
+        <h1 className ='hikes'>{!data ? '...loading' : data}</h1>
+      </div>
   );
 };

@@ -1,5 +1,4 @@
 const express = require('express')
-//const Hikes = require('./../models/hikes')
 const router = express.Router()
 
 router.get("/api", (req, res) => {
