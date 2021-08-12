@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/App.css";
+//import "./styles/App.css";
 import { Hikes } from "./components/Hikes";
 import { MyMap } from "./components/maps/MyMap.js";
 import { Form } from "./components/Form.js";

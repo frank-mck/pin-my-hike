@@ -25,6 +25,23 @@ export const MyMap = () => {
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
 
+  // const savePinAndRedirect = (path) => {
+  //   return async (req, res) => {
+  //     let hike = req.hike
+  //     markers.map(mark => {
+  //       hike.location = mark.lat
+  //       hike.location = mark.lng
+  //     })
+  //     try {
+  //       hike = await hike.save()
+  //       res.redirect(`/hikes`)
+  //     } catch (e) {
+  //       res.render(`hikes/${path}`, { hike: hike })
+  //     }
+  //   }
+  // }
+
+console.log(markers)
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
