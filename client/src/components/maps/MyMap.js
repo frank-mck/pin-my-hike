@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
 import { Hikes } from '../Hikes.js'
+import { Form } from '../Form.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
@@ -83,6 +84,9 @@ console.log(markers)
           <InfoWindow position={{lat: selected.lat, lng: selected.lng}}>
             <div>
               <h2>Hiker Spotted</h2>
+              <form action ='hikes/location' method='POST'>
+                <Form location={{lat: selected.lat, lng: selected.lng}} />
+              </form>
               <Hikes />
             </div>
           </InfoWindow>) : null }
