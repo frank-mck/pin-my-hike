@@ -1,6 +1,8 @@
 import React from "react";
 import "../../styles/App.css";
+import mapStyle from '../../styles/mapStyle.js'
 import { GoogleMap, useLoadScript, Marker, /*InfoWindow*/ } from "@react-google-maps/api"
+//const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
 
 const libraries =["places"]
@@ -9,8 +11,8 @@ const mapContainerStyle = {
   height: '80vh'
 }
 const center = {
-  lat: 43.653225,
-  lng: -79.383186,
+  lat: 55.378052,
+  lng: -3.435973
 }
 
 export const MyMap = () => {
@@ -28,6 +30,7 @@ export const MyMap = () => {
       mapContainerStyle={mapContainerStyle}
       zoom={8}
       center={center}
+      defaultOptions={{ styles: mapStyle }}
       onClick={(event) => {
         setMarkers((current) => [
           ...current,
@@ -41,7 +44,8 @@ export const MyMap = () => {
       >
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
-           position ={{lat: marker.lat, lng: marker.lng}}
+           position ={{lat: marker.lat, lng: marker.lng}} 
+           title={'hello world'}
            />
           }
         )}

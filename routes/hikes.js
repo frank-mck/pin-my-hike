@@ -5,7 +5,7 @@ router.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
 
-router.get('/new', (req, res) => {
+router.get('/location', (req, res) => {
   
 });
 
