@@ -1,12 +1,11 @@
 const express = require('express')
-//const Hikes = require('./../models/hikes')
 const router = express.Router()
 
 router.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
 
-router.get('/new', (req, res) => {
+router.get('/location', (req, res) => {
   
 });
 

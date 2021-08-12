@@ -12,6 +12,10 @@ const hikesSchema = new mongoose.Schema({
   },
   description: {
     type: String,
+  },
+  location: {
+    lat: Number,
+    lng: Number,
   }
 })
 
