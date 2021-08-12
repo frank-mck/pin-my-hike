@@ -79,10 +79,12 @@ console.log(markers)
         )}
 
           {selected ? (
-          <InfoWindow position={{lat: selected.lat, lng: selected.lng}}>
+          <InfoWindow position={{lat: selected.lat, lng: selected.lng}}
+          onCloseClick={() => {setSelected(null)}}
+          >
             <div>
               <h2>Hiker Spotted</h2>
-              <p>Spotted</p>
+              <p>Spotted {(selected.title)}</p>
             </div>
           </InfoWindow>) : null }
         </GoogleMap>
