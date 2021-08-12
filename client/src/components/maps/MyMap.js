@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
+import { Hikes } from '../Hikes.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
@@ -84,7 +85,11 @@ console.log(markers)
           >
             <div>
               <h2>Hiker Spotted</h2>
+
               <p>Spotted {(selected.title)}</p>
+
+              <Hikes />
+
             </div>
           </InfoWindow>) : null }
         </GoogleMap>
