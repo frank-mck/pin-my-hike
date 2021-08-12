@@ -29,7 +29,7 @@
     "google-map-react": "^2.1.10",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.6",
-    "react-google-maps": "^9.4.5"
+    "react-google-maps": "^7.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

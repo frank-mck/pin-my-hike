@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
-import { GoogleMap, useLoadScript, Marker, /*InfoWindow*/ } from "@react-google-maps/api"
+import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
 
@@ -21,6 +21,7 @@ export const MyMap = () => {
     libraries,
   })
   const [markers, setMarkers] = React.useState([])
+  const [selected, setSelected] = React.useState(null)
 
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
@@ -59,14 +60,31 @@ console.log(markers)
         ])
       }}
       >
+
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
-           position ={{lat: marker.lat, lng: marker.lng}} 
+           position={{lat: marker.lat, lng: marker.lng}} 
            title={'hello world'}
+           icon={{
+            url: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Map_pin_icon_green.svg',
+            scaledSize: new window.google.maps.Size(30,30),
+            anchor: new window.google.maps.Point(15,15)
+          }}
+          onClick={() => {
+            setSelected(marker);
+          }}
+          
            />
           }
         )}
-        
-    </GoogleMap>
+
+          {selected ? (
+          <InfoWindow position={{lat: selected.lat, lng: selected.lng}}>
+            <div>
+              <h2>Hiker Spotted</h2>
+              <p>Spotted</p>
+            </div>
+          </InfoWindow>) : null }
+        </GoogleMap>
   )
 }
