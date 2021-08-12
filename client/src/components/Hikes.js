@@ -9,7 +9,8 @@ export const Hikes = () => {
       .then((data) => setData(data.message));
   }, []);
   return (
-    <div>
+    <div data-testid="hike">
+      Hello from server!
       <h1 className ='hikes'>{data}</h1>
     </div>
   );
