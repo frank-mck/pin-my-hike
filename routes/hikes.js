@@ -1,9 +1,13 @@
 const express = require('express')
-const Hikes = require('./../models/hikes')
 const router = express.Router()
+//const MyMap = require('../client/src/components/maps/MyMaps')
 
-router.get('/new', (req, res) => {
-  
+router.get("/api", (req, res) => {
+  res.json({ message: "Hello from server!" });
+});
+
+router.get('/location', (req, res) => {
+  res.json({ location: MyMap });
 });
 
 router.get('/edit/:id', async (req, res) => {
