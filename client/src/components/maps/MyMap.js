@@ -28,23 +28,6 @@ export const MyMap = () => {
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
 
-  // const savePinAndRedirect = (path) => {
-  //   return async (req, res) => {
-  //     let hike = req.hike
-  //     markers.map(mark => {
-  //       hike.location = mark.lat
-  //       hike.location = mark.lng
-  //     })
-  //     try {
-  //       hike = await hike.save()
-  //       res.redirect(`/hikes`)
-  //     } catch (e) {
-  //       res.render(`hikes/${path}`, { hike: hike })
-  //     }
-  //   }
-  // }
-
-console.log(markers)
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -62,7 +45,6 @@ console.log(markers)
         ])
       }}
       >
-
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
            position={{lat: marker.lat, lng: marker.lng}} 
@@ -79,14 +61,13 @@ console.log(markers)
            />
           }
         )}
-
           {selected ? (
           <InfoWindow position={{lat: selected.lat, lng: selected.lng}}>
             <div>
               <h2>Hiker Spotted</h2>
-              <form action ='hikes/location' method='POST'>
+              
                 <Form location={{lat: selected.lat, lng: selected.lng}} />
-              </form>
+                
               <Hikes />
             </div>
           </InfoWindow>) : null }

@@ -1,16 +1,27 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 
 export const Hikes = () => {
-  const [data, setData] = React.useState(null);
+  const [pins, setPins] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("/hikes/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-    }, []);
-    return (
-      <div>
-        <h1 className ='hikes'>{!data ? '...loading' : data}</h1>
-      </div>
-  );
+    const getPins = async () => {
+      const pinsFromServer = await fetchPins()
+      setPins(pinsFromServer)
+    }
+    getPins();
+  }, []);
+
+  const fetchPins = async () => {
+    const res = await fetch('http://localhost:3002/location')
+    const pins = await res.json()
+
+    return pins
+  }
+  return (
+    <div>
+      {pins.name}
+    </div>
+  )
+
 };
