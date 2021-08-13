@@ -44,8 +44,6 @@ export const MyMap = () => {
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
 
-<<<<<<< HEAD
-=======
   // const savePinAndRedirect = (path) => {
   //   return async (req, res) => {
   //     let hike = req.hike
@@ -62,7 +60,6 @@ export const MyMap = () => {
   //   }
   // }
 
->>>>>>> 3f3b58f850650e5b5e35275e279b2d506f82f9c2
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -82,13 +79,10 @@ export const MyMap = () => {
         key={hike.id} 
         position={hike.location} 
       >
-<<<<<<< HEAD
-=======
       </Marker>
       
       ))}
 
->>>>>>> 3f3b58f850650e5b5e35275e279b2d506f82f9c2
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
            position={{lat: marker.lat, lng: marker.lng}} 
