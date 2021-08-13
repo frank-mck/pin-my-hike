@@ -99,10 +99,8 @@ export const MyMap = () => {
             onCloseClick={() => {setSelectedHike(null)}}
           >
             <div>
-              <h2>Hiker Spotted</h2>
-              
-
-
+              <h1>Title - { selectedHike.title } </h1>
+              <h2>Description - { selectedHike.description } </h2>
             </div>
           </InfoWindow>) : null }
 
