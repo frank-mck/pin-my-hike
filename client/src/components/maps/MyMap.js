@@ -114,7 +114,7 @@ export const MyMap = () => {
            icon={{
             url: 'https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png',
             scaledSize: new window.google.maps.Size(75,75),
-            anchor: new window.google.maps.Point(35,35)
+            anchor: new window.google.maps.Point(35,60)
           }}
           onClick={() => {
             setSelected(marker);
