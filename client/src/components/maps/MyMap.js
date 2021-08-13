@@ -3,13 +3,15 @@ import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
 import { Hikes } from '../Hikes.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
+
+
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
 
 const libraries =["places"]
 const mapContainerStyle = {
-  width: '80vw', 
-  height: '80vh'
+  width: '100vw', 
+  height: '100vh'
 }
 const center = {
   lat: 55.378052,
@@ -18,6 +20,7 @@ const center = {
 
 export const MyMap = () => {
   const { isLoaded, loadError } = useLoadScript({
+    
     googleMapsapiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   })
