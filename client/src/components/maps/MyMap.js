@@ -10,7 +10,6 @@ import * as hikeData from '../../dummyHikes.json'
 
 console.log(hikeData)
 
-
 const libraries =["places"]
 const mapContainerStyle = {
   width: '100vw', 
@@ -23,11 +22,9 @@ const center = {
 
 export const MyMap = () => {
   const { isLoaded, loadError } = useLoadScript({
-    
     googleMapsapiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   })
-  const [hikes, setHikes] = React.useState([])
   const [markers, setMarkers] = React.useState([])
   const [selected, setSelected] = React.useState(null)
 
@@ -61,7 +58,6 @@ export const MyMap = () => {
   //   }
   // }
 
-console.log(markers)
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -75,11 +71,11 @@ console.log(markers)
       onClick={onClickNewMarker}
       >
 
-      {hikeData.hikes.map((hikes) => (
+      {hikeData.hikes.map((hike) => (
       
       <Marker 
-      key={hikes.id} 
-      position={hikes.location} 
+        key={hike.id} 
+        position={hike.location} 
       >
       </Marker>
       
@@ -103,8 +99,9 @@ console.log(markers)
         )}
 
           {selected ? (
-          <InfoWindow position={{lat: selected.lat, lng: selected.lng}}
-          onCloseClick={() => {setSelected(null)}}
+          <InfoWindow 
+            position={{lat: selected.lat, lng: selected.lng}}
+            onCloseClick={() => {setSelected(null)}}
           >
             <div>
               <h2>Hiker Spotted</h2>
