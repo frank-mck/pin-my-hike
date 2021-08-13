@@ -29,6 +29,7 @@ export const MyMap = () => {
   })
   const [markers, setMarkers] = React.useState([])
   const [selected, setSelected] = React.useState(null)
+  const [selectedHike, setSelectedHike] = React.useState(null)
 
   const onClickNewMarker = (event) => {
     setMarkers((current) => [
@@ -78,27 +79,50 @@ export const MyMap = () => {
       <Marker 
         key={hike.id} 
         position={hike.location} 
-      >
-      </Marker>
+        icon={{
+          url: "https://img.icons8.com/color/48/000000/camping-tent.png",
+          scaledSize: new window.google.maps.Size(45,45),
+          anchor: new window.google.maps.Point(20,20)
+        }}
+      
+      onClick={() => {
+        setSelectedHike(hike);
+      }}
+
+      />
       
       ))}
+
+          {selectedHike ? (
+          <InfoWindow 
+            position={selectedHike.location}
+            onCloseClick={() => {setSelectedHike(null)}}
+          >
+            <div>
+              <h2>Hiker Spotted</h2>
+              
+
+
+            </div>
+          </InfoWindow>) : null }
+
 
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
            position={{lat: marker.lat, lng: marker.lng}} 
            title={'hello world'}
            icon={{
-            url: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Map_pin_icon_green.svg',
-            scaledSize: new window.google.maps.Size(30,30),
-            anchor: new window.google.maps.Point(15,15)
+            url: 'https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png',
+            scaledSize: new window.google.maps.Size(75,75),
+            anchor: new window.google.maps.Point(35,35)
           }}
           onClick={() => {
             setSelected(marker);
           }}
           
            />
-          }
-        )}
+        })}
+          
           {selected ? (
           <InfoWindow 
             position={{lat: selected.lat, lng: selected.lng}}
