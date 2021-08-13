@@ -13,7 +13,9 @@
       "postId": 1
     }
   ],
-  "location": {
-    "name": "typicode"
+  "hike": {
+    "location": "55.85661400464351 -3.526567291687004",
+    "title": "Makers",
+    "description": "rrhrehrdh"
   }
 }

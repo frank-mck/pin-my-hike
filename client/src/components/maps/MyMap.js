@@ -3,6 +3,7 @@ import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
 import { Hikes } from '../Hikes.js'
 import { Form } from '../Form.js'
+import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
@@ -71,6 +72,7 @@ export const MyMap = () => {
               <Hikes />
             </div>
           </InfoWindow>) : null }
+          <Button />
         </GoogleMap>
   )
 }
