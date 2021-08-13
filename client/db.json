@@ -1,21 +1,7 @@
 {
-  "title": [
-    {
+  "pins": {
       "id": 1,
       "title": "json-server",
       "author": "typicode"
-    }
-  ],
-  "description": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "hike": {
-    "location": "55.85661400464351 -3.526567291687004",
-    "title": "Makers",
-    "description": "rrhrehrdh"
   }
 }

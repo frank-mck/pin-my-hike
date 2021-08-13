@@ -5,8 +5,15 @@ const Hikes = require('./models/hikes')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 
-mongoose.connect('mongodb://localhost/pin-my-hike', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-const PORT = process.env.PORT || 3001;
+mongoose.connect("mongodb://localhost/pin-my-hike", { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true 
+})
+
+const db = mongoose.connection
+db.on('error', error => console.log(error))
+db.once('open', () => console.log('Connected to mongoose'))
 
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
@@ -27,13 +34,14 @@ app.post('/', async (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  const hike = Hikes.find()
-  res.render('./hikes/index', { hike: hike})
+  const hike = Hikes.find(req.pins)
+  console.log(hike)
+  res.render('./hikes/index', { hike: hike })
 })
 app.use("/hikes", hikesRouter);
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`Server listening on ${process.env.PORT}`);
 });
 
 // const saveArticleAndRedirect = (path) => {
