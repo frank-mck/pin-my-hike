@@ -4,6 +4,7 @@ import mapStyle from '../../styles/mapStyle.js'
 import { Hikes } from '../Hikes.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 
+console.log(mapStyle)
 
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
@@ -17,6 +18,8 @@ const center = {
   lat: 55.378052,
   lng: -3.435973
 }
+
+console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
 
 export const MyMap = () => {
   const { isLoaded, loadError } = useLoadScript({
@@ -52,7 +55,11 @@ console.log(markers)
       mapContainerStyle={mapContainerStyle}
       zoom={8}
       center={center}
-      defaultOptions={{ styles: mapStyle }}
+      options={{ 
+        styles: mapStyle,
+        disableDefaultUI: true,
+        zoomControl: true,
+       }}
       onClick={(event) => {
         setMarkers((current) => [
           ...current,
@@ -64,6 +71,14 @@ console.log(markers)
         ])
       }}
       >
+
+      <Marker position={{
+        lat: 55.378052,
+        lng: -3.435973
+        }} >
+
+
+      </Marker>
 
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
