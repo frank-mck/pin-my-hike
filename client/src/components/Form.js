@@ -3,7 +3,7 @@
 export const Form = ({ location }) => {
   return (
     <div className="form">
-      <form action ='http://localhost:3002/hike' method ='POST'>
+      <form action ='http://localhost:3002/pins' method ='POST'>
       <input style={{display: "none"}} type="text" name="location" id="location" value={`${location.lat} ${location.lng}`} />
       <br />
       <input type ='text' name='title' placeholder='Enter title...'></input>

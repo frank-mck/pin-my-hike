@@ -19,28 +19,35 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.set('view engine', 'ejs')
 
-app.post('/', async (req, res) => {
+const saveArticleAndRedirect = (path) => {
   return async (req, res) => {
-    let hikes = req.hikes
-    hikes.title = req.body.title
-    hikes.description = req.body.description
-    hikes.markdown = req.body.markdown
+    let pins = req.pins
+    pins.title = req.body.title
+    pins.description = req.body.description
+    pins.location = req.body.location
     try {
-      hikes = await hikes.save()
+      pins = await pins.save()
     } catch (e) {
-      res.render(`./hikes/index`, { hikes: hikes })
+      res.render(`pinss/${path}`, { pins: pins })
     }
   }
-})
+}
 
-app.get('/', (req, res) => {
-  const hike = Hikes.find(req.pins)
-  console.log(hike)
+
+app.get('/', async (req, res) => {
+  const hike = await Hikes.find(req.pins)
   res.render('./hikes/index', { hike: hike })
 })
+
+app.post('/', async (req, res, next) => {
+  req.pins = await new Hikes();
+  next();
+}, saveArticleAndRedirect('http://localhost:3002/pins'))
+
+
 app.use("/hikes", hikesRouter);
 
-app.listen(process.env.PORT || 3001, () => {
+app.listen(3001, () => {
   console.log(`Server listening on ${process.env.PORT}`);
 });
 
