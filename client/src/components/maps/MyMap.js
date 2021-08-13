@@ -2,6 +2,8 @@ import React from "react";
 import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
 import { Hikes } from '../Hikes.js'
+import { Form } from '../Form.js'
+import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
@@ -27,23 +29,6 @@ export const MyMap = () => {
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
 
-  // const savePinAndRedirect = (path) => {
-  //   return async (req, res) => {
-  //     let hike = req.hike
-  //     markers.map(mark => {
-  //       hike.location = mark.lat
-  //       hike.location = mark.lng
-  //     })
-  //     try {
-  //       hike = await hike.save()
-  //       res.redirect(`/hikes`)
-  //     } catch (e) {
-  //       res.render(`hikes/${path}`, { hike: hike })
-  //     }
-  //   }
-  // }
-
-console.log(markers)
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -61,7 +46,6 @@ console.log(markers)
         ])
       }}
       >
-
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
            position={{lat: marker.lat, lng: marker.lng}} 
@@ -78,20 +62,20 @@ console.log(markers)
            />
           }
         )}
-
           {selected ? (
           <InfoWindow position={{lat: selected.lat, lng: selected.lng}}
           onCloseClick={() => {setSelected(null)}}
           >
             <div>
               <h2>Hiker Spotted</h2>
-
-              <p>Spotted {(selected.title)}</p>
-
+              
+                <Form location={{lat: selected.lat, lng: selected.lng}} />
+                
               <Hikes />
 
             </div>
           </InfoWindow>) : null }
+          <Button />
         </GoogleMap>
   )
 }
