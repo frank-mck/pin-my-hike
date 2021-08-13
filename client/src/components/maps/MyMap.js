@@ -3,11 +3,12 @@ import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
 import { Hikes } from '../Hikes.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-
-console.log(mapStyle)
+import * as hikeData from '../../dummyHikes.json'
 
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
+
+console.log(hikeData)
 
 const libraries =["places"]
 const mapContainerStyle = {
@@ -21,12 +22,22 @@ const center = {
 
 export const MyMap = () => {
   const { isLoaded, loadError } = useLoadScript({
-    
     googleMapsapiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   })
   const [markers, setMarkers] = React.useState([])
   const [selected, setSelected] = React.useState(null)
+
+  const onClickNewMarker = (event) => {
+    setMarkers((current) => [
+      ...current,
+      {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+        time: new Date(),
+      }
+    ])
+  }
 
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
@@ -47,7 +58,6 @@ export const MyMap = () => {
   //   }
   // }
 
-console.log(markers)
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -58,25 +68,18 @@ console.log(markers)
         disableDefaultUI: true,
         zoomControl: true,
        }}
-      onClick={(event) => {
-        setMarkers((current) => [
-          ...current,
-          {
-            lat: event.latLng.lat(),
-            lng: event.latLng.lng(),
-            time: new Date(),
-          }
-        ])
-      }}
+      onClick={onClickNewMarker}
       >
 
-      <Marker position={{
-        lat: 55.378052,
-        lng: -3.435973
-        }} >
-
-
+      {hikeData.hikes.map((hike) => (
+      
+      <Marker 
+        key={hike.id} 
+        position={hike.location} 
+      >
       </Marker>
+      
+      ))}
 
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
@@ -96,8 +99,9 @@ console.log(markers)
         )}
 
           {selected ? (
-          <InfoWindow position={{lat: selected.lat, lng: selected.lng}}
-          onCloseClick={() => {setSelected(null)}}
+          <InfoWindow 
+            position={{lat: selected.lat, lng: selected.lng}}
+            onCloseClick={() => {setSelected(null)}}
           >
             <div>
               <h2>Hiker Spotted</h2>

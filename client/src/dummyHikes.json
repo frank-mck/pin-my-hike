@@ -1,0 +1,27 @@
+{"hikes": [
+  {
+    "location": {"lat" : 55.792417582126646, "lng" : -3.548582863281242},
+    "title": "Best Hike",
+    "description": "This is a hike 1",
+    "id": 1
+  },
+  {
+    "location": {"lat" : 55.90343482231193, "lng" : -3.317869972656242},
+    "title": "Better Hike",
+    "description": "This is a hike 2",
+    "id": 2
+  },
+  {
+    "location": {"lat" : 55.50343482231193, "lng" : -3.217869972656242},
+    "title": "Worst Hike",
+    "description": "This is a hike 3",
+    "id": 3
+  },
+  {
+    "location": {"lat" : 55.67055649449822, "lng" : -3.128312897155754},
+    "title": "On a tinder date? Come here",
+    "description": "This is a hike 4",
+    "id": 4
+  }
+]
+}
