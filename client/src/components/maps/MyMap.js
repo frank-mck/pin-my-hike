@@ -5,12 +5,10 @@ import { Hikes } from '../Hikes.js'
 import { Form } from '../Form.js'
 import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-import * as hikeData from '../../dummyHikes.json'
+//import * as hikeData from '../../dummyHikes.json'
 
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
-
-console.log(hikeData)
 
 const libraries =["places"]
 const mapContainerStyle = {
@@ -28,7 +26,18 @@ export const MyMap = () => {
     libraries,
   })
   const [markers, setMarkers] = React.useState([])
+  const [pins, setPins] = React.useState([])
   const [selected, setSelected] = React.useState(null)
+
+  const fetchPins = async () => {
+    const res = await fetch('http://localhost:3002/pins')
+    const pins = await res.json()
+    return pins
+  }
+
+  React.useEffect(() => {
+    fetchPins().then(u => setPins(u))
+  }, [])
 
   const onClickNewMarker = (event) => {
     setMarkers((current) => [
@@ -60,6 +69,9 @@ export const MyMap = () => {
   //   }
   // }
 
+  console.log(pins[0])
+
+
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -73,13 +85,12 @@ export const MyMap = () => {
       onClick={onClickNewMarker}
       >
 
-      {hikeData.hikes.map((hike) => (
-      
-      <Marker 
-        key={hike.id} 
-        position={hike.location} 
-      >
-      </Marker>
+      {pins.map((hike) => (
+        <Marker
+          key={ hike.id} 
+          position={{ "lat": parseFloat(hike.lat), "lng": parseFloat(hike.lng) }} 
+        >
+        </Marker>
       
       ))}
 
