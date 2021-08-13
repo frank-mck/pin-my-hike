@@ -31,6 +31,17 @@ export const MyMap = () => {
   const [markers, setMarkers] = React.useState([])
   const [selected, setSelected] = React.useState(null)
 
+  const onClickNewMarker = (event) => {
+    setMarkers((current) => [
+      ...current,
+      {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+        time: new Date(),
+      }
+    ])
+  }
+
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
 
@@ -61,16 +72,7 @@ console.log(markers)
         disableDefaultUI: true,
         zoomControl: true,
        }}
-      onClick={(event) => {
-        setMarkers((current) => [
-          ...current,
-          {
-            lat: event.latLng.lat(),
-            lng: event.latLng.lng(),
-            time: new Date(),
-          }
-        ])
-      }}
+      onClick={onClickNewMarker}
       >
 
       {hikeData.hikes.map((hikes) => (
