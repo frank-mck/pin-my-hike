@@ -101,6 +101,7 @@ export const MyMap = () => {
             <div>
               <h1>Title - { selectedHike.title } </h1>
               <h2>Description - { selectedHike.description } </h2>
+              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" height="500px" width="400px"></img>
             </div>
           </InfoWindow>) : null }
 
@@ -108,7 +109,6 @@ export const MyMap = () => {
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
            position={{lat: marker.lat, lng: marker.lng}} 
-           title={'hello world'}
            icon={{
             url: 'https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png',
             scaledSize: new window.google.maps.Size(75,75),
