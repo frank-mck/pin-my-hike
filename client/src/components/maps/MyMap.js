@@ -10,8 +10,6 @@ import * as hikeData from '../../dummyHikes.json'
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
 
-console.log(hikeData)
-
 const libraries =["places"]
 const mapContainerStyle = {
   width: '100vw', 
@@ -24,7 +22,7 @@ const center = {
 
 export const MyMap = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsapiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   })
   const [markers, setMarkers] = React.useState([])
