@@ -3,11 +3,13 @@ import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
 import { Hikes } from '../Hikes.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-
-console.log(mapStyle)
+import * as hikeData from '../../dummyHikes.json'
 
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
+
+console.log(hikeData)
+
 
 const libraries =["places"]
 const mapContainerStyle = {
@@ -25,6 +27,7 @@ export const MyMap = () => {
     googleMapsapiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   })
+  const [hikes, setHikes] = React.useState([])
   const [markers, setMarkers] = React.useState([])
   const [selected, setSelected] = React.useState(null)
 
@@ -70,13 +73,15 @@ console.log(markers)
       }}
       >
 
-      <Marker position={{
-        lat: 55.378052,
-        lng: -3.435973
-        }} >
-
-
+      {hikeData.hikes.map((hikes) => (
+      
+      <Marker 
+      key={hikes.id} 
+      position={hikes.location} 
+      >
       </Marker>
+      
+      ))}
 
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
