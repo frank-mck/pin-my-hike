@@ -5,7 +5,7 @@ import { Hikes } from '../Hikes.js'
 import { Form } from '../Form.js'
 import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-import * as hikeData from '../../dummyHikes.json'
+//import * as hikeData from '../../dummyHikes.json'
 
 //const Hikes = require('./../models/hikes')
 //import { fomatRelative } from "date-fns";
@@ -26,8 +26,19 @@ export const MyMap = () => {
     libraries,
   })
   const [markers, setMarkers] = React.useState([])
+  const [pins, setPins] = React.useState([])
   const [selected, setSelected] = React.useState(null)
   const [selectedHike, setSelectedHike] = React.useState(null)
+
+  const fetchPins = async () => {
+    const res = await fetch('http://localhost:3002/pins')
+    const pins = await res.json()
+    return pins
+  }
+
+  React.useEffect(() => {
+    fetchPins().then(u => setPins(u))
+  }, [])
 
   const onClickNewMarker = (event) => {
     setMarkers((current) => [
@@ -59,6 +70,7 @@ export const MyMap = () => {
   //   }
   // }
 
+
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -72,23 +84,20 @@ export const MyMap = () => {
       onClick={onClickNewMarker}
       >
 
-      {hikeData.hikes.map((hike) => (
+      {pins.map((hike) => (
+        <Marker
+          key={ hike.id} 
+          position={{ "lat": parseFloat(hike.lat), "lng": parseFloat(hike.lng) }} 
+          icon={{
+            url: "https://img.icons8.com/color/48/000000/camping-tent.png",
+            scaledSize: new window.google.maps.Size(45,45),
+            anchor: new window.google.maps.Point(20,20)
+          }}
       
-      <Marker 
-        key={hike.id} 
-        position={hike.location} 
-        icon={{
-          url: "https://img.icons8.com/color/48/000000/camping-tent.png",
-          scaledSize: new window.google.maps.Size(45,45),
-          anchor: new window.google.maps.Point(20,20)
+        onClick={() => {
+          setSelectedHike(hike);
         }}
-      
-      onClick={() => {
-        setSelectedHike(hike);
-      }}
-
       />
-      
       ))}
 
           {selectedHike ? (

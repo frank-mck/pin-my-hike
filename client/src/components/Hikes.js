@@ -28,11 +28,9 @@ export const Hikes = () => {
       },
       body: JSON.stringify(pin)
     })
-    res.redirect('/')
     const data = await res.json()
 
     setAddPins([...addPins, data])
-  
   }
 
   return (
