@@ -11,7 +11,7 @@ export default function App() {
     <div className ='app'>
       <div className="title-overlay">
         <img className="PMH-logo" 
-          src="https://i.ibb.co/mBJ38W9/pin-my-hike-logo-trial.png" alt='hiking logo' />
+          src="https://i.ibb.co/mBJ38W9/pin-my-hike-logo-trial.png" alt="hiking logo" />
       </div>
       <div className="maps-container">
         <MyMap/>
