@@ -22,12 +22,13 @@ const center = {
 
 export const MyMap = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsapiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   })
   const [markers, setMarkers] = React.useState([])
   const [pins, setPins] = React.useState([])
   const [selected, setSelected] = React.useState(null)
+  const [selectedHike, setSelectedHike] = React.useState(null)
 
   const fetchPins = async () => {
     const res = await fetch('http://localhost:3002/pins')
@@ -89,27 +90,46 @@ export const MyMap = () => {
         <Marker
           key={ hike.id} 
           position={{ "lat": parseFloat(hike.lat), "lng": parseFloat(hike.lng) }} 
-        >
-        </Marker>
+          icon={{
+            url: "https://img.icons8.com/color/48/000000/camping-tent.png",
+            scaledSize: new window.google.maps.Size(45,45),
+            anchor: new window.google.maps.Point(20,20)
+          }}
       
+        onClick={() => {
+          setSelectedHike(hike);
+        }}
+      />
       ))}
+
+          {selectedHike ? (
+          <InfoWindow 
+            position={selectedHike.location}
+            onCloseClick={() => {setSelectedHike(null)}}
+          >
+            <div>
+              <h1>Title - { selectedHike.title } </h1>
+              <h2>Description - { selectedHike.description } </h2>
+              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" height="500px" width="400px"></img>
+            </div>
+          </InfoWindow>) : null }
+
 
         {markers.map(marker => {
           return <Marker key={marker.time.toISOString()}
            position={{lat: marker.lat, lng: marker.lng}} 
-           title={'hello world'}
            icon={{
-            url: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Map_pin_icon_green.svg',
-            scaledSize: new window.google.maps.Size(30,30),
-            anchor: new window.google.maps.Point(15,15)
+            url: 'https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png',
+            scaledSize: new window.google.maps.Size(75,75),
+            anchor: new window.google.maps.Point(35,60)
           }}
           onClick={() => {
             setSelected(marker);
           }}
           
            />
-          }
-        )}
+        })}
+          
           {selected ? (
           <InfoWindow 
             position={{lat: selected.lat, lng: selected.lng}}

@@ -3,7 +3,6 @@ import React from "react";
 import { Hikes } from "./components/Hikes";
 import { MyMap } from "./components/maps/MyMap.js";
 //import { Form } from "./components/Form.js";
-import hikes from './dummyHikes.json'
 require("dotenv").config();
 
 export default function App() {
@@ -11,6 +10,7 @@ export default function App() {
   
 
   return (
+
       <div className ='app'>
         <div className="title-overlay">
           <img className="PMH-logo" 
