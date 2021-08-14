@@ -7,7 +7,9 @@
     "devStart": "nodemon server.js",
     "test": "jest",
     "client": "cd client && npm start",
-    "start": "concurrently \"npm run devStart\" \"npm run client\""
+    "start": "concurrently \"npm run devStart\" \"npm run client\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -35,7 +37,16 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
     "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
     "nodemon": "^2.0.12"
   }
 }

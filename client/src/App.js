@@ -7,24 +7,18 @@ require("dotenv").config();
 
 export default function App() {
 
-  
-
   return (
-
-      <div className ='app'>
-        <div className="title-overlay">
-          <img className="PMH-logo" 
-            src="https://i.ibb.co/mBJ38W9/pin-my-hike-logo-trial.png" alt='hiking logo'
-          />
-        </div>
-        
-        <div className="maps-container">
-          <MyMap hikes={hikes} />
-        
-        </div>
-        <Hikes />
-        
+    <div className ='app'>
+      <div className="title-overlay">
+        <img className="PMH-logo" 
+          src="https://i.ibb.co/mBJ38W9/pin-my-hike-logo-trial.png" alt='hiking logo' />
       </div>
+      <div className="maps-container">
+        <MyMap/>
+      </div>
+      <Hikes />
+    </div>
   );
 }
+
 
