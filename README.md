@@ -57,6 +57,17 @@ Testing:
 INSERT HOW TO TEST HERE
 ```
 
+Linting:
+```
+To run either in root or client:
+// In root:
+npm run lint
+
+// In client:
+cd client
+npm run lint
+```
+
 ## User Stories
 
 ```

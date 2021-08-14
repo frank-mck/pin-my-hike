@@ -43,7 +43,6 @@ app.post('/', async (req, res, next) => {
   next();
 }, savePinAndRedirect('/'));
 
-
 app.use('/hikes', hikesRouter);
 
 app.listen(3001)
