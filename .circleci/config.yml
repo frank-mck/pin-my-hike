@@ -1,7 +1,27 @@
 version: 2.1
-orbs:
-  hello: circleci/hello-build@0.0.5
+
+jobs:
+  frontend-test:
+    docker:
+      - image: circleci/node:16.4
+    working_directory: ~/pin-my-hike/client
+    steps:
+      - checkout:
+          path: ~/pin-my-hike
+      - restore_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: 
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run Jest Tests
+          command: npm test
+        
 workflows:
-  "Hello Workflow":
+  "Testing":
     jobs:
-      - hello/hello-build
+      - frontend-test
