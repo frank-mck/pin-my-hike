@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const hikesRouter = require('./routes/hikes');
-const Hikes = require('./models/hikes');
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
+import hikesRouter from './routes/hikes';
+import Hikes from './models/hikes';
+import mongoose from 'mongoose';
+import methodOverride from 'method-override';
 
 mongoose.connect('mongodb://localhost/pin-my-hike', {
   useNewUrlParser: true,
@@ -33,7 +33,6 @@ const savePinAndRedirect = (path) => {
   };
 };
 
-
 app.get('/', async (req, res) => {
   const hike = await Hikes.find(req.pins);
   res.render('./hikes/index', {hike: hike});
@@ -47,6 +46,4 @@ app.post('/', async (req, res, next) => {
 
 app.use('/hikes', hikesRouter);
 
-app.listen(3001, () => {
-  console.log(`Server listening on ${process.env.PORT}`);
-});
+app.listen(3001)
