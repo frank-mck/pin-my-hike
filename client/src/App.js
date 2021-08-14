@@ -10,7 +10,6 @@ export default function App() {
   
 
   return (
-
       <div className ='app'>
         <div className="title-overlay">
           <img className="PMH-logo" 
@@ -19,7 +18,7 @@ export default function App() {
         </div>
         
         <div className="maps-container">
-          <MyMap hikes={hikes} />
+          <MyMap/>
         
         </div>
         <Hikes />

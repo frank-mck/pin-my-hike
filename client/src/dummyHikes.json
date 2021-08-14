@@ -1,4 +1,5 @@
-{"hikes": [
+{
+  "hikes": [
   {
     "location": {"lat" : 55.792417582126646, "lng" : -3.548582863281242},
     "title": "Best Hike",
