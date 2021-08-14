@@ -3,7 +3,6 @@ import React from "react";
 import { Hikes } from "./components/Hikes";
 import { MyMap } from "./components/maps/MyMap.js";
 //import { Form } from "./components/Form.js";
-import hikes from './dummyHikes.json'
 require("dotenv").config();
 
 export default function App() {
@@ -17,7 +16,7 @@ export default function App() {
       </div>
       
       <div className="maps-container">
-        <MyMap hikes={hikes} />
+        <MyMap />
       
       </div>
       <Hikes />

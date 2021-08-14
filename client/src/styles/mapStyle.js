@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
       "featureType": "administrative",
@@ -78,7 +77,7 @@ export default [
       "featureType": "water",
       "stylers": [
           {
-              "color": "#84afa3"
+              "color": "#779091"
           },
           {
               "lightness": 52
