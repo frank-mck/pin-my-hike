@@ -70,8 +70,6 @@ export const MyMap = () => {
   //   }
   // }
 
-  console.log(pins[0])
-
 
   return (
     <GoogleMap
