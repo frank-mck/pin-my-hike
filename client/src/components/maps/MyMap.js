@@ -82,10 +82,8 @@ export const MyMap = () => {
         disableDefaultUI: true,
         zoomControl: true,
        }}
-      onClick={onClickNewMarker}
+        onClick={onClickNewMarker}
       >
-
-
 
       {pins.map((hike) => (
         <Marker
@@ -103,6 +101,7 @@ export const MyMap = () => {
       />
       ))}
 
+          <div className="hike-window">
           {selectedHike ? (
           <InfoWindow 
             position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
@@ -114,7 +113,7 @@ export const MyMap = () => {
               <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="500px" width="400px"></img>
             </div>
           </InfoWindow>) : null }
-
+          </div>
 
             {markers.map(marker => {
               return <Marker key={marker.time.toISOString()}
@@ -122,7 +121,7 @@ export const MyMap = () => {
               icon={{
                 url: 'https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png',
                 scaledSize: new window.google.maps.Size(75,75),
-                anchor: new window.google.maps.Point(35,60)
+                anchor: new window.google.maps.Point(35,60),
               }}
               onClick={() => {
                 setSelected(marker);
@@ -137,11 +136,8 @@ export const MyMap = () => {
               >
                 <div>
                   <h2>Hiker Spotted</h2>
-                  
                     <Form location={{lat: selected.lat, lng: selected.lng}} />
-                    
                   <Hikes />
-
                 </div>
               </InfoWindow>) : null }
               <Button />
