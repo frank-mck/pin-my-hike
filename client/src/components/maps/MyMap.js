@@ -26,8 +26,9 @@ const mapContainerStyle = {
 // };
 
 export const MyMap = () => {
-  const [latitude, setLatitude] = useState({});
-  const [longitude, setLongitude] = useState({});
+  const [latitude, setLatitude] = useState(55.378052);
+  const [longitude, setLongitude] = useState(-3.435973);
+
 
   function getPosition() {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -91,7 +92,7 @@ export const MyMap = () => {
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       zoom={8}
-      center={{ lat: latitude, lng: longitude }}
+      center={{ lat: latitude, lng: longitude } }
       options={{
         styles: mapStyle,
         disableDefaultUI: true,
