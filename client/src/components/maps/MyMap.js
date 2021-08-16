@@ -32,7 +32,7 @@ export const MyMap = () => {
   const [selectedHike, setSelectedHike] = React.useState(null)
 
   const fetchPins = async () => {
-    const res = await fetch('http://localhost:3002/pins')
+    const res = await fetch('http://localhost:3002/api/v1/hikes')
     const pins = await res.json()
     return pins
   }

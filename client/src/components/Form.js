@@ -3,7 +3,7 @@ import React from "react";
 export const Form = ({ location }) => {
   return (
     <div className="form">
-      <form action ='http://localhost:3002/pins' method ='POST'>
+      <form action ='http://localhost:3002/api/v1/hikes' method ='POST'>
       <input style={{display: "none"}} type="text" name="lng" id="location" value={`${location.lng}`} />
       <input style={{display: "none"}} type="text" name="lat" id="location" value={`${location.lat}`} />
       <br />

@@ -14,14 +14,14 @@ export const Hikes = () => {
   }, []);
 
   const fetchPins = async () => {
-    const res = await fetch('http://localhost:3002/pins')
+    const res = await fetch('http://localhost:3002/api/v1/hikes')
     const pins = await res.json()
 
     return pins
   }
 
   const addPin = async (pin) => {
-    const res = await fetch('http://localhost:3002/pins', { 
+    const res = await fetch('http://localhost:3002/api/v1/hikes', { 
       method: 'POST', 
       headers: {
         'Content-type': 'application/json'

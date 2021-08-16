@@ -1,6 +1,7 @@
 import app from "./server.js"
 import mongodb from "mongodb"
 import dotenv from "dotenv"
+import HikesDAO from "./dao/hikesDAO.js"
 
 dotenv.config()
 
@@ -21,6 +22,7 @@ MongoClient.connect(
   process.exit(1)
 })
 .then(async client => {
+  await HikesDAO.injectDB(client)
   app.listen(port, () => {
     console.log(`listening on port ${port}`)
   })
