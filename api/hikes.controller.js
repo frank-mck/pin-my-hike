@@ -25,4 +25,27 @@ export default class HikesController {
     }
     res.json(response)
   }
+
+  static async apiPostHike(req, res, next) {
+    try {
+      const lng = req.body.lng
+      const lat = req.body.lat
+      const title = req.body.title
+      const description = req.body.description
+      const date = new Date()
+
+      // this sends the data to the database with addHike.
+      const HikeResponse = await HikesDAO.addHike(
+        lng,
+        lat,
+        title,
+        description,
+        date
+      )
+      res.json({ status: "success" })
+    } catch (e) {
+      // error message if it doesnt work
+      res.status(500).json({ error: e.message })
+    }
+  } 
 }

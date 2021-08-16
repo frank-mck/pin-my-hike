@@ -50,4 +50,20 @@ export default class HikesDAO {
       return { hikesList: [], totalNumHikes: 0 }
     }
   }
+
+  static async addHikes(lng, lat, title, description, date) {
+    try {
+      const hikeDoc = { lng: lng,
+          lat: lat,
+          title: title,
+          description: description,
+          date: date
+        }
+
+      return await hikes.insertOne(hikeDoc)
+    } catch (e) {
+      console.error(`Unable to post review: ${e}`)
+      return { error: e }
+    }
+  }
 } 
