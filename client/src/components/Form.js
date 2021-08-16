@@ -16,6 +16,7 @@ export const Form = ({ location }) => {
       <input id="photo" className="btn" type="file" accept="image/png, image/jpeg" />
       <br />
       <button type="submit" className="btn">Submit</button>
+      
       </form>
     </div>
   )

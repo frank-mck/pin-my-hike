@@ -17,7 +17,8 @@ export default function App() {
         </div>
         
         <div className="maps-container">
-          <MyMap/>
+          <MyMap />
+
         
         </div>
         <Hikes />
