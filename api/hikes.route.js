@@ -6,7 +6,7 @@ const router = express.Router()
 router.route("/").get(HikesCtrl.apiGetHikes)
 
 router
-  .route("/hike")
+  .route("/new")
   .post(HikesCtrl.apiPostHike)
 
 export default router

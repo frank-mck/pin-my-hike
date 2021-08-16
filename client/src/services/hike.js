@@ -14,7 +14,7 @@ class HikeDataService {
       } 
     
       createHike(data) {
-        return http.post("/hike", data);
+        return http.post("/new", data);
       }
 
       updateHike(data) {

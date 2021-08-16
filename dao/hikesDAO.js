@@ -51,7 +51,7 @@ export default class HikesDAO {
     }
   }
 
-  static async addHikes(lng, lat, title, description, date) {
+  static async addHike(lng, lat, title, description, date) {
     try {
       const hikeDoc = { lng: lng,
           lat: lat,
