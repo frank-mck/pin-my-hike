@@ -38,5 +38,4 @@ export const Hikes = () => {
       {pins.location}
     </div>
   )
-
 };
