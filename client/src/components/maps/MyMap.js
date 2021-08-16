@@ -7,7 +7,7 @@ import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 //import * as hikeData from '../../dummyHikes.json'
 
-//const Hikes = require('./../models/hikes')
+import HikeDataService from '../../services/hike.js'
 //import { fomatRelative } from "date-fns";
 
 const libraries =["places"]
@@ -31,15 +31,21 @@ export const MyMap = () => {
   const [selected, setSelected] = React.useState(null)
   const [selectedHike, setSelectedHike] = React.useState(null)
 
-  const fetchPins = async () => {
-    const res = await fetch('http://localhost:3002/api/v1/hikes')
-    const pins = await res.json()
-    return pins
-  }
 
   React.useEffect(() => {
-    fetchPins().then(u => setPins(u))
+    fetchPins();
   }, [])
+
+  const fetchPins = () => {
+    HikeDataService.getAll()
+      .then(response => {
+        console.log(response.data)
+        setPins(response.data.hikes);  
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
 
   const onClickNewMarker = (event) => {
     setMarkers((current) => [
@@ -89,7 +95,7 @@ export const MyMap = () => {
 
       {pins.map((hike) => (
         <Marker
-          key={ hike.id} 
+          key={ hike._id} 
           position={{ "lat": parseFloat(hike.lat), "lng": parseFloat(hike.lng) }} 
           icon={{
             url: "https://img.icons8.com/color/48/000000/camping-tent.png",
