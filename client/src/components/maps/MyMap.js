@@ -5,15 +5,11 @@ import { Hikes } from '../Hikes.js'
 import { Form } from '../Form.js'
 import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-//import * as hikeData from '../../dummyHikes.json'
-
-//const Hikes = require('./../models/hikes')
-//import { fomatRelative } from "date-fns";
 
 const libraries =["places"]
 const mapContainerStyle = {
-  width: '100vw', 
-  height: '100vh'
+  width: 'calc(100vw - 14.5px)', 
+  height: 'calc(100vh - 69px)'
 }
 
 const center = {
@@ -55,23 +51,6 @@ export const MyMap = () => {
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
 
-  // const savePinAndRedirect = (path) => {
-  //   return async (req, res) => {
-  //     let hike = req.hike
-  //     markers.map(mark => {
-  //       hike.location = mark.lat
-  //       hike.location = mark.lng
-  //     })
-  //     try {
-  //       hike = await hike.save()
-  //       res.redirect(`/hikes`)
-  //     } catch (e) {
-  //       res.render(`hikes/${path}`, { hike: hike })
-  //     }
-  //   }
-  // }
-
-
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -110,7 +89,7 @@ export const MyMap = () => {
             <div>
               <h1>Title - { selectedHike.title } </h1>
               <h2>Description - { selectedHike.description } </h2>
-              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="500px" width="400px"></img>
+              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="260px" width="250px"></img>
             </div>
           </InfoWindow>) : null }
           </div>

@@ -55,6 +55,13 @@
       "title": "bla",
       "description": "This is a new pin",
       "id": 7
+    },
+    {
+      "lng": "-3.611567006729224",
+      "lat": "56.17659493851928",
+      "title": "dffdgf",
+      "description": "fdgdf",
+      "id": 8
     }
   ]
 }
