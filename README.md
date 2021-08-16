@@ -30,9 +30,10 @@ INSERT ALL THE GOOD STUFF ABOUT AGILE HERE
 ## Technology Used
 * MERN Stack (MongoDB, Express, React, Node)
 * Testing: Jest
+* API Testing: Insomnia
 * API: Google API
 * Linting: ESLint
-* CI: TBC
+* CI: CircleCI
 * Heroku
 
 ## Examples
@@ -47,23 +48,35 @@ INSERT SCREENSHOTS/GIFS HERE
 
 ## Usage
 
-Set up:
+### Set up env varibles
+1. Register for a Google Maps API Key.
+2. Retrieve your MongoDB URI:
+    * Go to MongoDB Atlas > connect > connect your application
+    * Copy the URI
+    * Edit the URI so that `<password>` is replaced by your real MongoDB password
+    * Edit the URI so that `myFirstDatabase` is replaced by `pin_my_hike`
+
+Create a .env file at the root and insert the following:
 ```
-INSERT HOW TO SET UP PROJECT HERE
+REACT_APP_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
+PIN_MY_HIKES_DB_URI=YOUR_MONGODB_ATLAS_URI
 ```
 
-Testing:
+### Testing
 ```
 INSERT HOW TO TEST HERE
 ```
 
-Linting:
-```
-To run either in root or client:
-// In root:
-npm run lint
+### Linting
 
-// In client:
+To run either in root or client:-
+In root:
+```
+npm run lint
+```
+
+In client:
+```
 cd client
 npm run lint
 ```
