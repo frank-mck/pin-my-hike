@@ -19,20 +19,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
-const savePinAndRedirect = (path) => {
-  return async (req, res) => {
-    let pins = req.pins;
-    pins.title = req.body.title;
-    pins.description = req.body.description;
-    pins.location = req.body.location;
-    try {
-      pins = await pins.save();
-    } catch (e) {
-      res.redirect(`${path}`, {pins: pins});
-    }
-  };
-};
-
 app.get('/', async (req, res) => {
   const hike = await Hikes.find(req.pins);
   res.render('./hikes/index', {hike: hike});
