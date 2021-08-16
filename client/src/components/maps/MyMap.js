@@ -26,12 +26,12 @@ const center = {
 };
 
 export const MyMap = () => {
-  const [position, setPosition] = useState();
+  const [location, setLocation] = useState({});
 
   function getPosition() {
     navigator.geolocation.getCurrentPosition(function (position) {
-      setPosition(position.coords);
-      console.log(position);
+      setLocation(position.coords);
+      console.log(location);
     });
   }
 
