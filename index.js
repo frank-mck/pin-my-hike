@@ -13,8 +13,9 @@ MongoClient.connect(
   process.env.PIN_MY_HIKES_DB_URI,
   { 
     maxPoolSize: 50,
-    wtimeoutMS: 2500,
-    useNewUrlParser: true
+    writeConcern: { wtimeoutMS: 2500 },
+    useNewUrlParser: true,
+    useUnifiedTopology: true
   }
 )
 .catch(err => {

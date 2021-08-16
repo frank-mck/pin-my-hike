@@ -5,24 +5,16 @@ class HikeDataService {
         return http.get();
       }
     
-      get(id) {
-        return http.get(`/id/${id}`);
-      }
+      // get(id) {
+      //   return http.get(`/id/${id}`);
+      // }
     
-      find(query, by = "title", page = 0) {
-        return http.get(`?${by}=${query}&page=${page}`);
-      } 
+      // find(query, by = "title", page = 0) {
+      //   return http.get(`?${by}=${query}&page=${page}`);
+      // } 
     
       createHike(data) {
         return http.post("/new", data);
-      }
-
-      updateHike(data) {
-        return http.put("/hike", data);
-      }
-
-      deleteHike(id) {
-        return http.delete(`/hike?id=${id}`);
       }
 }
     
