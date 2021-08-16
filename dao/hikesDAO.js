@@ -6,7 +6,7 @@ export default class HikesDAO {
       return
     }
     try {
-      hikes = await conn.db(pin_my_hike).collection("hikes")
+      hikes = await conn.db("pin_my_hike").collection("hikes")
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in hikesDAO: ${e}`,
