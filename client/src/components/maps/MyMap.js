@@ -57,6 +57,17 @@ export const MyMap = () => {
     const newPin = { id, ...pins }
     setPins([...pins, newPin])
   }
+
+  const stateChange = () => {
+    return setPins(value => value)
+  }
+  
+  const clicked = () => {
+    setTimeout(() => {
+     return () => {setSelected(null)}
+    }, 100)
+  }
+
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -126,7 +137,7 @@ export const MyMap = () => {
               </InfoWindow>) : null }
               
               <Button />
-              {selected ? ( <div><Form onCloseClick={() => {setSelected(null)}} onAdd={addNewPin} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
+              {selected ? ( <div><Form onChange={stateChange} onCloseClick={ clicked } onAdd={addNewPin} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
             </GoogleMap>
             
   )
