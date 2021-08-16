@@ -35,7 +35,7 @@
     "json-server": "^0.16.3",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.6",
-    "react-google-maps": "^7.3.0",
+    "react-google-maps": "^9.4.5",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {

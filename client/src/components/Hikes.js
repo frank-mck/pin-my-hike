@@ -34,7 +34,7 @@ export const Hikes = () => {
   }
 
   return (
-    <div>
+    <div data-testid="hikes">
       {pins.location}
     </div>
   )
