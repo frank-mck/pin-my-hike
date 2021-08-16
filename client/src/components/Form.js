@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export const Form = ({ location }) => {
   return (
     <div className="form">
@@ -24,5 +23,3 @@ export const Form = ({ location }) => {
 }
 
 export default Form
-
-

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 //const marked = require('marked')
 //const slugify = require('slugify')
 //const createDomPurify = require('dompurify')

@@ -7,8 +7,6 @@ require("dotenv").config();
 
 export default function App() {
 
-  
-
   return (
 
       <div className ='app'>
@@ -20,11 +18,12 @@ export default function App() {
         
         <div className="maps-container">
           <MyMap />
+
         
         </div>
         <Hikes />
-        
-      </div>
+       </div>
   );
 }
+
 
