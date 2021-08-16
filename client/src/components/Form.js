@@ -7,19 +7,19 @@ export const Form = ({ location }) => {
       <form action ='http://localhost:3002/pins' method ='POST'>
         <input style={{display: "none"}} type="text" name="lng" id="location" value={`${location.lng}`} />
         <input style={{display: "none"}} type="text" name="lat" id="location" value={`${location.lat}`} />
-        <input type ='text' name='title' className="title-input" placeholder='Enter title...'></input>
+        <input type ='text' name='title' className="form-title" placeholder='Enter title...'></input>
         <br />
         <textarea name ='description' id="description" type="text" cols="40" rows="5"
-          placeholder="Enter a description of your hike" className="text-field">
+          placeholder="Enter a description of your hike" className="form-text-field">
         </textarea>
         <br />
-        <label htmlFor="photo" className="photo-label">
-          <div><a><i class="fas fa-camera fa-3x upload-image"></i></a></div>
+        <label htmlFor="photo" className="form-photo-label">
+          <div><a><i class="fas fa-camera fa-3x form-upload-image"></i></a></div>
         </label>
-        <input id="photo" className="btn photo-button" type="file" accept="image/png, image/jpeg" 
+        <input id="photo" className="btn form-photo-button" type="file" accept="image/png, image/jpeg" 
           style={{display: "none"}}/>
         <br />
-        <button type="submit" className="btn submit">Submit</button>
+        <button type="submit" className="btn form-submit">Submit</button>
       </form>
     </div>
   )

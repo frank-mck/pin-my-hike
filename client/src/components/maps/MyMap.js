@@ -101,16 +101,16 @@ export const MyMap = () => {
       />
       ))}
 
-          <div className="hike-window">
+          <div>
           {selectedHike ? (
           <InfoWindow
             position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
             onCloseClick={() => {setSelectedHike(null)}}
           >
-            <div>
-              <h1>Title - { selectedHike.title } </h1>
-              <h2>Description - { selectedHike.description } </h2>
-              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="500px" width="400px"></img>
+            <div className="hike-window">
+              <h1 className="title">Title - { selectedHike.title } </h1>
+              <h2 className="description">Description - { selectedHike.description } </h2>
+              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" className="image"></img>
             </div>
           </InfoWindow>) : null }
           </div>
