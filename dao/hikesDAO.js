@@ -1,3 +1,6 @@
+import mongodb from "mongodb"
+const ObjectId = mongodb.ObjectId
+
 let hikes;
 
 export default class HikesDAO {
@@ -66,4 +69,49 @@ export default class HikesDAO {
       return { error: e }
     }
   }
-} 
+
+  static async getHikeByID(id) {
+    try {
+      const pipeline = [
+        {
+            $match: {
+                _id: new ObjectId(id),
+            },
+        },
+              {
+                  $lookup: {
+                      from: "reviews",
+                      let: {
+                          id: "$_id",
+                      },
+                      pipeline: [
+                          {
+                              $match: {
+                                  $expr: {
+                                      $eq: ["$hike_id", "$$id"],
+                                  },
+                              },
+                          },
+                          {
+                              $sort: {
+                                  date: -1,
+                              },
+                          },
+                      ],
+                      as: "reviews",
+                  },
+              },
+              {
+                  $addFields: {
+                      reviews: "$reviews",
+                  },
+              },
+          ]
+
+      return await hikes.aggregate(pipeline).next()
+    } catch (e) {
+      console.error(`Something went wrong in getRestaurantByID: ${e}`)
+      throw e
+    }
+  }
+}

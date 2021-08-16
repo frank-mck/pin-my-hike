@@ -47,5 +47,21 @@ export default class HikesController {
       // error message if it doesnt work
       res.status(500).json({ error: e.message })
     }
-  } 
+  }
+
+  static async apiGetHikeById(req, res, next) {
+    try {
+      let id = req.params.id || {}
+      let hike = await HikesDAO.getHikeByID(id)
+      if (!hike) {
+        res.status(404).json({ error: "Not found" })
+        return
+      }
+      res.json(hike)
+    } catch (e) {
+      console.log(`api, ${e}`)
+      res.status(500).json({ error: e })
+    }
+  }
+
 }

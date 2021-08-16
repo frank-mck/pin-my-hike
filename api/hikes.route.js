@@ -5,6 +5,7 @@ import ReviewsCtrl from "./reviews.controller.js"
 const router = express.Router()
 
 router.route("/").get(HikesCtrl.apiGetHikes)
+router.route("/id/:id").get(HikesCtrl.apiGetHikeById)
 
 router.route("/new").post(HikesCtrl.apiPostHike)
 
