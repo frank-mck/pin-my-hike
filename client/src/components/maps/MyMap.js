@@ -20,18 +20,21 @@ const mapContainerStyle = {
   height: "100vh",
 };
 
-const center = {
-  lat: 55.378052,
-  lng: -3.435973,
-};
+// const center = {
+//   lat: 55.378052,
+//   lng: -3.435973,
+// };
 
 export const MyMap = () => {
-  const [location, setLocation] = useState({});
+  const [latitude, setLatitude] = useState({});
+  const [longitude, setLongitude] = useState({});
 
   function getPosition() {
     navigator.geolocation.getCurrentPosition(function (position) {
-      setLocation(position.coords);
-      console.log(location);
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+      console.log(longitude);
+      console.log(latitude);
     });
   }
 
@@ -88,7 +91,7 @@ export const MyMap = () => {
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       zoom={8}
-      center={center}
+      center={{ lat: latitude, lng: longitude }}
       options={{
         styles: mapStyle,
         disableDefaultUI: true,
