@@ -14,9 +14,10 @@ class HikeDataService {
     return http.get(`/id/${id}`);
   }
 
-  // find(query, by = "title", page = 0) {
-  //   return http.get(`?${by}=${query}&page=${page}`);
-  // } 
+  // should take an integer between 0 to 5.
+  createReview(data) {
+    return http.post("/review", data);
+  }
 }
     
 export default new HikeDataService();
