@@ -15,6 +15,7 @@ const mapContainerStyle = {
   width: '100vw', 
   height: '100vh'
 }
+
 const center = {
   lat: 55.378052,
   lng: -3.435973
@@ -83,6 +84,8 @@ export const MyMap = () => {
        }}
       onClick={onClickNewMarker}
       >
+
+
 
       {pins.map((hike) => (
         <Marker
