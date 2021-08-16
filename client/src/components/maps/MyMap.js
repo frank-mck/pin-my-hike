@@ -38,13 +38,13 @@ export const MyMap = () => {
   }, [])
 
   const onClickNewMarker = (event) => {
-    setMarkers((current) => [
-      ...current,
+    setMarkers(() => [
       {
         lat: event.latLng.lat(),
         lng: event.latLng.lng(),
         time: new Date(),
       }
+  
     ])
   }
 
@@ -56,7 +56,6 @@ export const MyMap = () => {
     const newPin = { id, ...pins }
     setPins([...pins, newPin])
   }
-
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -69,7 +68,6 @@ export const MyMap = () => {
        }}
         onClick={onClickNewMarker}
       >
-
       {pins.map((hike) => (
         <Marker
           key={ hike.id} 
@@ -121,11 +119,14 @@ export const MyMap = () => {
               >
                 <div>
                   <h2>Hiker Spotted</h2>
-                    <Form onAdd={addNewPin} location={{lat: selected.lat, lng: selected.lng}} />
-                 
+                    
+                  
                 </div>
               </InfoWindow>) : null }
+              
               <Button />
+              {selected ? ( <div><Form onCloseClick={() => {setSelected(null)}} onAdd={addNewPin} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
             </GoogleMap>
+            
   )
 }

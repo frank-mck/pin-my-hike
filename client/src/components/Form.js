@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Form = ({ location, onAdd }) => {
+export const Form = ({ location, onAdd, onCloseClick }) => {
   const [pins, setPins] = React.useState([]);
   const [addPins, setAddPins] = React.useState([]);
   const [text, setText] = React.useState("");
@@ -16,15 +16,13 @@ export const Form = ({ location, onAdd }) => {
     getPins();
   }, []);
 
-  React.useEffect(() => {
-    fetchPins().then(u => setPins(u))
-  }, [])
-
   const fetchPins = async () => {
     const res = await fetch('http://localhost:3002/pins')
     const pins = await res.json()
     return pins
   }
+  fetchPins()
+  console.log(pins)
 
   const addPin = async (pin) => {
     const res = await fetch('http://localhost:3002/pins', { 
@@ -51,7 +49,6 @@ export const Form = ({ location, onAdd }) => {
 
   return (
     <form className="form" onSubmit={onSubmit} >
-    
       <br />
       <input required type ='text' name='title' placeholder='Enter title...' value={text} onChange={(e) => setText(e.target.value)}></input>
       <textarea required name ='description' id="description" type="text" cols="40" rows="5"
@@ -61,7 +58,7 @@ export const Form = ({ location, onAdd }) => {
       <label htmlFor="photo">Upload a photo</label>
       <input id="photo" className="btn" type="file" accept="image/png, image/jpeg" />
       <br />
-      <button type="submit" className="btn">Submit</button>
+      <button type="submit" className="btn" onClick={onCloseClick} >Submit</button>
     </form>
   )
 }
