@@ -38,6 +38,7 @@ export const MyMap = () => {
   }, [])
 
   const onClickNewMarker = (event) => {
+    setPins([])
     setMarkers(() => [
       {
         lat: event.latLng.lat(),
