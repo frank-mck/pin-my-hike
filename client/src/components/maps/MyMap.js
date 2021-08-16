@@ -103,7 +103,7 @@ export const MyMap = () => {
 
           <div className="hike-window">
           {selectedHike ? (
-          <InfoWindow 
+          <InfoWindow
             position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
             onCloseClick={() => {setSelectedHike(null)}}
           >
@@ -135,8 +135,7 @@ export const MyMap = () => {
                 onCloseClick={() => {setSelected(null)}}
               >
                 <div>
-                  <h2>Hiker Spotted</h2>
-                    <Form location={{lat: selected.lat, lng: selected.lng}} />
+                  <Form location={{lat: selected.lat, lng: selected.lng}} />
                   <Hikes />
                 </div>
               </InfoWindow>) : null }
