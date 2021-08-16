@@ -15,6 +15,7 @@ const mapContainerStyle = {
   width: '100vw', 
   height: '100vh'
 }
+
 const center = {
   lat: 55.378052,
   lng: -3.435973
@@ -81,7 +82,7 @@ export const MyMap = () => {
         disableDefaultUI: true,
         zoomControl: true,
        }}
-      onClick={onClickNewMarker}
+        onClick={onClickNewMarker}
       >
 
       {pins.map((hike) => (
@@ -100,9 +101,10 @@ export const MyMap = () => {
       />
       ))}
 
+          <div className="hike-window">
           {selectedHike ? (
           <InfoWindow 
-            position={selectedHike.location}
+            position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
             onCloseClick={() => {setSelectedHike(null)}}
           >
             <div>
@@ -111,38 +113,34 @@ export const MyMap = () => {
               <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="500px" width="400px"></img>
             </div>
           </InfoWindow>) : null }
+          </div>
 
-
-        {markers.map(marker => {
-          return <Marker key={marker.time.toISOString()}
-           position={{lat: marker.lat, lng: marker.lng}} 
-           icon={{
-            url: 'https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png',
-            scaledSize: new window.google.maps.Size(75,75),
-            anchor: new window.google.maps.Point(35,60)
-          }}
-          onClick={() => {
-            setSelected(marker);
-          }}
+            {markers.map(marker => {
+              return <Marker key={marker.time.toISOString()}
+              position={{lat: marker.lat, lng: marker.lng}} 
+              icon={{
+                url: 'https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png',
+                scaledSize: new window.google.maps.Size(75,75),
+                anchor: new window.google.maps.Point(35,60),
+              }}
+              onClick={() => {
+                setSelected(marker);
+              }}
+            />
+            })}
           
-           />
-        })}
-          
-          {selected ? (
-          <InfoWindow 
-            position={{lat: selected.lat, lng: selected.lng}}
-            onCloseClick={() => {setSelected(null)}}
-          >
-            <div>
-              <h2>Hiker Spotted</h2>
-              
-                <Form location={{lat: selected.lat, lng: selected.lng}} />
-                
-              <Hikes />
-
-            </div>
-          </InfoWindow>) : null }
-          <Button />
-        </GoogleMap>
+              {selected ? (
+              <InfoWindow 
+                position={{lat: selected.lat, lng: selected.lng}}
+                onCloseClick={() => {setSelected(null)}}
+              >
+                <div>
+                  <h2>Hiker Spotted</h2>
+                    <Form location={{lat: selected.lat, lng: selected.lng}} />
+                  <Hikes />
+                </div>
+              </InfoWindow>) : null }
+              <Button />
+            </GoogleMap>
   )
 }
