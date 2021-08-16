@@ -7,9 +7,8 @@ require("dotenv").config();
 
 export default function App() {
 
-  
-
   return (
+
       <div className ='app'>
         <div className="title-overlay">
           <img className="PMH-logo" 
@@ -22,8 +21,8 @@ export default function App() {
         
         </div>
         <Hikes />
-        
-      </div>
+       </div>
   );
 }
+
 

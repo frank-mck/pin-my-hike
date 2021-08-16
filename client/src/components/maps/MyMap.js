@@ -111,7 +111,7 @@ export const MyMap = () => {
             <div>
               <h1>Title - { selectedHike.title } </h1>
               <h2>Description - { selectedHike.description } </h2>
-              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" height="500px" width="400px"></img>
+              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="500px" width="400px"></img>
             </div>
           </InfoWindow>) : null }
 
