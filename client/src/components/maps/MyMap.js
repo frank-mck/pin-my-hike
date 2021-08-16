@@ -28,25 +28,59 @@ const mapContainerStyle = {
 export const MyMap = () => {
   const [latitude, setLatitude] = useState(55.378052);
   const [longitude, setLongitude] = useState(-3.435973);
+  const [markers, setMarkers] = React.useState([]);
+  const [pins, setPins] = React.useState([]);
+  const [selected, setSelected] = React.useState(null);
+  const [selectedHike, setSelectedHike] = React.useState(null);
 
+  // Getting coordinates from Browser, permission will be asked and needs to be granted
 
-  function getPosition() {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      setLatitude(position.coords.latitude);
-      setLongitude(position.coords.longitude);
-      console.log(longitude);
-      console.log(latitude);
+  function getCoordinates() {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          resolve(position);
+        });
+      } else {
+        reject(alert("Geolocation has not been enabled in this browser."));
+      }
     });
+  }
+
+  // Function to push the recieved coordinates into the markers array
+
+  function processCoordinates(response) {
+    return new Promise((resolve, reject) => {
+      setMarkers((current) => [
+        ...current,
+        {
+          lat: response.coords.latitude,
+          lng: response.coords.longitude,
+          time: new Date(),
+        },
+      ]);
+    });
+  }
+
+  // This function is activated when the button "Pin My Hike" is pressed,
+  // and it initiates the process of getting the coordinates,
+  //  to then push them into the markers array
+
+  async function getPosition() {
+    try {
+      const response = await getCoordinates();
+      await processCoordinates(response);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
-  const [markers, setMarkers] = React.useState([]);
-  const [pins, setPins] = React.useState([]);
-  const [selected, setSelected] = React.useState(null);
-  const [selectedHike, setSelectedHike] = React.useState(null);
 
   const fetchPins = async () => {
     const res = await fetch("http://localhost:3002/pins");
@@ -92,7 +126,7 @@ export const MyMap = () => {
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       zoom={8}
-      center={{ lat: latitude, lng: longitude } }
+      center={{ lat: latitude, lng: longitude }}
       options={{
         styles: mapStyle,
         disableDefaultUI: true,
