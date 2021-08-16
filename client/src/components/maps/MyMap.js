@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
-import { Hikes } from '../Hikes.js'
+//import { Hikes } from '../Hikes.js'
 import { Form } from '../Form.js'
 import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
@@ -50,6 +50,12 @@ export const MyMap = () => {
 
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
+
+  const addNewPin = (pin) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newPin = { id, ...pins }
+    setPins([...pins, newPin])
+  }
 
   return (
     <GoogleMap
@@ -115,8 +121,8 @@ export const MyMap = () => {
               >
                 <div>
                   <h2>Hiker Spotted</h2>
-                    <Form location={{lat: selected.lat, lng: selected.lng}} />
-                  <Hikes />
+                    <Form onAdd={addNewPin} location={{lat: selected.lat, lng: selected.lng}} />
+                 
                 </div>
               </InfoWindow>) : null }
               <Button />

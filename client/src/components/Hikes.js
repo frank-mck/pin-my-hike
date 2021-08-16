@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import Form from './Form.js'
 
 export const Hikes = () => {
   const [pins, setPins] = React.useState([]);
@@ -12,6 +13,10 @@ export const Hikes = () => {
     }
     getPins();
   }, []);
+
+  React.useEffect(() => {
+    fetchPins().then(u => setPins(u))
+  }, [])
 
   const fetchPins = async () => {
     const res = await fetch('http://localhost:3002/pins')
@@ -35,7 +40,7 @@ export const Hikes = () => {
 
   return (
     <div data-testid="hikes">
-      {pins.location}
+      
     </div>
   )
 };
