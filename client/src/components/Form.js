@@ -32,16 +32,16 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers }) => {
 
   return (
     <form className="form" onSubmit={onSubmit} >
-      <br />
-      <input required type ='text' name='title' placeholder='Enter title...' value={text} onChange={(e) => setText(e.target.value)}></input>
-      <textarea required name ='description' id="description" type="text" cols="40" rows="5"
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity={`${process.env.FONT_AWESOME_CDN}`} crossorigin="anonymous" />
+      <input required className="form-title" type ='text' name='title' placeholder='Enter title...' value={text} onChange={(e) => setText(e.target.value)}></input>
+      <textarea required className="form-text-field" name ='description' id="description" type="text" cols="40" rows="5"
         placeholder="Enter a description of your hike" className="text-field" value={description} onChange={(e) => setDescription(e.target.value)}>
       </textarea>
       <br />
-      <label htmlFor="photo">Upload a photo</label>
-      <input id="photo" className="btn" type="file" accept="image/png, image/jpeg" />
-      <br />
-      <button type="submit" className="btn" >Submit</button>
+      <label htmlFor="photo" className="form-photo-label">
+          <div><a><i class="fas fa-camera fa-3x form-upload-image"></i></a></div>
+        </label>
+      <button type="submit" className="btn form-submit">Submit</button>
     </form>
   )
 }

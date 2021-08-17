@@ -19,7 +19,6 @@ export default function App() {
         <div className="maps-container">
           <MyMap />
 
-        
         </div>
  
        </div>
