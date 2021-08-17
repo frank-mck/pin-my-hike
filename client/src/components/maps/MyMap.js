@@ -38,7 +38,6 @@ export const MyMap = () => {
   }, [])
 
   const onClickNewMarker = (event) => {
-    setPins([])
     setMarkers(() => [
       {
         lat: event.latLng.lat(),
@@ -56,6 +55,7 @@ export const MyMap = () => {
     const id = Math.floor(Math.random() * 10000) + 1
     const newPin = { id, ...pins }
     setPins([...pins, newPin])
+    setSelected(null)
   }
 
   return (
@@ -115,7 +115,8 @@ export const MyMap = () => {
             })}
           
               <Button />
-              {selected ? ( <div><Form pins={pins} setPins={setPins} onAdd={addNewPin} setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
+              {selected ? ( <div><Form pins={pins} setPins={setPins} onAdd={addNewPin}
+               setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
             </GoogleMap>
             
   )
