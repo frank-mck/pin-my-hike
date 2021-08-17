@@ -60,6 +60,7 @@ Create a .env file at the root and insert the following:
 ```
 REACT_APP_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
 PIN_MY_HIKES_DB_URI=YOUR_MONGODB_ATLAS_URI
+FONT_AWESOME_CDN=YOUR_FONT_AWESOME_CDN
 ```
 
 ### Testing
