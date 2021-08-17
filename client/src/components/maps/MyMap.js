@@ -171,7 +171,7 @@ export const MyMap = () => {
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
                <button className="button" onClick={getPosition}>
-                 Pin my hike
+              @
                </button>
             </GoogleMap>
             

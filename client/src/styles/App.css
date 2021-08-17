@@ -95,15 +95,36 @@
 
 .button {
   z-index: 10;
+  color: #555;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 20px;
-  border-radius: 5px;
+  bottom: 0;
+  right: 0;
+  padding: 9px;
+  margin: 0 9.6px 6.8rem 0;
+  background-color: white;
   border: none;
-  background-color: #4455eb;
-  -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
-          box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+  font-size: 1.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 41px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+}
+
+.button:hover {
+  color: black;
+  font-weight: 800;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .title-overlay {
