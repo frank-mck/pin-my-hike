@@ -32,7 +32,7 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers }) => {
       </textarea>
       <br />
       <label htmlFor="photo" className="form-photo-label">
-        <div><i class="fas fa-camera fa-3x form-upload-image"></i></div>
+        <div><i class="fas fa-camera fa-3x form-logo"></i></div>
       </label>
       <button type="submit" className="btn form-submit">Submit</button>
     </form>
