@@ -57,13 +57,10 @@ export const MyMap = () => {
     const newPin = { id, ...pins }
     setPins([...pins, newPin])
   }
-
-  const stateChange = () => {
-    return setPins(value => value)
-  }
   
   const clicked = () => {
     setTimeout(() => {
+      setMarkers([])
      return () => {setSelected(null)}
     }, 100)
   }
@@ -124,20 +121,8 @@ export const MyMap = () => {
             />
             })}
           
-              {selected ? (
-              <InfoWindow 
-                position={{lat: selected.lat, lng: selected.lng}}
-                onCloseClick={() => {setSelected(null)}}
-              >
-                <div>
-                  <h2>Hiker Spotted</h2>
-                    
-                  
-                </div>
-              </InfoWindow>) : null }
-              
               <Button />
-              {selected ? ( <div><Form onChange={stateChange} onCloseClick={ clicked } onAdd={addNewPin} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
+              {selected ? ( <div><Form pins={pins} setPins={setPins} onCloseClick={ clicked } onAdd={addNewPin} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
             </GoogleMap>
             
   )

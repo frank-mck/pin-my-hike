@@ -1,28 +1,10 @@
 import React from "react";
 
-export const Form = ({ location, onAdd, onCloseClick }) => {
-  const [pins, setPins] = React.useState([]);
-  const [addPins, setAddPins] = React.useState([]);
+export const Form = ({ setPins, pins, location, onAdd, onCloseClick }) => {
   const [text, setText] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [lng, setLng] = React.useState(location.lng);
   const [lat, setLat] = React.useState(location.lat);
-
-  React.useEffect(() => {
-    const getPins = async () => {
-      const pinsFromServer = await fetchPins()
-      setPins(pinsFromServer)
-    }
-    getPins();
-  }, []);
-
-  const fetchPins = async () => {
-    const res = await fetch('http://localhost:3002/pins')
-    const pins = await res.json()
-    return pins
-  }
-  fetchPins()
-  console.log(pins)
 
   const addPin = async (pin) => {
     const res = await fetch('http://localhost:3002/pins', { 
@@ -34,7 +16,7 @@ export const Form = ({ location, onAdd, onCloseClick }) => {
     })
     const data = await res.json()
 
-    setAddPins([...addPins, data])
+    setPins([...pins, data])
   }
 
   const onSubmit = (e) => {
@@ -58,7 +40,7 @@ export const Form = ({ location, onAdd, onCloseClick }) => {
       <label htmlFor="photo">Upload a photo</label>
       <input id="photo" className="btn" type="file" accept="image/png, image/jpeg" />
       <br />
-      <button type="submit" className="btn" onClick={onCloseClick} >Submit</button>
+      <button type="submit" className="btn" onCloseClick={onCloseClick} >Submit</button>
     </form>
   )
 }
