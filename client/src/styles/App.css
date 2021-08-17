@@ -1,8 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,300&display=swap");
 * {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
 .app {
@@ -64,17 +69,16 @@
   font-weight: 800;
   padding: 0.5rem 1rem;
   border: none;
-  border: mediumaquamarine solid 1px;
-  color: mediumaquamarine;
+  border: #333 solid 1px;
+  color: #333;
   cursor: pointer;
   border-radius: 5px;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
-  margin-bottom: 10px;
 }
 
 .btn:hover {
-  background: mediumaquamarine;
+  background: #333;
   color: #fff;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
@@ -84,48 +88,71 @@
   position: -webkit-sticky;
   position: sticky;
   z-index: 11;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.4);
   border: none;
   text-align: center;
+  padding: 1rem;
   margin: 280px auto;
   max-width: 400px;
   max-height: 40vh;
   border-radius: 5px;
 }
 
-.form-title, .form-text-field {
-  width: 96%;
-  padding: 0.5rem;
-  margin: 0.5rem;
+.form-title {
+  margin-bottom: 1rem;
 }
 
-.form-logo {
-  color: mediumaquamarine;
+.form-title, .form-text-field {
+  opacity: 0.8;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-footer-logo {
+  color: #333;
   cursor: pointer;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
-.form-logo:hover {
+.form-footer-logo:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-.form-photo-label > div {
+.form-footer-photo-label > div {
   display: inline-block;
 }
 
-.form-submit {
+.form-footer-submit {
   margin: 1rem;
 }
 
 .hike-window {
   text-align: center;
-  font-family: 'Roboto' sans-serif;
   font-size: 10px;
 }
 
-@media (min-width: 279px) {
+@media (max-width: 279px) {
   .PMH-logo {
     margin-top: 1rem;
     width: 9rem;
@@ -133,7 +160,7 @@
   }
 }
 
-@media (min-width: 319px) {
+@media (max-width: 319px) {
   .PMH-logo {
     margin-top: 1rem;
     width: 13rem;
@@ -141,7 +168,7 @@
   }
 }
 
-@media (min-width: 480px) {
+@media (max-width: 480px) {
   .PMH-logo {
     margin-top: 1rem;
     width: 13rem;
@@ -152,7 +179,7 @@
   }
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   .PMH-logo {
     margin-top: 1rem;
     width: 13rem;
@@ -160,7 +187,7 @@
   }
 }
 
-@media (min-width: 801px) {
+@media (max-width: 801px) {
   .PMH-logo {
     margin-top: 1rem;
     width: 15rem;
@@ -168,7 +195,7 @@
   }
 }
 
-@media (min-width: 1025px) {
+@media (max-width: 1025px) {
   .PMH-logo {
     margin-top: 1rem;
     width: 20rem;
@@ -176,7 +203,7 @@
   }
 }
 
-@media (min-width: 1281px) {
+@media (max-width: 1281px) {
   .PMH-logo {
     margin-top: 1rem;
     width: 30rem;
