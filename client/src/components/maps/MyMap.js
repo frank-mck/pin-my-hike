@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/App.css";
-import mapStyle from '../../styles/mapStyle.js'
 import { AddPin } from '../AddPin.js'
 import { Form } from '../Form.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import mapStyle from "../../styles/mapStyle.js";
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
-} from "@react-google-maps/api";
-
+import HikeDataService from '../../services/hike.js'
 const libraries = ["places"];
+
 const mapContainerStyle = {
   width: 'calc(100vw - 14.5px)', 
   height: 'calc(100vh - 69px)'
@@ -75,15 +69,20 @@ export const MyMap = () => {
     libraries,
   });
 
-  const fetchPins = async () => {
-    const res = await fetch("http://localhost:3002/pins");
-    const pins = await res.json();
-    return pins;
-  };
-
   React.useEffect(() => {
-    fetchPins().then((u) => setPins(u));
-  }, []);
+    fetchPins();
+  }, [])
+
+  const fetchPins = () => {
+    HikeDataService.getAll()
+      .then(response => {
+        console.log(response.data)
+        setPins(response.data.hikes);  
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
 
   const onClickNewMarker = (event) => {
     setMarkers(() => [
@@ -121,13 +120,10 @@ export const MyMap = () => {
        }}
          onClick={onClickNewMarker}
       >
-      }}
-      onClick={onClickNewMarker}
-    >
         
       {pins.map((hike) => (
         <Marker
-          key={hike.id}
+          key={hike._id}
           position={{ lat: parseFloat(hike.lat), lng: parseFloat(hike.lng) }}
           icon={{
             url: "https://img.icons8.com/color/48/000000/camping-tent.png",
@@ -174,16 +170,6 @@ export const MyMap = () => {
               {selected ? ( <div><Form pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
-              {selected ? (
-              <InfoWindow 
-                position={{lat: selected.lat, lng: selected.lng}}
-                onCloseClick={() => {setSelected(null)}}
-              >
-                <div>
-                  <Form location={{lat: selected.lat, lng: selected.lng}} />
-                  <Hikes />
-                </div>
-              </InfoWindow>) : null }
                <button className="button" onClick={getPosition}>
                  Pin my hike
                </button>
