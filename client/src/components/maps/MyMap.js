@@ -1,9 +1,8 @@
 import React from "react";
 import "../../styles/App.css";
 import mapStyle from '../../styles/mapStyle.js'
-//import { Hikes } from '../Hikes.js'
+import { AddPin } from '../AddPin.js'
 import { Form } from '../Form.js'
-import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 
 const libraries =["places"]
@@ -68,7 +67,7 @@ export const MyMap = () => {
         disableDefaultUI: true,
         zoomControl: true,
        }}
-        onClick={onClickNewMarker}
+         onClick={onClickNewMarker}
       >
       {pins.map((hike) => (
         <Marker
@@ -113,8 +112,7 @@ export const MyMap = () => {
               }}
             />
             })}
-          
-              <Button />
+              { markers.length > 0 ? <AddPin /> : null }
               {selected ? ( <div><Form pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
             </GoogleMap>

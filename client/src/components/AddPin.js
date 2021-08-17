@@ -2,6 +2,6 @@ import '../styles/App.css'
 
 export const AddPin = () => {
   return (
-    <button className ='addPin'>Pin my hike</button>
+    <button className ='button'>Are you sure?</button>
   )
 }
