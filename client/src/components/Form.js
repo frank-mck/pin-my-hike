@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Form = ({ setPins, pins, location, onAdd, onCloseClick }) => {
+export const Form = ({ setPins, pins, location, onAdd, setMarkers }) => {
   const [text, setText] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [lng, setLng] = React.useState(location.lng);
@@ -27,6 +27,7 @@ export const Form = ({ setPins, pins, location, onAdd, onCloseClick }) => {
     setLng('')
     setLat('')
     setDescription('')
+    setMarkers([])
   }
 
   return (
@@ -40,7 +41,7 @@ export const Form = ({ setPins, pins, location, onAdd, onCloseClick }) => {
       <label htmlFor="photo">Upload a photo</label>
       <input id="photo" className="btn" type="file" accept="image/png, image/jpeg" />
       <br />
-      <button type="submit" className="btn" onCloseClick={onCloseClick} >Submit</button>
+      <button type="submit" className="btn" >Submit</button>
     </form>
   )
 }
