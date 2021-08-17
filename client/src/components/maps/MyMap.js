@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/App.css";
 import { AddPin } from '../AddPin.js'
 import { Form } from '../Form.js'
+import { Confirmation } from '../Confirmation.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import mapStyle from "../../styles/mapStyle.js";
 import HikeDataService from '../../services/hike.js'
@@ -169,9 +170,7 @@ export const MyMap = () => {
                 scaledSize: new window.google.maps.Size(75,75),
                 anchor: new window.google.maps.Point(35,60),
               }}
-              onClick={() => {
-                setSelected(marker);
-              }}
+              
             />
             })}
 
@@ -180,8 +179,8 @@ export const MyMap = () => {
 
                <button className="button" onClick={getPosition}></button>
                {/* <input type='checkbox' value='Drop pin' onClick={toggle} className="add-pin"></input> */}
-               <AddPin toggle={toggle}/>
-               {/* { dropPin && <Confirmation />} */}
+               <AddPin toggle={toggle} />
+                { markers.length > 0 && <Confirmation toggle={toggle} setMarkers={setMarkers} confirm={() => setSelected(markers[0])}  />}
             </GoogleMap>
             
   )

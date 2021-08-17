@@ -232,6 +232,36 @@ form header img {
   margin-top: 1rem;
 }
 
+.confirmation {
+  display: flex;
+  width: 220px;
+  align-items: center;
+  justify-content: center;
+  z-index: 22;
+  flex-direction: column;
+  position: absolute;
+  padding: 1rem;
+  background-color: #222;
+  color: white;
+  border-radius: 5px;
+  filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+}
+
+.confirmation button {
+  padding: 10px;
+  border: none;
+  margin: 8px;
+  width: 65px;
+  border-radius: 5px;
+  background-color: rgb(236, 185, 18);
+  filter: drop-shadow(3px 7px 4px rgba(0, 0, 0, 0.5));
+}
+
+.confirmation button:active {
+  transform: scaleY(0.9);
+  
+}
+
 .toggleDropPin {
   position: absolute;
   bottom: 0;
