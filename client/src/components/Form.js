@@ -45,8 +45,9 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers }) => {
         <label htmlFor="photo" className="form-photo-label">
           <div><a><i class="fas fa-camera fa-3x form-logo"></i></a></div>
         </label>
-      <button type="submit" className="btn form-submit">Submit</button>
-    </form>
+        <button type="submit" className="btn form-submit">Submit</button>
+      </form>
+    </div>
   )
 }
 

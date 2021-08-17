@@ -1,9 +1,3 @@
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-
 $primary-color: mediumaquamarine;
 
 @media (min-width:279px)  { 
@@ -56,7 +50,12 @@ $primary-color: mediumaquamarine;
     width: 30rem;
     height: 10rem;
   }
+}
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .app {
