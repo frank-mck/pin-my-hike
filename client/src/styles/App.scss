@@ -113,11 +113,15 @@ $primary-color: mediumaquamarine;
     margin: 0.5rem;
   }
 
-  &-upload-image {
+  &-logo {
     color:$primary-color;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-  
 }
 
 .hike-window {

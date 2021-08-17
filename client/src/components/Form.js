@@ -14,7 +14,7 @@ export const Form = ({ location }) => {
         </textarea>
         <br />
         <label htmlFor="photo" className="form-photo-label">
-          <div><a><i class="fas fa-camera fa-3x form-upload-image"></i></a></div>
+          <div><a><i class="fas fa-camera fa-3x form-logo"></i></a></div>
         </label>
         <input id="photo" className="btn form-photo-button" type="file" accept="image/png, image/jpeg" 
           style={{display: "none"}}/>
