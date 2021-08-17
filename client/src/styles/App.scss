@@ -27,24 +27,29 @@ body {
 }
 
 .button  {
+  background-image: url('https://image.flaticon.com/icons/png/512/860/860762.png');
+  background-size: 23px 23px;
+  background-repeat: no-repeat;
+  background-position: center;
   z-index: 10;
   color: #555;
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 9px;
-  margin: 0 9.6px 6.8rem 0;
-  background-color: white;
+  margin: 0 13.6px 7rem 0;
+  background-color: rgb(255, 255, 255);
   border: none;
   font-size: 1.4rem;
+  border-radius: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 41px;
-  height: 40px;
+  width: 37px;
+  height: 37px;
   cursor: pointer;
-  border-radius: 2px;
+  padding: 5px;
   border: 1px solid #ddd;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151)
 }
 
 .button:hover {
@@ -54,9 +59,7 @@ body {
 }
 
 .title-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  height: 0px;
 }
 
 .title-overlay {
@@ -83,7 +86,7 @@ body {
 .form {
   position: sticky;
   z-index: 11;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.76);
   border: none;
   text-align: center;
   padding: 1rem;
@@ -91,9 +94,11 @@ body {
   max-width: 400px;
   max-height: 40vh;
   border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281),
+  2px 3px 6px rgba(0, 0, 0, 0.185);
 
   &-title {
-    margin-bottom: 1rem;
+    margin: 2rem 0 1rem 0;
   }
 
   &-title, &-text-field {
@@ -129,6 +134,56 @@ body {
       margin: 1rem;
     }
   }
+}
+
+.logo-img img{
+  width: 75px;
+  margin-top: 1.3rem;
+  height: 75px;
+}
+
+.close-btn {
+  background-image: url('https://image.flaticon.com/icons/png/512/106/106830.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: none;
+  width: 26px;
+  height: 28px;
+  border: none;
+  margin: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 140px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-right: 1rem;
+  clip-path: url(#myCurve);
+  filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+  background-color: rgba(72, 163, 110, 0.507);
+}
+
+.logo h1 {
+  font-size: 3.8rem;
+  letter-spacing: .7mm;
+  color: rgb(255, 255, 255);
+}
+
+.logo span {
+  display:block;
+  margin-top: -1.4rem;;
+  letter-spacing: .5mm;
+  padding-left: 3px;
+  color: #643f0f;
+  font-weight: 600;
 }
 
 .hike-window {

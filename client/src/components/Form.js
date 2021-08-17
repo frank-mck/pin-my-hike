@@ -1,7 +1,7 @@
 import React from "react";
 import HikeDataService from '../services/hike.js'
 
-export const Form = ({ setPins, pins, location, onAdd, setMarkers }) => {
+export const Form = ({ setPins, pins, location, onAdd, setMarkers, setSelected }) => {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [lng, setLng] = React.useState(location.lng);
@@ -23,12 +23,18 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers }) => {
     setMarkers([])
   }
 
+  const close = (e) => {
+  
+    setSelected(null)
+  }
+
   return (
     <form className="form" onSubmit={onSubmit} >
+     <button className='close-btn' onClick={close}></button>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity={`${process.env.FONT_AWESOME_CDN}`} crossorigin="anonymous" />
 
-      <input required className="form-title" type ='text' name='title' placeholder='Enter title...' value={title} onChange={(e) => setTitle(e.target.value)}></input>
-      <textarea required className="form-text-field" name ='description' id="description" type="text" rows="5"
+      <input  className="form-title" type ='text' name='title' placeholder='Enter title...' value={title} onChange={(e) => setTitle(e.target.value)}></input>
+      <textarea  className="form-text-field" name ='description' id="description" type="text" rows="5"
         placeholder="Enter a description of your hike" value={description} onChange={(e) => setDescription(e.target.value)}>
       </textarea>
 

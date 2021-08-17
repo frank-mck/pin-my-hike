@@ -1,0 +1,25 @@
+import '../styles/App.css'
+
+export const Logo = () => {
+  return (
+    <div className ='logo' >
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="myCurve" clipPathUnits="objectBoundingBox">
+            <path d="M 0,1
+                    L 0,0
+                    L 1,0
+                    L 1,1
+                    C .45 1, .60 .5, 0 0
+                    Z" />
+          </clipPath>
+        </defs>
+     </svg>
+      <div className ='logo-img'><img src ='https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png' alt ='logo'></img></div>
+      <div className ='logo-text'>
+        <h1>PIN MY HIKE</h1>
+        <span>Don't follow the crowd. Follow the pin!</span>
+      </div>
+    </div>
+  )
+}

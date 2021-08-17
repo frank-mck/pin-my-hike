@@ -166,12 +166,10 @@ export const MyMap = () => {
             />
             })}
 
-              {/* { markers.length > 0 ? <AddPin /> : null } */}
-              {selected ? ( <div><Form pins={pins} setPins={setPins} onAdd={addNewPin}
+              {selected ? ( <div><Form setSelected={setSelected} pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
                <button className="button" onClick={getPosition}>
-              @
                </button>
             </GoogleMap>
             
