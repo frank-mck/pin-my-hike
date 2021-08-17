@@ -2,8 +2,9 @@ import http from "../http-common";
 
 // includes functions that make API calls and return the information from API calls
 class HikeDataService {
-  getAll() {
-    return http.get();
+   async getAll() {
+   const res = await http.get();
+   return res;
   }
 
   createHike(data) {
