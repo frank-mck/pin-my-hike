@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/App.css";
-//import { AddPin } from '../AddPin.js'
+import { AddPin } from '../AddPin.js'
 import { Form } from '../Form.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import mapStyle from "../../styles/mapStyle.js";
@@ -100,8 +100,9 @@ export const MyMap = () => {
 
   const toggle = () => {
     setTimeout(() => {
-      setDropPin(() => setDropPin(true))
-    }, 100)
+      setDropPin(() => setDropPin(!dropPin))
+    }, 10)
+    if (dropPin) setMarkers([])
   }
 
   if (loadError) return "Error handling maps";
@@ -178,7 +179,8 @@ export const MyMap = () => {
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
                <button className="button" onClick={getPosition}></button>
-               <button  onClick={toggle} className="add-pin">Drop pin</button>
+               {/* <input type='checkbox' value='Drop pin' onClick={toggle} className="add-pin"></input> */}
+               <AddPin toggle={toggle}/>
                {/* { dropPin && <Confirmation />} */}
             </GoogleMap>
             

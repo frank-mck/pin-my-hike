@@ -114,25 +114,6 @@ body {
   transition: all .2s ease-in-out;
 }
 
-.add-pin {
-  background-color: #ecb912;
-  z-index: 15;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  bottom: 0;
-  left: 0;
-  padding: .5rem;
-  height: 40px;
-}
-
 .btn:hover {
   background: #333;
   color: #fff;
@@ -302,6 +283,45 @@ form header img {
 .pin-description img {
   padding: .2rem;
   margin-top: 1rem;
+}
+
+.toggleDropPin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  background-color: #ecb912;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 0;
+  left: 0;
+  padding: .5rem;
+  border-top-right-radius: 5px;
+  height: 40px;
+}
+
+.toggleDropPin form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input[type='checkbox'] {
+  width: 30px;
+  height: 20px;
 }
 
 @media (max-width: 279px) {

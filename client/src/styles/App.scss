@@ -83,18 +83,18 @@ body {
   transition: all .2s ease-in-out;
 }
 
-.add-pin {
-  background-color: rgb(236, 185, 18);
-  z-index: 15;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  bottom: 0;
-  left: 0;
-  padding: .5rem;
-  height: 40px;
-}
+// .add-pin {
+//   background-color: rgb(236, 185, 18);
+//   z-index: 15;
+//   position: absolute;
+//   display: flex;
+//   justify-content: center;
+//   align-items:center;
+//   bottom: 0;
+//   left: 0;
+//   padding: .5rem;
+//   height: 40px;
+// }
 
 .btn:hover {
   background: $primary-color;
@@ -229,7 +229,35 @@ form header img {
 
 .pin-description img {
   padding: .2rem;
-  margin-top: 1rem;}
+  margin-top: 1rem;
+}
+
+.toggleDropPin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  background-color: rgb(236, 185, 18);
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  bottom: 0;
+  left: 0;
+  padding: .5rem;
+  border-top-right-radius: 5px;
+  height: 40px;
+
+  & form {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+}
+
+ input[type='checkbox'] {
+  width: 30px;
+  height: 20px;
+}
 
 @media (max-width:279px)  { 
   .PMH-logo {
