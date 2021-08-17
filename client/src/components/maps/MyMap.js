@@ -8,8 +8,8 @@ import HikeDataService from '../../services/hike.js'
 const libraries = ["places"];
 
 const mapContainerStyle = {
-  width: 'calc(100vw - 14.5px)', 
-  height: 'calc(100vh - 69px)'
+  width: 'calc(100vw )', 
+  height: 'calc(100vh)'
 }
 
 export const MyMap = () => {
