@@ -66,6 +66,8 @@ export const MyMap = () => {
         styles: mapStyle,
         disableDefaultUI: true,
         zoomControl: true,
+        minZoom: 4,
+        maxZoom: 18,
        }}
          onClick={onClickNewMarker}
       >
