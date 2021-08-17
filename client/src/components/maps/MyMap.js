@@ -1,49 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/App.css";
-import mapStyle from '../../styles/mapStyle.js'
-import { Hikes } from '../Hikes.js'
+import { AddPin } from '../AddPin.js'
 import { Form } from '../Form.js'
-import { Button } from '../Button.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-//import * as hikeData from '../../dummyHikes.json'
+import mapStyle from "../../styles/mapStyle.js";
+import HikeDataService from '../../services/hike.js'
+const libraries = ["places"];
 
-//const Hikes = require('./../models/hikes')
-//import { fomatRelative } from "date-fns";
-
-const libraries =["places"]
 const mapContainerStyle = {
-  width: '100vw', 
-  height: '100vh'
-}
-
-const center = {
-  lat: 55.378052,
-  lng: -3.435973
+  width: 'calc(100vw - 14.5px)', 
+  height: 'calc(100vh - 69px)'
 }
 
 export const MyMap = () => {
+  const [latitude, setLatitude] = useState(55.378052);
+  const [longitude, setLongitude] = useState(-3.435973);
+  const [markers, setMarkers] = React.useState([]);
+  const [pins, setPins] = React.useState([]);
+  const [selected, setSelected] = React.useState(null);
+  const [selectedHike, setSelectedHike] = React.useState(null);
+
+  // Getting coordinates from Browser, permission will be asked and needs to be granted
+
+  function getCoordinates() {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          resolve(position);
+        });
+      } else {
+        reject(alert("Geolocation has not been enabled in this browser."));
+      }
+    });
+  }
+
+  // Function to push the recieved coordinates into the markers array
+
+  function processCoordinates(response) {
+    return new Promise((resolve, reject) => {
+      setMarkers((current) => [
+        ...current,
+        {
+          lat: response.coords.latitude,
+          lng: response.coords.longitude,
+          time: new Date(),
+        },
+      ]);
+    });
+  }
+
+  // This function is activated when the button "Pin My Hike" is pressed,
+  // and it initiates the process of getting the coordinates,
+  //  to then push them into the markers array
+
+  async function getPosition() {
+    try {
+      const response = await getCoordinates();
+      await processCoordinates(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
-  })
-  const [markers, setMarkers] = React.useState([])
-  const [pins, setPins] = React.useState([])
-  const [selected, setSelected] = React.useState(null)
-  const [selectedHike, setSelectedHike] = React.useState(null)
-
-  const fetchPins = async () => {
-    const res = await fetch('http://localhost:3002/pins')
-    const pins = await res.json()
-    return pins
-  }
+  });
 
   React.useEffect(() => {
-    fetchPins().then(u => setPins(u))
+    fetchPins();
   }, [])
 
+  const fetchPins = () => {
+    HikeDataService.getAll()
+      .then(response => {
+        console.log(response.data)
+        setPins(response.data.hikes);  
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
   const onClickNewMarker = (event) => {
-    setMarkers((current) => [
-      ...current,
+    setMarkers(() => [
       {
         lat: event.latLng.lat(),
         lng: event.latLng.lng(),
@@ -52,53 +94,46 @@ export const MyMap = () => {
     ])
   }
 
+
+
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
 
-  // const savePinAndRedirect = (path) => {
-  //   return async (req, res) => {
-  //     let hike = req.hike
-  //     markers.map(mark => {
-  //       hike.location = mark.lat
-  //       hike.location = mark.lng
-  //     })
-  //     try {
-  //       hike = await hike.save()
-  //       res.redirect(`/hikes`)
-  //     } catch (e) {
-  //       res.render(`hikes/${path}`, { hike: hike })
-  //     }
-  //   }
-  // }
-
+  const addNewPin = (pin) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newPin = { id, ...pins }
+    setPins([...pins, newPin])
+    setSelected(null)
+  }
 
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       zoom={8}
-      center={center}
-      options={{ 
+      center={{ lat: latitude, lng: longitude }}
+      options={{
         styles: mapStyle,
         disableDefaultUI: true,
         zoomControl: true,
+        minZoom: 4,
+        maxZoom: 18,
        }}
-        onClick={onClickNewMarker}
+         onClick={onClickNewMarker}
       >
-
+        
       {pins.map((hike) => (
         <Marker
-          key={ hike.id} 
-          position={{ "lat": parseFloat(hike.lat), "lng": parseFloat(hike.lng) }} 
+          key={hike._id}
+          position={{ lat: parseFloat(hike.lat), lng: parseFloat(hike.lng) }}
           icon={{
             url: "https://img.icons8.com/color/48/000000/camping-tent.png",
-            scaledSize: new window.google.maps.Size(45,45),
-            anchor: new window.google.maps.Point(20,20)
+            scaledSize: new window.google.maps.Size(45, 45),
+            anchor: new window.google.maps.Point(20, 20),
           }}
-      
-        onClick={() => {
-          setSelectedHike(hike);
-        }}
-      />
+          onClick={() => {
+            setSelectedHike(hike);
+          }}
+        />
       ))}
 
           <div>
@@ -107,10 +142,12 @@ export const MyMap = () => {
             position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
             onCloseClick={() => {setSelectedHike(null)}}
           >
-            <div className="hike-window">
-              <h1 className="title">Title - { selectedHike.title } </h1>
-              <h2 className="description">Description - { selectedHike.description } </h2>
-              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" className="image"></img>
+
+            <div>
+              <h1>Title - { selectedHike.title } </h1>
+              <h2>Description - { selectedHike.description } </h2>
+              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="260px" width="250px"></img>
+
             </div>
           </InfoWindow>) : null }
           </div>
@@ -128,18 +165,16 @@ export const MyMap = () => {
               }}
             />
             })}
-          
-              {selected ? (
-              <InfoWindow 
-                position={{lat: selected.lat, lng: selected.lng}}
-                onCloseClick={() => {setSelected(null)}}
-              >
-                <div>
-                  <Form location={{lat: selected.lat, lng: selected.lng}} />
-                  <Hikes />
-                </div>
-              </InfoWindow>) : null }
-              <Button />
+
+              { markers.length > 0 ? <AddPin /> : null }
+              {selected ? ( <div><Form pins={pins} setPins={setPins} onAdd={addNewPin}
+               setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
+
+               <button className="button" onClick={getPosition}>
+                 Pin my hike
+               </button>
             </GoogleMap>
+            
   )
 }
+
