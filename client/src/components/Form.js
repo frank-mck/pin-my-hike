@@ -41,7 +41,7 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers, setSelected }
 
         <input  className="form-title" type ='text' name='title' placeholder='Enter title...' value={title} onChange={(e) => setTitle(e.target.value)}></input>
         <textarea  className="form-text-field" name ='description' id="description" type="text" rows="5"
-          placeholder="Enter a description of your hike" value={description} onChange={(e) => setDescription(e.target.value)}>
+          placeholder="Enter description for location, distance ect." value={description} onChange={(e) => setDescription(e.target.value)}>
         </textarea>
 
         <br />

@@ -114,6 +114,25 @@ body {
   transition: all .2s ease-in-out;
 }
 
+.add-pin {
+  background-color: #ecb912;
+  z-index: 15;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 0;
+  left: 0;
+  padding: .5rem;
+  height: 40px;
+}
+
 .btn:hover {
   background: #333;
   color: #fff;
@@ -135,8 +154,8 @@ body {
 }
 
 form header img {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
 }
 
 .form {
@@ -205,7 +224,7 @@ form header img {
 
 .logo-img img {
   width: 75px;
-  margin-top: 1.3rem;
+  margin-top: .7rem;
   height: 75px;
 }
 
@@ -233,10 +252,10 @@ form header img {
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100vw;
-  height: 140px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  height: 130px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -245,7 +264,7 @@ form header img {
           clip-path: url(#myCurve);
   -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
           filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
-  background-color: rgba(72, 163, 110, 0.507);
+  background-color: rgba(75, 192, 124, 0.507);
 }
 
 .logo h1 {
@@ -266,6 +285,23 @@ form header img {
 .hike-window {
   text-align: center;
   font-size: 10px;
+}
+
+.pin-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: .6rem;
+  letter-spacing: .3mm;
+}
+
+.pin-description img {
+  padding: .2rem;
+  margin-top: 1rem;
 }
 
 @media (max-width: 279px) {

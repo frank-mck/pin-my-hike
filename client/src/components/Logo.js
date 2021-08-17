@@ -10,7 +10,7 @@ export const Logo = () => {
                     L 0,0
                     L 1,0
                     L 1,1
-                    C .45 1, .60 .5, 0 0
+                    C .45 1, .60 .5, 0 1
                     Z" />
           </clipPath>
         </defs>

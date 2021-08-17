@@ -1,7 +1,11 @@
 import '../styles/App.css'
+import React from 'react';
 
 export const AddPin = () => {
   return (
-    <button className ='button'>Are you sure?</button>
+    <div>
+      <label>Drop pin</label>
+      <button className ='add-pin'>Are you sure?</button>
+    </div>
   )
 }
