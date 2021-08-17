@@ -17,7 +17,7 @@
     "react-google-maps": "^9.4.5",
     "react-scripts": "^4.0.3",
     "web-vitals": "^1.0.1"
-  }, 
+  },
   "scripts": {
     "client": "npm run server",
     "start": "concurrently \"react-scripts start\" \"npm run client\"",

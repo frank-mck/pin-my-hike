@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../../styles/App.css";
-import { AddPin } from '../AddPin.js'
+//import { AddPin } from '../AddPin.js'
 import { Form } from '../Form.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import mapStyle from "../../styles/mapStyle.js";
@@ -13,8 +13,8 @@ const mapContainerStyle = {
 }
 
 export const MyMap = () => {
-  const [latitude, setLatitude] = useState(55.378052);
-  const [longitude, setLongitude] = useState(-3.435973);
+  const [latitude, setLatitude] = React.useState(55.378052);
+  const [longitude, setLongitude] = React.useState(-3.435973);
   const [markers, setMarkers] = React.useState([]);
   const [pins, setPins] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
@@ -41,7 +41,6 @@ export const MyMap = () => {
   function processCoordinates(response) {
     return new Promise((resolve, reject) => {
       setMarkers((current) => [
-        ...current,
         {
           lat: response.coords.latitude,
           lng: response.coords.longitude,
@@ -74,7 +73,7 @@ export const MyMap = () => {
   }, [])
 
   const fetchPins = () => {
-    HikeDataService.getAll()
+     HikeDataService.getAll()
       .then(response => {
         console.log(response.data)
         setPins(response.data.hikes);  
@@ -83,6 +82,7 @@ export const MyMap = () => {
         console.log(e);
       });
   }
+
 
   const onClickNewMarker = (event) => {
     setMarkers(() => [
@@ -120,11 +120,11 @@ export const MyMap = () => {
        }}
          onClick={onClickNewMarker}
       >
-        
+      
       {pins.map((hike) => (
         <Marker
           key={hike._id}
-          position={{ lat: parseFloat(hike.lat), lng: parseFloat(hike.lng) }}
+          position={{ lat: hike.lat, lng: hike.lng }}
           icon={{
             url: "https://img.icons8.com/color/48/000000/camping-tent.png",
             scaledSize: new window.google.maps.Size(45, 45),
@@ -166,7 +166,7 @@ export const MyMap = () => {
             />
             })}
 
-              { markers.length > 0 ? <AddPin /> : null }
+              {/* { markers.length > 0 ? <AddPin /> : null } */}
               {selected ? ( <div><Form pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
