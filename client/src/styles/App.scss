@@ -5,13 +5,15 @@ $primary-color: mediumaquamarine;
     margin-top: 1rem;
     width: 9rem;
     height: 6rem;
-} }
+  } 
+}
 @media (min-width:319px)  { 
   .PMH-logo {
     margin-top: 1rem;
     width: 13rem;
     height: 6rem;
-} }
+  } 
+}
 @media (min-width:480px)  { 
   .PMH-logo {
     margin-top: 1rem;
@@ -32,14 +34,14 @@ $primary-color: mediumaquamarine;
     width: 15rem;
     height: 10rem;
   }
- }
+}
 @media (min-width:1025px) { 
   .PMH-logo {
     margin-top: 1rem;
     width: 20rem;
     height: 10rem;
   }
- }
+}
 @media (min-width:1281px) {
   .PMH-logo {
     margin-top: 1rem;
@@ -63,7 +65,6 @@ $primary-color: mediumaquamarine;
   width: 80vw;
   height: 80vh;
   border: 5px solid black;
-
 }
 
 .map {
