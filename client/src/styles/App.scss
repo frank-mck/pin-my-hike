@@ -9,7 +9,6 @@ $fourth-color: #647c7c;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-<<<<<<< HEAD
   font-family: 'Poppins', sans-serif;
 }
 
@@ -57,124 +56,11 @@ body, .confirm-window {
 .title-overlay {
   height: 0px;
 }
-=======
 
-  $primary-color: mediumaquamarine;
+.title-overlay {
+  z-index: 10;
+}
 
-  @media (min-width: 279px) {
-    .PMH-logo {
-      margin-top: 1rem;
-      width: 9rem;
-      height: 6rem;
-    }
-  }
-
-  @media (min-width: 319px) {
-    .PMH-logo {
-      margin-top: 1rem;
-      width: 13rem;
-      height: 6rem;
-    }
-  }
-
-  @media (min-width: 480px) {
-    .PMH-logo {
-      margin-top: 1rem;
-      width: 13rem;
-      height: 6rem;
-    }
-  }
-  @media (min-width: 600px) {
-    .PMH-logo {
-      margin-top: 1rem;
-      width: 13rem;
-      height: 6rem;
-    }
-  }
-  @media (min-width: 801px) {
-    .PMH-logo {
-      margin-top: 1rem;
-      width: 15rem;
-      height: 10rem;
-    }
-  }
-  @media (min-width: 1025px) {
-    .PMH-logo {
-      margin-top: 1rem;
-      width: 20rem;
-      height: 10rem;
-    }
-  }
-  @media (min-width: 1281px) {
-    .PMH-logo {
-      margin-top: 1rem;
-      width: 30rem;
-      height: 10rem;
-    }
-  }
-
-  .app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .maps-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .form {
-    z-index: 11;
-    width: 300px;
-    height: 400px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80vw;
-    height: 80vh;
-    border: 5px solid black;
-  }
-
-  .button {
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(68, 85, 235);
-    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
-  }
-
-  .title-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .title-overlay {
-    z-index: 10;
-  }
->>>>>>> feat: add search box with autosuggestions and geolocation enabled
-
-  .btn {
-    font-weight: 800;
-    padding: 0.5rem 1rem;
-    border: none;
-    border: $primary-color solid 1px;
-    color: $primary-color;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.2s ease-in-out;
-    margin-bottom: 10px;
-  }
-
-<<<<<<< HEAD
 .btn {
   font-weight: 800;
   padding: 0.5rem 1rem;
@@ -492,46 +378,21 @@ input[type='checkbox']:active {
       }
     }
 }
-=======
-  .btn:hover {
-    background: $primary-color;
-    color: #fff;
-    transform: scale(1.1);
-  }
 
-  .form {
-    text-align: center;
-    margin: 0 auto;
-
-    &-title {
-      width: 90%;
-    }
-
-    &-title,
-    &-text-field {
-      padding: 0.5rem;
-      margin: 0.5rem;
-    }
-
-    &-upload-image {
-      color: $primary-color;
-      cursor: pointer;
-    }
-  }
-
-  .hike-window {
-    text-align: center;
-    font-family: "Roboto" sans-serif;
-    font-size: 10px;
-  }
-}
 .search {
+  font-family: "Roboto" sans-serif;
   position: absolute;
   top: 5.5rem;
-  color: black;
   left: 1rem;
   z-index: 50;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
+  color: #454545;
 }
->>>>>>> feat: add search box with autosuggestions and geolocation enabled
+
+.search-results {
+  color: green;
+}
+.search-input {
+  color: #532d0e;
+}
