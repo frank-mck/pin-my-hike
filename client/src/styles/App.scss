@@ -274,7 +274,7 @@ input[type='checkbox']:active {
   
 @media (min-width:309px)  { 
 .logo{
-  height: 90px;
+  height: 95px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -283,11 +283,11 @@ input[type='checkbox']:active {
   .logo-text {
 
     & h1 {
-      font-size: 2.7rem;
+      font-size: 2.8rem;
     }
 
     & span {
-      font-size: .6rem;
+      font-size: .7rem;
       margin-top: -.8rem;
     }
   } 
