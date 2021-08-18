@@ -168,7 +168,10 @@ export const MyMap = () => {
 
     return (
       <div className="search">
+        <script src="https://kit.fontawesome.com/1fc4ea1c6a.js" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity={`${process.env.FONT_AWESOME_CDN}`} crossorigin="anonymous" />
         <Combobox
+          className="search-box"
           onSelect={async (address) => {
             setValue(address, false);
             clearSuggestions();
@@ -184,8 +187,10 @@ export const MyMap = () => {
             console.log(address);
           }}
         >
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+
           <ComboboxInput
-            className="search-input"
+            className="input-search"
             value={value}
             onChange={(e) => {
               setValue(e.target.value);
