@@ -48,15 +48,14 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers, setSelected }
 
         <div className="form-footer">
 
-          <div className="form-logo-container">
+          <div className="form-footer-logo-container">
             <label htmlFor="photo" className="form-footer-photo-label">
-              Upload - 
-              <div><i class="fas fa-camera fa-1x form-footer-logo"></i></div>
+              Upload Image <div><i className="fas fa-camera fa-1x form-footer-logo"></i></div>
             </label>
             <input type="file" id="photo" style={{display: "none"}} />
           </div>
 
-          <div className="form-submit-container">
+          <div className="form-footer-submit-container">
             <button type="submit" className="btn form-submit">Submit</button>
           </div>
 

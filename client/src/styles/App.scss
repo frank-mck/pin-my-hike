@@ -70,24 +70,12 @@ body, .confirm-window {
   cursor: pointer;
   border-radius: 5px;
   transition: all .2s ease-in-out;
-}
 
-.btn:hover {
-  background: $primary-color;
-  color: #fff;
-  transform: scale(1.1);
-}
-
-.form header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 50px;
-}
-
-form header img {
-  width: 40px;
-  height: 40px;
+  &:hover {
+    background: $primary-color;
+    color: #fff;
+    transform: scale(1.1);
+  }
 }
 
 .form {
@@ -100,6 +88,18 @@ form header img {
   border-radius: 5px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281),
   2px 3px 6px rgba(0, 0, 0, 0.185);
+
+  & > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 50px;
+
+    & > img {
+    width: 40px;
+    height: 40px;
+    }
+  }
 
   &-title {
     margin: 1rem 0 1rem 0;
@@ -117,26 +117,44 @@ form header img {
 
   &-footer {
     display: flex;
+    width: 100%;
     justify-content: space-evenly;
     align-items: center;
-    padding-bottom: 5px;
     flex-direction: column;
 
     &-logo {
       color:$primary-color;
       cursor: pointer;
+    }
+
+    &-logo-container {
+      cursor: pointer;
+      background: #fff;
+      padding: 0.5rem 1rem;
+      border: $primary-color 1px solid;
+      border-radius: 5px;
+      margin: 10px 0 5px 0;
       transition: all .2s ease-in-out;
-  
+
       &:hover {
         transform: scale(1.1);
       }
     }
 
-    &-photo-label > div {
-      display: inline-block;
+    &-photo-label {
+      font-size: 13.3px;
+      font-weight: 600;
+      cursor: pointer;
+      color: $primary-color;
+
+      & > div {
+        display: inline-block;
+      }
     }
-  
+
     &-submit {
+      display: inline-block;
+      width: 100%;
       margin: 1rem;
     }
   }

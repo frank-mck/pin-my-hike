@@ -97,7 +97,19 @@ body, .confirm-window {
           transform: scale(1.1);
 }
 
-.form header {
+.form {
+  z-index: 11;
+  background-color: #a09e9e;
+  border: none;
+  text-align: center;
+  padding: 1rem;
+  width: 400px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
+          box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
+}
+
+.form > header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -110,21 +122,9 @@ body, .confirm-window {
   height: 50px;
 }
 
-form header img {
+.form > header > img {
   width: 40px;
   height: 40px;
-}
-
-.form {
-  z-index: 11;
-  background-color: #a09e9e;
-  border: none;
-  text-align: center;
-  padding: 1rem;
-  width: 400px;
-  border-radius: 5px;
-  -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
-          box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
 }
 
 .form-title {
@@ -146,13 +146,13 @@ form header img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-bottom: 5px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -162,13 +162,29 @@ form header img {
 .form-footer-logo {
   color: #51646b;
   cursor: pointer;
+}
+
+.form-footer-logo-container {
+  cursor: pointer;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border: #51646b 1px solid;
+  border-radius: 5px;
+  margin: 10px 0 5px 0;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
-.form-footer-logo:hover {
+.form-footer-logo-container:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.form-footer-photo-label {
+  font-size: 13.3px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #51646b;
 }
 
 .form-footer-photo-label > div {
@@ -176,6 +192,8 @@ form header img {
 }
 
 .form-footer-submit {
+  display: inline-block;
+  width: 100%;
   margin: 1rem;
 }
 
