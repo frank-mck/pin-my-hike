@@ -50,8 +50,29 @@ body, .confirm-window {
   cursor: pointer;
   padding: 5px;
   border: 1px solid #ddd;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151)
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151);
 }
+
+.button-container {
+  animation: pulse 2s infinite;
+  width: 0px;
+  height: 0px;
+}
+
+@keyframes pulse {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    width: 60px;
+    height: 60px;
+    opacity: .1;
+    background-color: white;
+  }
+}
+
+
 
 .title-overlay {
   height: 0px;

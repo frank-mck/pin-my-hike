@@ -196,14 +196,14 @@ export const MyMap = () => {
 
            {current.map(marker => {
               return <Marker key={marker.time.toISOString()}
+              className='button-container'
               position={{lat: marker.lat, lng: marker.lng}} 
               zoom={zoom}
               icon={{
                 url: 'https://image.flaticon.com/icons/png/512/4985/4985836.png',
                 scaledSize: new window.google.maps.Size(45,45),
-                anchor: new window.google.maps.Point(20,45),
+                anchor: new window.google.maps.Point(20,45),              
               }}
-              
             />
             })}
             
@@ -211,7 +211,7 @@ export const MyMap = () => {
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
                <Button getPosition={getPosition} />
-               {/* <input type='checkbox' value='Drop pin' onClick={toggle} className="add-pin"></input> */}
+               
                <AddPin toggle={toggle} />
                 { markers.length > 0 && <Confirmation toggle={toggle} setMarkers={setMarkers} confirm={() => setSelected(markers[0])}  />}
             </GoogleMap>
