@@ -1,8 +1,7 @@
 import React from "react";
-//import "./styles/App.css";
-//import { Hikes } from "./components/Hikes";
+import "./styles/App.css";
 import { MyMap } from "./components/maps/MyMap.js";
-//import { Form } from "./components/Form.js";
+import { Logo } from "./components/Logo.js";
 require("dotenv").config();
 
 export default function App() {
@@ -11,9 +10,7 @@ export default function App() {
 
       <div className ='app'>
         <div className="title-overlay">
-          <img className="PMH-logo" 
-            src="https://i.ibb.co/mBJ38W9/pin-my-hike-logo-trial.png" alt='hiking logo' style={{height: "65px", width: "360px"}}
-          />
+          <Logo />
         </div>
         
         <div className="maps-container">

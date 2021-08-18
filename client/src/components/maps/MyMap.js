@@ -1,7 +1,8 @@
 import React from "react";
 import "../../styles/App.css";
-//import { AddPin } from '../AddPin.js'
+import { AddPin } from '../AddPin.js'
 import { Form } from '../Form.js'
+import { Confirmation } from '../Confirmation.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import mapStyle from "../../styles/mapStyle.js";
 import HikeDataService from '../../services/hike.js'
@@ -19,6 +20,8 @@ export const MyMap = () => {
   const [pins, setPins] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
   const [selectedHike, setSelectedHike] = React.useState(null);
+  const [dropPin, setDropPin] = React.useState(false);
+  const [current, setCurrent] = React.useState([]);
 
   // Getting coordinates from Browser, permission will be asked and needs to be granted
 
@@ -40,7 +43,7 @@ export const MyMap = () => {
 
   function processCoordinates(response) {
     return new Promise((resolve, reject) => {
-      setMarkers((current) => [
+      setCurrent((current) => [
         {
           lat: response.coords.latitude,
           lng: response.coords.longitude,
@@ -75,7 +78,6 @@ export const MyMap = () => {
   const fetchPins = () => {
      HikeDataService.getAll()
       .then(response => {
-        console.log(response.data)
         setPins(response.data.hikes);  
       })
       .catch(e => {
@@ -85,16 +87,25 @@ export const MyMap = () => {
 
 
   const onClickNewMarker = (event) => {
-    setMarkers(() => [
-      {
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
-        time: new Date(),
-      }
-    ])
+      if (dropPin === true) {
+        setMarkers(() => [
+          {
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng(),
+            time: new Date(),
+          }
+        ])
+    } else {
+      return null;
+    }
   }
 
-
+  const toggle = () => {
+    setTimeout(() => {
+      setDropPin(() => setDropPin(!dropPin))
+    }, 10)
+    if (dropPin) setMarkers([])
+  }
 
   if (loadError) return "Error handling maps";
   if (!isLoaded) return "Loading Maps";
@@ -116,9 +127,9 @@ export const MyMap = () => {
         disableDefaultUI: true,
         zoomControl: true,
         minZoom: 4,
-        maxZoom: 18,
+        maxZoom: 28,
        }}
-         onClick={onClickNewMarker}
+        onClick={onClickNewMarker}
       >
       
       {pins.map((hike) => (
@@ -143,9 +154,9 @@ export const MyMap = () => {
             onCloseClick={() => {setSelectedHike(null)}}
           >
 
-            <div>
-              <h1>Title - { selectedHike.title } </h1>
-              <h2>Description - { selectedHike.description } </h2>
+            <div className ='pin-description'>
+              <h2>Title - { selectedHike.title } </h2>
+              <p>Description - { selectedHike.description } </p>
               <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="260px" width="250px"></img>
 
             </div>
@@ -160,19 +171,30 @@ export const MyMap = () => {
                 scaledSize: new window.google.maps.Size(75,75),
                 anchor: new window.google.maps.Point(35,60),
               }}
-              onClick={() => {
-                setSelected(marker);
-              }}
+              
             />
             })}
 
-              {/* { markers.length > 0 ? <AddPin /> : null } */}
-              {selected ? ( <div><Form pins={pins} setPins={setPins} onAdd={addNewPin}
+           {current.map(marker => {
+              return <Marker key={marker.time.toISOString()}
+              position={{lat: marker.lat, lng: marker.lng}} 
+              icon={{
+                url: 'https://image.flaticon.com/icons/png/512/3203/3203052.png',
+                scaledSize: new window.google.maps.Size(45,45),
+                anchor: new window.google.maps.Point(20,45),
+              }}
+              
+            />
+            })}
+            
+
+              {selected ? ( <div><Form setSelected={setSelected} pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
-               <button className="button" onClick={getPosition}>
-                 Pin my hike
-               </button>
+               <button className="button" onClick={getPosition}></button>
+               {/* <input type='checkbox' value='Drop pin' onClick={toggle} className="add-pin"></input> */}
+               <AddPin toggle={toggle} />
+                { markers.length > 0 && <Confirmation toggle={toggle} setMarkers={setMarkers} confirm={() => setSelected(markers[0])}  />}
             </GoogleMap>
             
   )
