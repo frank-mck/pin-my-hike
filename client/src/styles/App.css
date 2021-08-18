@@ -438,13 +438,22 @@ input[type='checkbox']:active {
   }
 }
 
-.search {
+* .search {
+  font-family: "Roboto" sans-serif;
   position: absolute;
   top: 5.5rem;
-  color: black;
   left: 1rem;
   z-index: 50;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
+  color: #454545;
+}
+
+* .search-results {
+  color: green;
+}
+
+* .search-input {
+  color: #532d0e;
 }
 /*# sourceMappingURL=App.css.map */
