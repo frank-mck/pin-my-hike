@@ -47,7 +47,7 @@ static async apiPostHike(req, res, next) {
       const lat = req.body.lat
       const title = req.body.title
       const description = req.body.description
-      const image = req.file.name
+      const image = req.file.filename
       const date = new Date()
 
       // this sends the data to the database with addHike.

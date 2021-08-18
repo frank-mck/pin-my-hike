@@ -6,7 +6,7 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers }) => {
   const [description, setDescription] = React.useState("");
   const [lng, setLng] = React.useState(location.lng);
   const [lat, setLat] = React.useState(location.lat);
-  const [image, setImage] = React.useState("");
+  const [image, setImage] = React.useState('')
 
   const addPin = async (pin) => {
    HikeDataService.createHike(pin)
@@ -34,8 +34,8 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers }) => {
       </textarea>
       <br />
       <label htmlFor="photo" className="form-photo-label">
-        <input type="file" name="image" accept="image/*" onChange={(e) => setImage(e.target.value)}></input>
-        console.log(image)
+        <input type="file" name="image" accept="image/*" onChange={(e) => setImage(e.target.files[0])}></input>
+       
         <div><i class="fas fa-camera fa-3x form-upload-image"></i></div>
       </label>
       <button type="submit" className="btn form-submit">Submit</button>
