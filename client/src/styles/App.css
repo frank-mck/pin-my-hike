@@ -136,8 +136,8 @@
   color: mediumaquamarine;
   cursor: pointer;
   border-radius: 5px;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin-bottom: 10px;
 }
 
@@ -169,7 +169,17 @@
 
 * .hike-window {
   text-align: center;
-  font-family: 'Roboto' sans-serif;
+  font-family: "Roboto" sans-serif;
   font-size: 10px;
+}
+
+.search {
+  position: absolute;
+  top: 5.5rem;
+  color: black;
+  left: 1rem;
+  z-index: 50;
+  margin: 0;
+  padding: 0;
 }
 /*# sourceMappingURL=App.css.map */

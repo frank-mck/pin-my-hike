@@ -6,23 +6,20 @@ import { MyMap } from "./components/maps/MyMap.js";
 require("dotenv").config();
 
 export default function App() {
-
   return (
+    <div className="app">
+      <div className="title-overlay">
+        <img
+          className="PMH-logo"
+          src="https://i.ibb.co/mBJ38W9/pin-my-hike-logo-trial.png"
+          alt="hiking logo"
+          style={{ height: "65px", width: "360px" }}
+        />
+      </div>
 
-      <div className ='app'>
-        <div className="title-overlay">
-          <img className="PMH-logo" 
-            src="https://i.ibb.co/mBJ38W9/pin-my-hike-logo-trial.png" alt='hiking logo' style={{height: "65px", width: "360px"}}
-          />
-        </div>
-        
-        <div className="maps-container">
-          <MyMap />
-
-        </div>
- 
-       </div>
+      <div className="maps-container">
+        <MyMap />
+      </div>
+    </div>
   );
 }
-
-
