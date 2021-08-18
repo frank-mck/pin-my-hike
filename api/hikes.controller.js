@@ -1,4 +1,19 @@
 import HikesDAO from "../dao/hikesDAO.js"
+import multer, { diskStorage } from 'multer'
+
+// define image storage 
+
+const storage = multer.diskStorage({
+  // destination for files
+  destination:function (req, file, callback) {
+    callback(null, '../client/public/uploads/images')
+  },
+
+  // add back the extension
+  filename:function(req, file, callback) {
+    callback(null, Date.now() + file.originalname)
+  },
+})
 
 export default class HikesController {
   static async apiGetHikes(req, res, next) {
@@ -26,12 +41,13 @@ export default class HikesController {
     res.json(response)
   }
 
-  static async apiPostHike(req, res, next) {
+static async apiPostHike(req, res, next) {
     try {
       const lng = req.body.lng
       const lat = req.body.lat
       const title = req.body.title
       const description = req.body.description
+      const image = req.file.name
       const date = new Date()
 
       // this sends the data to the database with addHike.
@@ -40,6 +56,7 @@ export default class HikesController {
         lat,
         title,
         description,
+        image,
         date
       )
       res.json({ status: "success" })

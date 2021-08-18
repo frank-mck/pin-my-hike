@@ -54,13 +54,15 @@ export default class HikesDAO {
     }
   }
 
-  static async addHike(lng, lat, title, description, date) {
+  static async addHike(lng, lat, title, description, image, date) {
     try {
       const hikeDoc = { lng: lng,
           lat: lat,
           title: title,
           description: description,
+          image: image,
           date: date
+          
         }
 
       return await hikes.insertOne(hikeDoc)
