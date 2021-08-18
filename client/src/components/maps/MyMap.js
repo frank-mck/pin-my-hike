@@ -161,6 +161,7 @@ export function MyMap() {
           }}
         >
           <ComboboxInput
+            className="search-input"
             value={value}
             onChange={(e) => {
               setValue(e.target.value);
@@ -168,11 +169,26 @@ export function MyMap() {
             disabled={!ready}
             placeholder="Enter an address"
           />
-          <ComboboxPopover>
-            {status === "OK" &&
-              data.map(({ id, description }) => (
-                <ComboboxOption key={id} value={description} />
-              ))}
+          <ComboboxPopover portal={false}>
+            {data.length > 0 ? (
+              <ComboboxList className="search-results">
+                {status === "OK" &&
+                  data.map(({ id, description }) => (
+                    <ComboboxOption key={id} value={description} />
+                  ))}
+              </ComboboxList>
+            ) : (
+              <p
+                style={{
+                  margin: 0,
+                  color: "#454545",
+                  padding: "0.25rem 1rem 0.75rem 1rem",
+                  fontStyle: "italic",
+                }}
+              >
+                No results
+              </p>
+            )}
           </ComboboxPopover>
         </Combobox>
       </div>
