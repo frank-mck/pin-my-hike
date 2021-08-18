@@ -38,22 +38,6 @@ body, .confirm-window {
           justify-content: center;
 }
 
-.maps-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
 .button {
   background-image: url("https://image.flaticon.com/icons/png/512/860/860762.png");
   background-size: 23px 23px;
@@ -360,8 +344,8 @@ input[type='checkbox'] {
 
 input[type='checkbox']:active {
   opacity: 0;
-  -webkit-transition: .2s;
-  transition: .2s;
+  -webkit-transition: .1s;
+  transition: .1s;
   -webkit-transform: scale(1.9);
           transform: scale(1.9);
 }
@@ -369,21 +353,26 @@ input[type='checkbox']:active {
 @media (min-width: 309px) {
   .logo {
     height: 90px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .logo-text h1 {
-    font-size: 2.2rem;
+    font-size: 2.7rem;
   }
   .logo-text span {
     font-size: .6rem;
     margin-top: -.8rem;
   }
-  .logo-img {
-    width: 60px;
-    height: 50px;
-  }
   .logo-img img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 }
 

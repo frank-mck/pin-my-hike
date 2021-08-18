@@ -28,13 +28,6 @@ body, .confirm-window {
   justify-content: center;
 }
 
-.maps-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .button  {
   background-image: url('https://image.flaticon.com/icons/png/512/860/860762.png');
   background-size: 23px 23px;
@@ -275,19 +268,22 @@ form header img {
 
 input[type='checkbox']:active {
   opacity: 0;
-  transition: .2s;
+  transition: .1s;
   transform: scale(1.9);
 }
   
 @media (min-width:309px)  { 
 .logo{
   height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
   .logo-text {
 
     & h1 {
-      font-size: 2.2rem;
+      font-size: 2.7rem;
     }
 
     & span {
@@ -297,12 +293,9 @@ input[type='checkbox']:active {
   } 
 
   .logo-img {
-    width: 60px;
-    height: 50px;
-
     & img {
-      width: 70px;
-      height: 70px;
+      width: 60px;
+      height: 60px;
     }
   }
 
