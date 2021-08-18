@@ -6,7 +6,6 @@ import { Confirmation } from '../Confirmation.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import mapStyle from "../../styles/mapStyle.js";
 import HikeDataService from "../../services/hike.js";
-import Button from "./Button";
 const libraries = ["places"];
 
 const mapContainerStyle = {
@@ -15,10 +14,10 @@ const mapContainerStyle = {
 };
 
 export const MyMap = () => {
-  const [latitude, setLatitude] = React.useState(55.378052);
-  const [longitude, setLongitude] = React.useState(-3.435973);
-  const [zoom, setZoom] = React.useState(8);
   const [markers, setMarkers] = React.useState([]);
+  const [latitude, setLatitude] = React.useState(markers.length === 0 ? parseFloat(55.378052) : markers.map(n =>n.lat));
+  const [longitude, setLongitude] = React.useState(markers.length === 0 ? parseFloat(-3.435973) : markers.map(n =>n.lng));
+  const [zoom, setZoom] = React.useState(8);
   const [pins, setPins] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
   const [selectedHike, setSelectedHike] = React.useState(null);
@@ -134,100 +133,53 @@ export const MyMap = () => {
 
   return (
     <GoogleMap
-      mapContainerStyle={mapContainerStyle}
-      zoom={zoom}
-      center={{ lat: latitude, lng: longitude }}
-      options={{
-        styles: mapStyle,
-        disableDefaultUI: true,
-        zoomControl: true,
-        minZoom: 4,
-        maxZoom: 18,
-      }}
+    mapContainerStyle={mapContainerStyle}
+    zoom={zoom}
+    center={{ lat: latitude, lng: longitude }}
+    options={{
+      styles: mapStyle,
+      disableDefaultUI: true,
+      zoomControl: true,
+      minZoom: 4,
+      maxZoom: 28,
+     }}
       onClick={onClickNewMarker}
     >
+    
+    {pins.map((hike) => (
+      <Marker
+        key={hike._id}
+        position={{ lat: hike.lat, lng: hike.lng }}
+        icon={{
+          url: "https://img.icons8.com/color/48/000000/camping-tent.png",
+          scaledSize: new window.google.maps.Size(45, 45),
+          anchor: new window.google.maps.Point(20, 20),
+        }}
+        onClick={() => {
+          setSelectedHike(hike);
+        }}
+      />
+    ))}
 
-      {pins.map((hike) => (
-        <Marker
-          key={hike._id}
-          position={{ lat: hike.lat, lng: hike.lng }}
-          icon={{
-            url: "https://img.icons8.com/color/48/000000/camping-tent.png",
-            scaledSize: new window.google.maps.Size(45, 45),
-            anchor: new window.google.maps.Point(20, 20),
-          }}
-          onClick={() => {
-            setSelectedHike(hike);
-          }}
-        />
-      ))}
-
-      <div>
-        {selectedHike ? (
-          <InfoWindow
-            position={{
-              lat: parseFloat(selectedHike.lat),
-              lng: parseFloat(selectedHike.lng),
-            }}
-            onCloseClick={() => {
-              setSelectedHike(null);
-            }}
-          >
-            <div>
-              <h1>Title - {selectedHike.title} </h1>
-              <h2>Description - {selectedHike.description} </h2>
-              <img
-                src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg"
-                alt=""
-                height="260px"
-                width="250px"
-              ></img>
-            </div>
-          </InfoWindow>
-        ) : null}
-      </div>
-
-      {markers.map((marker) => {
-        return (
-          <Marker
-            key={marker.time.toISOString()}
-            position={{ lat: marker.lat, lng: marker.lng }}
-            icon={{
-              url: "https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png",
-              scaledSize: new window.google.maps.Size(75, 75),
-              anchor: new window.google.maps.Point(35, 60),
-            }}
-            onClick={() => {
-              setSelected(marker);
-            }}
-          />
-        );
-      })}
-
-      {/* { markers.length > 0 ? <AddPin /> : null } */}
-      {selected ? (
         <div>
-          <Form
-            pins={pins}
-            setPins={setPins}
-            onAdd={addNewPin}
-            setMarkers={setMarkers}
-            location={{ lat: selected.lat, lng: selected.lng }}
-          />
-        </div>
-      ) : null}
-      <Button getPosition={getPosition} />
-    </GoogleMap>
-  );
-};
-            <div className ='pin-description'>
-              <h2>Title - { selectedHike.title } </h2>
-              <p>Description - { selectedHike.description } </p>
-              <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg" alt="" height="260px" width="250px"></img>
+        {selectedHike ? (
+        <InfoWindow
+          position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
+          onCloseClick={() => {setSelectedHike(null)}}
+        >
 
-            </div>
-          </InfoWindow>) : null }
+          <div className ='pin-description'>
+            <h2>Title - { selectedHike.title } </h2>
+            <p>Description - { selectedHike.description } </p>
+            <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg"
+             alt=""
+             height="260px"
+             width="250px"
+            ></img>
+
           </div>
+        </InfoWindow>) : null }
+        </div>
 
             {markers.map(marker => {
               return <Marker key={marker.time.toISOString()}
@@ -244,6 +196,7 @@ export const MyMap = () => {
            {current.map(marker => {
               return <Marker key={marker.time.toISOString()}
               position={{lat: marker.lat, lng: marker.lng}} 
+              zoom={zoom}
               icon={{
                 url: 'https://image.flaticon.com/icons/png/512/3203/3203052.png',
                 scaledSize: new window.google.maps.Size(45,45),
@@ -257,7 +210,7 @@ export const MyMap = () => {
               {selected ? ( <div><Form setSelected={setSelected} pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
-               <button className="button" onClick={getPosition}></button>
+               <button getPosition={getPosition} className="button" onClick={getPosition}></button>
                {/* <input type='checkbox' value='Drop pin' onClick={toggle} className="add-pin"></input> */}
                <AddPin toggle={toggle} />
                 { markers.length > 0 && <Confirmation toggle={toggle} setMarkers={setMarkers} confirm={() => setSelected(markers[0])}  />}
