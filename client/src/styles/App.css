@@ -437,4 +437,14 @@ input[type='checkbox']:active {
     height: 75px;
   }
 }
+
+.search {
+  position: absolute;
+  top: 5.5rem;
+  color: black;
+  left: 1rem;
+  z-index: 50;
+  margin: 0;
+  padding: 0;
+}
 /*# sourceMappingURL=App.css.map */

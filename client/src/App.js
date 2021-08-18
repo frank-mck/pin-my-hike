@@ -5,21 +5,15 @@ import { Logo } from "./components/Logo.js";
 require("dotenv").config();
 
 export default function App() {
-
   return (
+    <div className="app">
+      <div className="title-overlay">
+        <Logo />
+      </div>
 
-      <div className ='app'>
-        <div className="title-overlay">
-          <Logo />
-        </div>
-        
-        <div className="maps-container">
-          <MyMap />
-
-        </div>
- 
-       </div>
+      <div className="maps-container">
+        <MyMap />
+      </div>
+    </div>
   );
 }
-
-
