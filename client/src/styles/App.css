@@ -103,7 +103,7 @@ body, .confirm-window {
   border: none;
   text-align: center;
   padding: 1rem;
-  width: 400px;
+  width: 250px;
   border-radius: 5px;
   -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
           box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
@@ -391,6 +391,9 @@ input[type='checkbox']:active {
     width: 60px;
     height: 60px;
   }
+  .form {
+    width: 300px;
+  }
 }
 
 @media (min-width: 600px) {
@@ -413,6 +416,9 @@ input[type='checkbox']:active {
     width: 75px;
     height: 75px;
   }
+  .form {
+    width: 400px;
+  }
 }
 
 @media (min-width: 801px) {
@@ -434,6 +440,9 @@ input[type='checkbox']:active {
   .logo-img img {
     width: 75px;
     height: 75px;
+  }
+  .form {
+    width: 500px;
   }
 }
 /*# sourceMappingURL=App.css.map */
