@@ -84,10 +84,24 @@ body, .confirm-window {
   border: none;
   text-align: center;
   padding: 1rem;
-  width: 400px;
+  width: 250px;
   border-radius: 5px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281),
   2px 3px 6px rgba(0, 0, 0, 0.185);
+
+  &-close-btn {
+    background-image: url('https://image.flaticon.com/icons/png/512/106/106830.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 26px;
+    height: 28px;
+    border: none;
+    margin: 4px;
+    background-color: $third-color;
+    cursor: pointer;
+    border-radius: 100px;
+  }
 
   & > header {
     display: flex;
@@ -166,21 +180,6 @@ body, .confirm-window {
   height: 75px;
 }
 
-.close-btn {
-  background-image: url('https://image.flaticon.com/icons/png/512/106/106830.png');
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: none;
-  width: 26px;
-  height: 28px;
-  border: none;
-  margin: 4px;
-  background-color: $third-color;
-  cursor: pointer;
-  border-radius: 100px;
-}
-
 .logo {
   display: flex;
   flex-direction: row;
@@ -192,22 +191,23 @@ body, .confirm-window {
   clip-path: url(#myCurve);
   filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
   background-color: #51646bcc;
+
+  & h1 {
+    font-size: 3.8rem;
+    letter-spacing: .7mm;
+    color: rgb(255, 255, 255);
+  }
+  
+  & span {
+    display:block;
+    margin-top: -1.4rem;;
+    letter-spacing: .5mm;
+    padding-left: 3px;
+    color: $secondary-color;
+    font-weight: 600;
+  }
 }
 
-.logo h1 {
-  font-size: 3.8rem;
-  letter-spacing: .7mm;
-  color: rgb(255, 255, 255);
-}
-
-.logo span {
-  display:block;
-  margin-top: -1.4rem;;
-  letter-spacing: .5mm;
-  padding-left: 3px;
-  color: $secondary-color;
-  font-weight: 600;
-}
 
 .hike-window {
   text-align: center;
@@ -219,12 +219,14 @@ body, .confirm-window {
   flex-direction: column;
   padding: .6rem;
   letter-spacing: .3mm;
+
+  & img {
+    height: 200px;
+    padding: .2rem;
+    margin-top: 1rem;
+  }
 }
 
-.pin-description img {
-  padding: .2rem;
-  margin-top: 1rem;
-}
 
 .confirmation {
   display: flex;
@@ -239,22 +241,23 @@ body, .confirm-window {
   color: white;
   border-radius: 5px;
   filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+
+  & button {
+    padding: 10px;
+    border: none;
+    margin: 8px;
+    width: 65px;
+    border-radius: 5px;
+    background-color: $secondary-color;
+    filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
+
+    &:active {
+      transform: scaleY(0.9);
+    }
+  }
 }
 
-.confirmation button {
-  padding: 10px;
-  border: none;
-  margin: 8px;
-  width: 65px;
-  border-radius: 5px;
-  background-color: $secondary-color;
-  filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
-}
 
-.confirmation button:active {
-  transform: scaleY(0.9);
-  
-}
 
 .toggleDropPin {
   position: absolute;
@@ -282,15 +285,48 @@ body, .confirm-window {
   width: 30px;
   height: 20px;
   background-color: $primary-color;
+
+  &:active {
+    opacity: 0;
+    transition: .1s;
+    transform: scale(1.9);
+  }
 }
 
-input[type='checkbox']:active {
-  opacity: 0;
-  transition: .1s;
-  transform: scale(1.9);
-}
+@media(min-width: 280px) {
+  .logo{
+    height: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
   
-@media (min-width:309px)  { 
+  .logo-text {
+
+    & h1 {
+      font-size: 2rem;
+    }
+
+    & span {
+      font-size: .9rem;
+      margin-top: -.8rem;
+    }
+  } 
+
+  .logo-img {
+    & img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .form {
+    width: 300px;
+  }
+
+}
+
+  
+@media (min-width:360px)  { 
 .logo{
   height: 95px;
   display: flex;
@@ -316,15 +352,16 @@ input[type='checkbox']:active {
       height: 60px;
     }
   }
-
+  .form {
+    width: 320px;
+  }
 }
   
 @media (min-width:600px)  { 
   .logo{
     height: 120px;
-  }
-  
-    .logo-text {
+
+    &-text {
   
       & h1 {
         font-size: 3.4rem;
@@ -336,7 +373,7 @@ input[type='checkbox']:active {
       }
     } 
   
-    .logo-img {
+    &-img {
       width: 60px;
       height: 50px;
       margin-right: 20px;
@@ -347,14 +384,18 @@ input[type='checkbox']:active {
       
       }
     }
+  }
+
+  .form {
+    width: 400px;
+  }
 }
 
 @media (min-width:801px)  { 
   .logo{
     height: 120px;
-  }
-  
-    .logo-text {
+    
+    &text {
   
       & h1 {
         font-size: 3.4rem;
@@ -366,7 +407,7 @@ input[type='checkbox']:active {
       }
     } 
   
-    .logo-img {
+    &-img {
       width: 60px;
       height: 50px;
       margin-right: 20px;
@@ -374,7 +415,11 @@ input[type='checkbox']:active {
       & img {
         width: 75px;
         height: 75px;
-      
       }
     }
+  }
+
+  .form {
+    width: 500px;
+  }
 }
