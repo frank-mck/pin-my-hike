@@ -379,20 +379,21 @@ input[type='checkbox']:active {
     }
 }
 
-.search {
-  font-family: "Roboto" sans-serif;
-  position: absolute;
-  top: 5.5rem;
-  left: 1rem;
-  z-index: 50;
-  margin: 0;
-  padding: 1rem;
-  color: #454545;
-}
+  .search {
+    font-family: "Roboto" sans-serif;
+    position: absolute;
+    top: 5.5rem;
+    left: 1rem;
+    z-index: 50;
+    margin: 0;
+    padding: 1rem;
+    color: #454545;
+  }
 
-.search-results {
-  color: green;
-}
-.search-input {
-  color: #532d0e;
+  .search-results {
+    color: green;
+  }
+  .search-input {
+    color: #532d0e;
+  }
 }
