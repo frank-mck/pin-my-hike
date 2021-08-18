@@ -179,7 +179,7 @@ export const MyMap = () => {
               return <Marker key={marker.time.toISOString()}
               position={{lat: marker.lat, lng: marker.lng}} 
               icon={{
-                url: 'https://image.flaticon.com/icons/png/512/3203/3203052.png',
+                url: 'https://image.flaticon.com/icons/png/512/4985/4985836.png',
                 scaledSize: new window.google.maps.Size(45,45),
                 anchor: new window.google.maps.Point(20,45),
               }}
@@ -187,7 +187,6 @@ export const MyMap = () => {
             />
             })}
             
-
               {selected ? ( <div><Form setSelected={setSelected} pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
