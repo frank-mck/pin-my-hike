@@ -36,6 +36,11 @@ INSERT ALL THE GOOD STUFF ABOUT AGILE HERE
 * CI: CircleCI
 * Heroku
 
+## APIs that need to be enabled:
+- Geocoding API
+- Maps JavaScript API
+- Places API
+
 ## Examples
 
 ```
