@@ -34,7 +34,7 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers, setSelected }
         <header>
           <img alt ='hiking logo' src ='https://image.flaticon.com/icons/png/512/3373/3373903.png'></img>
           <h2>Add your pin</h2>
-          <button className='close-btn' onClick={close}></button>
+          <button className='form-close-btn' onClick={close}></button>
         </header>
         
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity={`${process.env.FONT_AWESOME_CDN}`} crossorigin="anonymous" />
