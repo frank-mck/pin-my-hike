@@ -103,24 +103,10 @@ body, .confirm-window {
   border: none;
   text-align: center;
   padding: 1rem;
-  width: 250px;
+  width: 400px;
   border-radius: 5px;
   -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
           box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
-}
-
-.form-close-btn {
-  background-image: url("https://image.flaticon.com/icons/png/512/106/106830.png");
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 26px;
-  height: 28px;
-  border: none;
-  margin: 4px;
-  background-color: #b8a6a0;
-  cursor: pointer;
-  border-radius: 100px;
 }
 
 .form > header {
@@ -217,6 +203,21 @@ body, .confirm-window {
   height: 75px;
 }
 
+.close-btn {
+  background-image: url("https://image.flaticon.com/icons/png/512/106/106830.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: none;
+  width: 26px;
+  height: 28px;
+  border: none;
+  margin: 4px;
+  background-color: #b8a6a0;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -274,7 +275,6 @@ body, .confirm-window {
 }
 
 .pin-description img {
-  height: 200px;
   padding: .2rem;
   margin-top: 1rem;
 }
@@ -368,36 +368,7 @@ input[type='checkbox']:active {
           transform: scale(1.9);
 }
 
-@media (min-width: 280px) {
-  .logo {
-    height: 95px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  .logo-text h1 {
-    font-size: 2rem;
-  }
-  .logo-text span {
-    font-size: .9rem;
-    margin-top: -.8rem;
-  }
-  .logo-img img {
-    width: 50px;
-    height: 50px;
-  }
-  .form {
-    width: 300px;
-  }
-}
-
-@media (min-width: 360px) {
+@media (min-width: 309px) {
   .logo {
     height: 95px;
     display: -webkit-box;
@@ -421,9 +392,6 @@ input[type='checkbox']:active {
     width: 60px;
     height: 60px;
   }
-  .form {
-    width: 320px;
-  }
 }
 
 @media (min-width: 600px) {
@@ -446,19 +414,16 @@ input[type='checkbox']:active {
     width: 75px;
     height: 75px;
   }
-  .form {
-    width: 400px;
-  }
 }
 
 @media (min-width: 801px) {
   .logo {
     height: 120px;
   }
-  .logotext h1 {
+  .logo-text h1 {
     font-size: 3.4rem;
   }
-  .logotext span {
+  .logo-text span {
     font-size: .9rem;
     margin-top: -.8rem;
   }
@@ -470,9 +435,6 @@ input[type='checkbox']:active {
   .logo-img img {
     width: 75px;
     height: 75px;
-  }
-  .form {
-    width: 500px;
   }
 }
 /*# sourceMappingURL=App.css.map */
