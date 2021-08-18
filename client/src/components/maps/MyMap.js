@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/App.css";
 import { AddPin } from '../AddPin.js'
 import { Form } from '../Form.js'
+import { Button } from './Button.js'
 import { Confirmation } from '../Confirmation.js'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import mapStyle from "../../styles/mapStyle.js";
@@ -210,7 +211,7 @@ export const MyMap = () => {
               {selected ? ( <div><Form setSelected={setSelected} pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
-               <button getPosition={getPosition} className="button" onClick={getPosition}></button>
+               <Button getPosition={getPosition} />
                {/* <input type='checkbox' value='Drop pin' onClick={toggle} className="add-pin"></input> */}
                <AddPin toggle={toggle} />
                 { markers.length > 0 && <Confirmation toggle={toggle} setMarkers={setMarkers} confirm={() => setSelected(markers[0])}  />}
