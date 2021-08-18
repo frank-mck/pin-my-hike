@@ -309,8 +309,8 @@ form header img {
   width: 65px;
   border-radius: 5px;
   background-color: #c57a3c;
-  -webkit-filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.295));
-          filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.295));
+  -webkit-filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
+          filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
 }
 
 .confirmation button:active {
@@ -320,24 +320,24 @@ form header img {
 
 .toggleDropPin {
   position: absolute;
-  bottom: 0;
-  left: 0;
   z-index: 20;
+  margin: 5px;
   background-color: #b8a6a0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   bottom: 0;
   left: 0;
   padding: .5rem;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
   height: 40px;
+  width: 120px;
 }
 
 .toggleDropPin form {
@@ -356,6 +356,14 @@ input[type='checkbox'] {
   width: 30px;
   height: 20px;
   background-color: #51646b;
+}
+
+input[type='checkbox']:active {
+  opacity: 0;
+  -webkit-transition: .2s;
+  transition: .2s;
+  -webkit-transform: scale(1.9);
+          transform: scale(1.9);
 }
 
 @media (max-width: 279px) {
