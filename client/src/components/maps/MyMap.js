@@ -82,10 +82,14 @@ export const MyMap = () => {
     }
   }
 
+  // Loads API key and any additional libraries.
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
+
+  // Fetches all pins from the DB.
 
   React.useEffect(() => {
     fetchPins();
@@ -101,6 +105,8 @@ export const MyMap = () => {
       });
   };
 
+  // Sets Marker position based off the click event on the map.
+
   const onClickNewMarker = (event) => {
       if (dropPin === true) {
         setMarkers(() => [
@@ -114,6 +120,8 @@ export const MyMap = () => {
       return null;
     }
   }
+
+  // Toggle enables user to drop a pin on the map.
 
   const toggle = () => {
     setTimeout(() => {
@@ -132,6 +140,8 @@ export const MyMap = () => {
     setSelected(null);
   };
 
+  // Initializes Google map with preset values.
+
   return (
     <GoogleMap
     mapContainerStyle={mapContainerStyle}
@@ -146,8 +156,11 @@ export const MyMap = () => {
      }}
       onClick={onClickNewMarker}
     >
-    
+
     {pins.map((hike) => (
+
+    // Maps hikes, setting their position based off lat and lng stored in DB.  
+
       <Marker
         key={hike._id}
         position={{ lat: hike.lat, lng: hike.lng }}
@@ -164,20 +177,20 @@ export const MyMap = () => {
 
         <div>
         {selectedHike ? (
+
+        // InfoWindow to display each hikes attributes. 
+        
         <InfoWindow
           position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
-          onCloseClick={() => {setSelectedHike(null)}}
-        >
-
+          onCloseClick={() => {setSelectedHike(null)}}>
           <div className ='pin-description'>
             <h2>Title - { selectedHike.title } </h2>
             <p>Description - { selectedHike.description } </p>
             <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg"
-             alt=""
-             height="260px"
-             width="250px"
+              alt=""
+              height="260px"
+              width="250px"
             ></img>
-
           </div>
         </InfoWindow>) : null }
         </div>
@@ -186,7 +199,7 @@ export const MyMap = () => {
               return <Marker key={marker.time.toISOString()}
               position={{lat: marker.lat, lng: marker.lng}} 
               icon={{
-                url: 'https://i.ibb.co/tCHT1g1/pin-my-hike-trial-0.png',
+                url: 'https://i.ibb.co/74nnLy7/pin-my-hike-trial.png',
                 scaledSize: new window.google.maps.Size(75,75),
                 anchor: new window.google.maps.Point(35,60),
               }}
@@ -207,7 +220,6 @@ export const MyMap = () => {
             />
             })}
             
-
               {selected ? ( <div><Form setSelected={setSelected} pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
@@ -216,7 +228,6 @@ export const MyMap = () => {
                <AddPin toggle={toggle} />
                 { markers.length > 0 && <Confirmation toggle={toggle} setMarkers={setMarkers} confirm={() => setSelected(markers[0])}  />}
             </GoogleMap>
-            
   )
 }
 
