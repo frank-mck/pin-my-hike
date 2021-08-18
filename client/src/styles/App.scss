@@ -221,6 +221,7 @@ body, .confirm-window {
   letter-spacing: .3mm;
 
   & img {
+    height: 200px;
     padding: .2rem;
     margin-top: 1rem;
   }
@@ -292,8 +293,40 @@ body, .confirm-window {
   }
 }
 
+@media(min-width: 280px) {
+  .logo{
+    height: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
   
-@media (min-width:309px)  { 
+  .logo-text {
+
+    & h1 {
+      font-size: 2rem;
+    }
+
+    & span {
+      font-size: .9rem;
+      margin-top: -.8rem;
+    }
+  } 
+
+  .logo-img {
+    & img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .form {
+    width: 300px;
+  }
+
+}
+
+  
+@media (min-width:360px)  { 
 .logo{
   height: 95px;
   display: flex;
@@ -320,7 +353,7 @@ body, .confirm-window {
     }
   }
   .form {
-    width: 300px;
+    width: 320px;
   }
 }
   
@@ -382,7 +415,6 @@ body, .confirm-window {
       & img {
         width: 75px;
         height: 75px;
-      
       }
     }
   }

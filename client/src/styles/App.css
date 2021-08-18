@@ -274,6 +274,7 @@ body, .confirm-window {
 }
 
 .pin-description img {
+  height: 200px;
   padding: .2rem;
   margin-top: 1rem;
 }
@@ -367,7 +368,36 @@ input[type='checkbox']:active {
           transform: scale(1.9);
 }
 
-@media (min-width: 309px) {
+@media (min-width: 280px) {
+  .logo {
+    height: 95px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .logo-text h1 {
+    font-size: 2rem;
+  }
+  .logo-text span {
+    font-size: .9rem;
+    margin-top: -.8rem;
+  }
+  .logo-img img {
+    width: 50px;
+    height: 50px;
+  }
+  .form {
+    width: 300px;
+  }
+}
+
+@media (min-width: 360px) {
   .logo {
     height: 95px;
     display: -webkit-box;
@@ -392,7 +422,7 @@ input[type='checkbox']:active {
     height: 60px;
   }
   .form {
-    width: 300px;
+    width: 320px;
   }
 }
 
