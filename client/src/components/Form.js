@@ -24,7 +24,7 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers, setSelected }
   }
 
   const close = (e) => {
-  
+    setMarkers([])
     setSelected(null)
   }
 

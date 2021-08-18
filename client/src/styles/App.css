@@ -60,7 +60,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 10;
-  color: #555;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -87,13 +86,6 @@ body {
           box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151);
 }
 
-.button:hover {
-  color: black;
-  font-weight: 800;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
 .title-overlay {
   height: 0px;
 }
@@ -106,8 +98,8 @@ body {
   font-weight: 800;
   padding: 0.5rem 1rem;
   border: none;
-  border: #333 solid 1px;
-  color: #333;
+  border: #51646b solid 1px;
+  color: #51646b;
   cursor: pointer;
   border-radius: 5px;
   -webkit-transition: all .2s ease-in-out;
@@ -115,7 +107,7 @@ body {
 }
 
 .btn:hover {
-  background: #333;
+  background: #51646b;
   color: #fff;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
@@ -141,7 +133,7 @@ form header img {
 
 .form {
   z-index: 11;
-  background-color: #fff;
+  background-color: #a09e9e;
   border: none;
   text-align: center;
   padding: 1rem;
@@ -161,7 +153,7 @@ form header img {
   padding: 0.7rem;
   border: none;
   border-radius: 5px;
-  background-color: #f3f3f3;
+  background-color: white;
   -webkit-box-shadow: 1px 1px 1px rgba(14, 14, 14, 0.185);
           box-shadow: 1px 1px 1px rgba(14, 14, 14, 0.185);
 }
@@ -184,7 +176,7 @@ form header img {
 }
 
 .form-footer-logo {
-  color: #333;
+  color: #51646b;
   cursor: pointer;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
@@ -219,7 +211,7 @@ form header img {
   height: 28px;
   border: none;
   margin: 4px;
-  background-color: #fff;
+  background-color: #b8a6a0;
   cursor: pointer;
   border-radius: 100px;
 }
@@ -245,7 +237,7 @@ form header img {
           clip-path: url(#myCurve);
   -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
           filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
-  background-color: rgba(75, 192, 124, 0.507);
+  background-color: #51646bcc;
 }
 
 .logo h1 {
@@ -259,7 +251,7 @@ form header img {
   margin-top: -1.4rem;
   letter-spacing: .5mm;
   padding-left: 3px;
-  color: #643f0f;
+  color: #c57a3c;
   font-weight: 600;
 }
 
@@ -303,7 +295,7 @@ form header img {
           flex-direction: column;
   position: absolute;
   padding: 1rem;
-  background-color: #222;
+  background-color: #51646b;
   color: white;
   border-radius: 5px;
   -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
@@ -316,9 +308,9 @@ form header img {
   margin: 8px;
   width: 65px;
   border-radius: 5px;
-  background-color: #ecb912;
-  -webkit-filter: drop-shadow(3px 7px 4px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(3px 7px 4px rgba(0, 0, 0, 0.5));
+  background-color: #c57a3c;
+  -webkit-filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.295));
+          filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.295));
 }
 
 .confirmation button:active {
@@ -331,7 +323,7 @@ form header img {
   bottom: 0;
   left: 0;
   z-index: 20;
-  background-color: #ecb912;
+  background-color: #b8a6a0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -363,6 +355,7 @@ form header img {
 input[type='checkbox'] {
   width: 30px;
   height: 20px;
+  background-color: #51646b;
 }
 
 @media (max-width: 279px) {

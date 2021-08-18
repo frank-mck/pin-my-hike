@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,300&display=swap');
 
-$primary-color: #333;
+$primary-color: #51646b;
+$secondary-color: #c57a3c;
+$third-color: #b8a6a0;
 
 * {
   padding: 0;
@@ -38,7 +40,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 10;
-  color: #555;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -56,12 +57,6 @@ body {
   padding: 5px;
   border: 1px solid #ddd;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151)
-}
-
-.button:hover {
-  color: black;
-  font-weight: 800;
-  transition: .2s;
 }
 
 .title-overlay {
@@ -83,19 +78,6 @@ body {
   transition: all .2s ease-in-out;
 }
 
-// .add-pin {
-//   background-color: rgb(236, 185, 18);
-//   z-index: 15;
-//   position: absolute;
-//   display: flex;
-//   justify-content: center;
-//   align-items:center;
-//   bottom: 0;
-//   left: 0;
-//   padding: .5rem;
-//   height: 40px;
-// }
-
 .btn:hover {
   background: $primary-color;
   color: #fff;
@@ -116,7 +98,7 @@ form header img {
 
 .form {
   z-index: 11;
-  background-color: #fff;
+  background-color: rgb(160, 158, 158);
   border: none;
   text-align: center;
   padding: 1rem;
@@ -135,7 +117,7 @@ form header img {
     padding: 0.7rem;
     border: none;
     border-radius: 5px;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 1px rgba(14, 14, 14, 0.185)
   }
 
@@ -182,7 +164,7 @@ form header img {
   height: 28px;
   border: none;
   margin: 4px;
-  background-color: #fff;
+  background-color: $third-color;
   cursor: pointer;
   border-radius: 100px;
 }
@@ -197,7 +179,7 @@ form header img {
   padding-right: 1rem;
   clip-path: url(#myCurve);
   filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
-  background-color: rgba(75, 192, 124, 0.507);
+  background-color: #51646bcc;
 }
 
 .logo h1 {
@@ -211,7 +193,7 @@ form header img {
   margin-top: -1.4rem;;
   letter-spacing: .5mm;
   padding-left: 3px;
-  color: #643f0f;
+  color: $secondary-color;
   font-weight: 600;
 }
 
@@ -241,7 +223,7 @@ form header img {
   flex-direction: column;
   position: absolute;
   padding: 1rem;
-  background-color: #222;
+  background-color: $primary-color;
   color: white;
   border-radius: 5px;
   filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
@@ -253,8 +235,8 @@ form header img {
   margin: 8px;
   width: 65px;
   border-radius: 5px;
-  background-color: rgb(236, 185, 18);
-  filter: drop-shadow(3px 7px 4px rgba(0, 0, 0, 0.5));
+  background-color: $secondary-color;
+  filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.295));
 }
 
 .confirmation button:active {
@@ -267,7 +249,7 @@ form header img {
   bottom: 0;
   left: 0;
   z-index: 20;
-  background-color: rgb(236, 185, 18);
+  background-color: $third-color;
   display: flex;
   justify-content: center;
   align-items:center;
@@ -287,6 +269,7 @@ form header img {
  input[type='checkbox'] {
   width: 30px;
   height: 20px;
+  background-color: $primary-color;
 }
 
 @media (max-width:279px)  { 
