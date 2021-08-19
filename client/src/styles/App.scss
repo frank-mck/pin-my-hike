@@ -388,6 +388,7 @@ input[type="checkbox"]:active {
   .form {
     width: 250px;
   }
+}
   
 @media (min-width:309px)  { 
   .gm-style-iw {
@@ -413,9 +414,8 @@ input[type="checkbox"]:active {
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-
-    &-text {
-
+  }
+}
 
   @media (min-width: 309px) {
     .logo {
@@ -447,7 +447,7 @@ input[type="checkbox"]:active {
     }
   }
 
-}
+
   
 
 
@@ -456,6 +456,7 @@ input[type="checkbox"]:active {
   .logo{
     height: 120px;
   }
+}
   
 
 
@@ -527,15 +528,16 @@ input[type="checkbox"]:active {
       }
     }
   }
-}
+
 
 .search-box {
   top: 1rem;
   left: 1rem;
   width: fit-content;
   height: fit-content;
-  position: relative;
+  position: absolute;
   z-index: 50;
+  margin-top: 6.5rem;
 }
 .input-search {
   height: 50px;
@@ -549,14 +551,22 @@ input[type="checkbox"]:active {
   transition: all 0.5s ease-in-out;
   background-color: #22a6b3;
   padding-right: 40px;
-  color: #fff;
+  color: rgb(11, 11, 11);
 }
 .input-search::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(9, 9, 9);
   font-size: 18px;
   letter-spacing: 2px;
+  padding: .4rem;
+  border-radius: 50px;
   font-weight: 100;
+  padding-left: 2.5rem;
 }
+
+input .input-search {
+  background-color: white;
+}
+
 .btn-search {
   width: 50px;
   height: 50px;
