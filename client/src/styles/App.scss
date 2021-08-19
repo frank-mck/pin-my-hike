@@ -224,6 +224,7 @@ body,
   clip-path: url(#myCurve);
   filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
   background-color: #51646bcc;
+  pointer-events: none;
 }
 
 .logo h1 {
@@ -249,13 +250,25 @@ body,
 .pin-description {
   display: flex;
   flex-direction: column;
-  padding: 0.6rem;
-  letter-spacing: 0.3mm;
+  overflow-y: scroll;
+  letter-spacing: .3mm;
+  width: 240px;
+ 
+}
+
+.gm-style-iw {
+  width: 500px;
+  margin-top: 9rem;
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0;
 }
 
 .pin-description img {
   padding: 0.2rem;
   margin-top: 1rem;
+  width: 160px!important;
+  height: 230px;
 }
 
 .confirmation {
@@ -336,8 +349,19 @@ input[type="checkbox"]:active {
   transform: scale(1.9);
 }
 
-@media (min-width: 280px) {
-  .logo {
+@media(min-width: 270px) {
+  .gm-style-iw {
+    width: 260px;
+  }
+
+  .pin-description {
+    width: 110px;
+
+    img {
+      width: 110px;
+    }
+  }
+  .logo{
     height: 110px;
     display: flex;
     justify-content: center;
@@ -364,6 +388,34 @@ input[type="checkbox"]:active {
   .form {
     width: 250px;
   }
+  
+@media (min-width:309px)  { 
+  .gm-style-iw {
+    width: 240px;
+    padding: 0;
+    margin: 0px;
+  }
+  .pin-description {
+    display: flex;
+    flex-direction: column;
+    padding: .6rem;
+    letter-spacing: .3mm;
+    width: 180px;
+
+    img {
+      width: 20px;
+    }
+  }
+  
+  .logo{
+    height: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+
+    &-text {
+
 
   @media (min-width: 309px) {
     .logo {
@@ -394,6 +446,18 @@ input[type="checkbox"]:active {
       width: 380px;
     }
   }
+
+}
+  
+
+
+@media (min-width:600px)  { 
+  
+  .logo{
+    height: 120px;
+  }
+  
+
 
   @media (min-width: 600px) {
     .logo {
@@ -427,11 +491,20 @@ input[type="checkbox"]:active {
     }
   }
 
-  @media (min-width: 801px) {
-    .logo {
-      height: 120px;
-    }
 
+@media (min-width:801px)  { 
+
+  .description {
+
+    & img {
+      height: 500px;
+      width: 800px;
+    }
+  }
+  .logo{
+    height: 120px;
+  }
+  
     .logo-text {
       & h1 {
         font-size: 3.4rem;
