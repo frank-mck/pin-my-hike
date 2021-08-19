@@ -150,3 +150,9 @@ As a user,
 So I can get an idea of how good a route is, 
 I want to be able to see ratings of pinned routes.
 ```
+
+## Model Diagram
+
+<!-- <img src="images/classdiagram.png" alt="class diagram version 1"/> -->
+
+## Miro Board
