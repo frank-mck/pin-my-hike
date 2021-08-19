@@ -33,6 +33,7 @@ export default class HikesController {
       const title = req.body.title
       const description = req.body.description
       const date = new Date()
+      const image = req.body.image
 
       // this sends the data to the database with addHike.
       const HikeResponse = await HikesDAO.addHike(
@@ -40,7 +41,8 @@ export default class HikesController {
         lat,
         title,
         description,
-        date
+        date,
+        image
       )
       res.json({ status: "success" })
     } catch (e) {
