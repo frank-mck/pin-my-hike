@@ -18,5 +18,4 @@ export default class ReviewsController {
       res.status(500).json({ error: e.message })
     }
   }
-
 }
