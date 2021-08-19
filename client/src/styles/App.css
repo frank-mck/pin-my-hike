@@ -104,11 +104,8 @@ body, .confirm-window {
 }
 
 .title-overlay {
-  height: 0px;
-}
-
-.title-overlay {
   z-index: 10;
+  height: 0px;
 }
 
 .btn {
@@ -215,6 +212,12 @@ body, .confirm-window {
           transform: scale(1.1);
 }
 
+.form-footer-logo-img img {
+  width: 75px;
+  margin-top: .7rem;
+  height: 75px;
+}
+
 @-webkit-keyframes smooth {
   from {
     width: 140px;
@@ -252,12 +255,6 @@ body, .confirm-window {
   display: inline-block;
   width: 100%;
   margin: 1rem;
-}
-
-.logo-img img {
-  width: 75px;
-  margin-top: .7rem;
-  height: 75px;
 }
 
 .close-btn {
@@ -300,18 +297,20 @@ body, .confirm-window {
 }
 
 .logo h1 {
-  font-size: 3.8rem;
+  font-size: 1.2rem;
   letter-spacing: .7mm;
   color: white;
+  margin-top: 0.5rem;
 }
 
 .logo span {
   display: block;
-  margin-top: -1.4rem;
+  margin-top: 0.2rem;
   letter-spacing: .5mm;
   padding-left: 3px;
   color: #c57a3c;
   font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .hike-window {
@@ -363,6 +362,22 @@ body, .confirm-window {
           animation: smooth-confirm 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.confirmation button {
+  padding: 10px;
+  border: none;
+  margin: 8px;
+  width: 65px;
+  border-radius: 5px;
+  background-color: #c57a3c;
+  -webkit-filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
+          filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
+}
+
+.confirmation button:active {
+  -webkit-transform: scaleY(0.9);
+          transform: scaleY(0.9);
+}
+
 @-webkit-keyframes smooth-confirm {
   from {
     display: none;
@@ -387,22 +402,6 @@ body, .confirm-window {
     width: 230px;
     opacity: 1;
   }
-}
-
-.confirmation button {
-  padding: 10px;
-  border: none;
-  margin: 8px;
-  width: 65px;
-  border-radius: 5px;
-  background-color: #c57a3c;
-  -webkit-filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
-          filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
-}
-
-.confirmation button:active {
-  -webkit-transform: scaleY(0.9);
-          transform: scaleY(0.9);
 }
 
 .toggleDropPin {
@@ -482,7 +481,7 @@ input[type='checkbox']:active {
   }
 }
 
-@media (min-width: 280px) and (min-width: 309px) {
+@media (min-width: 309px) {
   .logo {
     height: 95px;
     display: -webkit-box;
@@ -507,13 +506,13 @@ input[type='checkbox']:active {
   }
 }
 
-@media (min-width: 280px) and (min-width: 400px) {
+@media (min-width: 400px) {
   .form {
     width: 380px;
   }
 }
 
-@media (min-width: 280px) and (min-width: 600px) {
+@media (min-width: 600px) {
   .logo {
     height: 120px;
   }
@@ -538,7 +537,7 @@ input[type='checkbox']:active {
   }
 }
 
-@media (min-width: 280px) and (min-width: 801px) {
+@media (min-width: 801px) {
   .logo {
     height: 120px;
   }
