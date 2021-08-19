@@ -399,6 +399,7 @@ input[type="checkbox"]:active {
   .form {
     width: 250px;
   }
+}
   
 @media (min-width:309px)  { 
   .gm-style-iw {
@@ -424,9 +425,8 @@ input[type="checkbox"]:active {
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-
-    &-text {
-
+  }
+}
 
   @media (min-width: 309px) {
     .logo {
@@ -457,11 +457,11 @@ input[type="checkbox"]:active {
     width: 380px;
   }
 }
-  
+
 @media(min-width: 600px)  { 
   .logo {
     height: 120px;
-
+    
     &-text {
 
       & h1 {
@@ -472,8 +472,8 @@ input[type="checkbox"]:active {
         font-size: 0.9rem;
         margin-top: -0.8rem;
       }
-    } 
-  
+    }
+    
     &-img {
       width: 60px;
       height: 50px;
@@ -484,11 +484,13 @@ input[type="checkbox"]:active {
         height: 75px;
       }
     }
-
-    .form {
-      width: 400px;
-    }
   }
+}
+
+  .form {
+    width: 400px;
+  }
+}
 
 @media (min-width:801px)  { 
 
@@ -521,15 +523,16 @@ input[type="checkbox"]:active {
       margin-right: 20px;
     }
   }
-}
+
 
 .search-box {
   top: 1rem;
   left: 1rem;
   width: fit-content;
   height: fit-content;
-  position: relative;
+  position: absolute;
   z-index: 50;
+  margin-top: 6.5rem;
 }
 .input-search {
   height: 50px;
@@ -543,14 +546,22 @@ input[type="checkbox"]:active {
   transition: all 0.5s ease-in-out;
   background-color: #22a6b3;
   padding-right: 40px;
-  color: #fff;
+  color: rgb(11, 11, 11);
 }
 .input-search::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(9, 9, 9);
   font-size: 18px;
   letter-spacing: 2px;
+  padding: .4rem;
+  border-radius: 50px;
   font-weight: 100;
+  padding-left: 2.5rem;
 }
+
+input .input-search {
+  background-color: white;
+}
+
 .btn-search {
   width: 50px;
   height: 50px;

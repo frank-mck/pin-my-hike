@@ -42,15 +42,8 @@ Click on a pin to highlight the route and view pictures of the hike.
 * Linting: ESLint
 * CI: CircleCI
 
-## Examples
-
-```
-INSERT SCREENSHOTS/GIFS HERE
-[HOMEPAGE]
-[SIGN UP/IN]
-[CLICKING A PIN]
-[CREATING A PIN]
-```
+## Preview
+![Imgur](https://i.imgur.com/DGriDOG.png)
 
 ## Usage
 
