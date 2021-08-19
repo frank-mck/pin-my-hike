@@ -186,11 +186,24 @@ export const MyMap = () => {
           <div className ='pin-description'>
             <h2>Title - { selectedHike.title } </h2>
             <p>Description - { selectedHike.description } </p>
-            <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg"
-              alt=""
-              height="260px"
-              width="250px"
-            ></img>
+            
+            {selectedHike.image ?
+              (
+              <div><img src={ selectedHike.image }
+                alt=""
+                height="260px"
+                width="250px"
+            ></img></div>
+               ) 
+               :
+              (
+              <div><img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg"
+                alt=""
+                height="260px"
+                width="250px"
+            ></img></div>
+              )
+            }
           </div>
         </InfoWindow>) : null }
         </div>

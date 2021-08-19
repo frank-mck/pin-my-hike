@@ -6,6 +6,7 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers, setSelected }
   const [description, setDescription] = React.useState("");
   const [lng, setLng] = React.useState(location.lng);
   const [lat, setLat] = React.useState(location.lat);
+  const [image, setImage] = React.useState("");
 
   const addPin = async (pin) => {
    HikeDataService.createHike(pin)
@@ -14,12 +15,13 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers, setSelected }
 
   const onSubmit = (e) => {
     e.preventDefault();
-    onAdd({ title, description, lng, lat })
-    addPin({"title": title, "description": description, "lng": lng, "lat": lat})
+    onAdd({ title, description, lng, lat, image })
+    addPin({"title": title, "description": description, "lng": lng, "lat": lat, "image": image})
     setTitle('')
     setLng('')
     setLat('')
     setDescription('')
+    setImage('')
     setMarkers([])
   }
 
@@ -43,18 +45,10 @@ export const Form = ({ setPins, pins, location, onAdd, setMarkers, setSelected }
         <textarea  className="form-text-field" name ='description' id="description" type="text" rows="5"
           placeholder="Enter description for location, distance ect." value={description} onChange={(e) => setDescription(e.target.value)}>
         </textarea>
-
+        <input  className="form-title" type ='text' name='image' placeholder='Enter an image URL' value={image} onChange={(e) => setImage(e.target.value)}></input>
         <br />
 
         <div className="form-footer">
-
-          <div className="form-footer-logo-container">
-            <label htmlFor="photo" className="form-footer-photo-label">
-              Upload Image <div><i className="fas fa-camera fa-1x form-footer-logo"></i></div>
-            </label>
-            <input type="file" id="photo" style={{display: "none"}} />
-          </div>
-
           <div className="form-footer-submit-container">
             <button type="submit" className="btn form-submit">Submit</button>
           </div>
