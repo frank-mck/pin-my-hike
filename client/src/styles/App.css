@@ -453,9 +453,9 @@ input[type='checkbox']:active {
           transform: scale(1.9);
 }
 
-@media (min-width: 309px) {
+@media (min-width: 280px) {
   .logo {
-    height: 95px;
+    height: 110px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -467,19 +467,53 @@ input[type='checkbox']:active {
             align-items: flex-start;
   }
   .logo-text h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
   }
   .logo-text span {
-    font-size: .7rem;
+    font-size: .9rem;
     margin-top: -.8rem;
   }
   .logo-img img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+  }
+  .form {
+    width: 250px;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 280px) and (min-width: 309px) {
+  .logo {
+    height: 95px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: center;
+  }
+  .logo-text h1 {
+    display: inline-block;
+  }
+  .logo-text span {
+    font-size: 0.9rem;
+  }
+  .form {
+    width: 300px;
+  }
+}
+
+@media (min-width: 280px) and (min-width: 400px) {
+  .form {
+    width: 380px;
+  }
+}
+
+@media (min-width: 280px) and (min-width: 600px) {
   .logo {
     height: 120px;
   }
@@ -499,9 +533,12 @@ input[type='checkbox']:active {
     width: 75px;
     height: 75px;
   }
+  .form {
+    width: 400px;
+  }
 }
 
-@media (min-width: 801px) {
+@media (min-width: 280px) and (min-width: 801px) {
   .logo {
     height: 120px;
   }
