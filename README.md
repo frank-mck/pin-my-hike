@@ -153,6 +153,8 @@ I want to be able to see ratings of pinned routes.
 
 ## Model Diagram
 
-<!-- <img src="images/classdiagram.png" alt="class diagram version 1"/> -->
+<img src="/readme_images/model.png" alt="model diagram"/>
 
 ## Miro Board
+
+<img src="/readme_images/miro.png" alt="team miro board"/>
