@@ -214,7 +214,7 @@ body, .confirm-window {
 
 .form-footer-logo-img img {
   width: 75px;
-  margin-top: .7rem;
+  margin-top: 1rem;
   height: 75px;
 }
 
@@ -311,6 +311,10 @@ body, .confirm-window {
   color: #c57a3c;
   font-weight: 600;
   font-size: 0.8rem;
+}
+
+.logo-img img {
+  margin-top: 1rem;
 }
 
 .hike-window {
@@ -452,7 +456,7 @@ input[type='checkbox']:active {
           transform: scale(1.9);
 }
 
-@media (min-width: 280px) {
+@media (min-width: 250px) {
   .logo {
     height: 110px;
     display: -webkit-box;
@@ -466,11 +470,12 @@ input[type='checkbox']:active {
             align-items: flex-start;
   }
   .logo-text h1 {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
   .logo-text span {
     font-size: .9rem;
-    margin-top: -.8rem;
+    margin-top: -.5rem;
+    margin-left: -.2rem;
   }
   .logo-img img {
     width: 50px;
@@ -496,6 +501,7 @@ input[type='checkbox']:active {
     text-align: center;
   }
   .logo-text h1 {
+    margin-top: 0rem;
     display: inline-block;
   }
   .logo-text span {
@@ -552,10 +558,6 @@ input[type='checkbox']:active {
     width: 60px;
     height: 50px;
     margin-right: 20px;
-  }
-  .logo-img img {
-    width: 75px;
-    height: 75px;
   }
 }
 /*# sourceMappingURL=App.css.map */
