@@ -273,6 +273,77 @@ export const MyMap = () => {
 
       {selected ? (
         <div>
+          <div className="info-window">
+        {selectedHike ? (
+
+        // InfoWindow to display each hikes attributes. 
+
+        <InfoWindow
+          style={{height: "200px"}}
+          position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
+          onCloseClick={() => {setSelectedHike(null)}}>
+          <div className ='pin-description'>
+            <h3> { selectedHike.title } </h3>
+            <p>{ selectedHike.description } </p>            
+            {selectedHike.image ?
+             
+              <div><img src={ selectedHike.image }
+                alt=""
+                height="260px"
+                width="250px"
+            ></img></div>
+               ) 
+               :
+              (
+              <div><img src="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg"
+                alt=""
+                height="260px"
+                width="250px"
+            ></img></div>
+              )
+            }
+          </div>
+        </InfoWindow>) : null }
+        </div>
+        </div>
+
+            {markers.map(marker => {
+              return <Marker key={marker.time.toISOString()}
+              position={{lat: marker.lat, lng: marker.lng}} 
+              icon={{
+                url: 'https://i.ibb.co/74nnLy7/pin-my-hike-trial.png',
+                scaledSize: new window.google.maps.Size(75,75),
+                anchor: new window.google.maps.Point(35,60),
+              }}
+              
+            />
+            })}
+
+           {current.map(marker => {
+              return <Marker key={marker.time.toISOString()}
+              className='button-container'
+              position={{lat: marker.lat, lng: marker.lng}} 
+              zoom={zoom}
+              icon={{
+                url: 'https://image.flaticon.com/icons/png/512/4985/4985836.png',
+                scaledSize: new window.google.maps.Size(45,45),
+                anchor: new window.google.maps.Point(20,45),              
+              }}
+            />
+            })}
+            
+              {selected ? ( <div><Form setSelected={setSelected} pins={pins} setPins={setPins} onAdd={addNewPin}
+               setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
+
+               <Button getPosition={getPosition} />
+               
+               <AddPin toggle={toggle} />
+                { markers.length > 0 && <Confirmation toggle={toggle} setMarkers={setMarkers} confirm={() => setSelected(markers[0])}  />}
+            </GoogleMap>
+  )
+}
+
+
           <Form
             setSelected={setSelected}
             pins={pins}
@@ -297,3 +368,4 @@ export const MyMap = () => {
     </GoogleMap>
   );
 };
+

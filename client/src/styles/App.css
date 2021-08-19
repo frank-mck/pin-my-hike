@@ -1,0 +1,694 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body,
+.confirm-window {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.button {
+  background-image: url("https://image.flaticon.com/icons/png/512/860/860762.png");
+  background-size: 23px 23px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 13.6px 7rem 0;
+  background-color: white;
+  border: none;
+  font-size: 1.4rem;
+  border-radius: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151);
+          box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151);
+}
+
+.button-container {
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+  width: 0px;
+  height: 0px;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    width: 60px;
+    height: 60px;
+    opacity: 0.1;
+    background-color: white;
+  }
+}
+
+@keyframes pulse {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    width: 60px;
+    height: 60px;
+    opacity: 0.1;
+    background-color: white;
+  }
+}
+
+.title-overlay {
+  height: 0px;
+}
+
+.title-overlay {
+  z-index: 10;
+}
+
+.btn {
+  font-weight: 800;
+  padding: 0.5rem 1rem;
+  border: none;
+  border: #51646b solid 1px;
+  color: #51646b;
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background: #51646b;
+  color: #fff;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.form {
+  z-index: 11;
+  background-color: #b8a6a0;
+  border: none;
+  text-align: center;
+  padding: 1rem;
+  width: 400px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
+          box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
+  -webkit-animation: smooth 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation: smooth 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.form > header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 50px;
+}
+
+.form > header > img {
+  width: 40px;
+  height: 40px;
+}
+
+.form-title {
+  margin: 1rem 0 1rem 0;
+}
+
+.form-title, .form-text-field {
+  opacity: 0.8;
+  width: 95%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 1px rgba(14, 14, 14, 0.185);
+          box-shadow: 1px 1px 1px rgba(14, 14, 14, 0.185);
+}
+
+.form-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-footer-logo {
+  color: #51646b;
+  cursor: pointer;
+}
+
+.form-footer-logo-container {
+  cursor: pointer;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border: #51646b 1px solid;
+  border-radius: 5px;
+  margin: 10px 0 5px 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.form-footer-logo-container:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+@-webkit-keyframes smooth {
+  from {
+    width: 140px;
+    opacity: 0.3;
+  }
+  to {
+    width: 400px;
+    opacity: 1;
+  }
+}
+
+@keyframes smooth {
+  from {
+    width: 140px;
+    opacity: 0.3;
+  }
+  to {
+    width: 400px;
+    opacity: 1;
+  }
+}
+
+.form-footer-photo-label {
+  font-size: 13.3px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #51646b;
+}
+
+.form-footer-photo-label > div {
+  display: inline-block;
+}
+
+.form-footer-submit {
+  display: inline-block;
+  width: 100%;
+  margin: 1rem;
+}
+
+.logo-img img {
+  width: 75px;
+  margin-top: 0.7rem;
+  height: 75px;
+}
+
+.close-btn {
+  background-image: url("https://image.flaticon.com/icons/png/512/106/106830.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: none;
+  width: 26px;
+  height: 28px;
+  border: none;
+  margin: 4px;
+  background-color: #b8a6a0;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100vw;
+  height: 130px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-right: 1rem;
+  -webkit-clip-path: url(#myCurve);
+          clip-path: url(#myCurve);
+  -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+  background-color: #51646bcc;
+  pointer-events: none;
+}
+
+.logo h1 {
+  font-size: 3.8rem;
+  letter-spacing: 0.7mm;
+  color: white;
+}
+
+.logo span {
+  display: block;
+  margin-top: -1.4rem;
+  letter-spacing: 0.5mm;
+  padding-left: 3px;
+  color: #c57a3c;
+  font-weight: 600;
+}
+
+.hike-window {
+  text-align: center;
+  font-size: 10px;
+}
+
+.pin-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+  letter-spacing: .3mm;
+  width: 240px;
+}
+
+.gm-style-iw {
+  width: 500px;
+  margin-top: 9rem;
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0;
+
+}
+
+.pin-description img {
+  padding: 0.2rem;
+  margin-top: 1rem;
+  width: 160px !important;
+  height: 230px;
+}
+
+.confirmation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 230px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 22;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  padding: 1rem;
+  background-color: #51646b;
+  color: white;
+  border-radius: 5px;
+  -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+  -webkit-animation: smooth-confirm 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation: smooth-confirm 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@-webkit-keyframes smooth-confirm {
+  from {
+    display: none;
+    width: 200px;
+    opacity: 0.1;
+  }
+  to {
+    display: content;
+    width: 230px;
+    opacity: 1;
+  }
+}
+
+@keyframes smooth-confirm {
+  from {
+    display: none;
+    width: 200px;
+    opacity: 0.1;
+  }
+  to {
+    display: content;
+    width: 230px;
+    opacity: 1;
+  }
+}
+
+.confirmation button {
+  padding: 10px;
+  border: none;
+  margin: 8px;
+  width: 65px;
+  border-radius: 5px;
+  background-color: #c57a3c;
+  -webkit-filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
+          filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
+}
+
+.confirmation button:active {
+  -webkit-transform: scaleY(0.9);
+          transform: scaleY(0.9);
+}
+
+.toggleDropPin {
+  position: absolute;
+  z-index: 20;
+  margin: 0 0 0.4rem 0.4rem;
+  background-color: #b8a6a0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  height: 40px;
+  width: 120px;
+}
+
+.toggleDropPin form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  height: 20px;
+  background-color: #51646b;
+}
+
+input[type="checkbox"]:active {
+  opacity: 0;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  -webkit-transform: scale(1.9);
+          transform: scale(1.9);
+}
+
+@media (min-width: 270px) {
+  .gm-style-iw {
+    width: 260px;
+  }
+  .pin-description {
+    width: 110px;
+  }
+  .pin-description img {
+    width: 110px;
+  }
+  .logo {
+    height: 110px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .logo-text h1 {
+    font-size: 2rem;
+  }
+  .logo-text span {
+    font-size: 0.9rem;
+    margin-top: -0.8rem;
+  }
+  .logo-img img {
+    width: 50px;
+    height: 50px;
+  }
+  .form {
+    width: 250px;
+  }
+}
+
+@media (min-width: 270px) and (min-width: 309px) {
+  .gm-style-iw {
+    width: 240px;
+    padding: 0;
+    margin: 0px;
+  }
+  .pin-description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: .6rem;
+    letter-spacing: .3mm;
+    width: 180px;
+  }
+  .pin-description img {
+    width: 20px;
+  }
+  .logo {
+    height: 95px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: center;
+  }
+  .logo-text h1 {
+    display: inline-block;
+  }
+  .logo-text span {
+    font-size: 0.9rem;
+  }
+  .form {
+    width: 300px;
+  }
+}
+
+@media (min-width: 270px) and (min-width: 600px) {
+  .logo {
+    height: 120px;
+  }
+  .logo-text h1 {
+    font-size: 3.4rem;
+  }
+  .logo-text span {
+    font-size: 0.9rem;
+    margin-top: -0.8rem;
+  }
+  .logo-img {
+    width: 60px;
+    height: 50px;
+    margin-right: 20px;
+  }
+  .logo-img img {
+    width: 75px;
+    height: 75px;
+  }
+  .form {
+    width: 400px;
+  }
+}
+
+@media (min-width: 270px) and (min-width: 801px) {
+  .description img {
+    height: 500px;
+    width: 800px;
+  }
+  .logo {
+    height: 120px;
+  }
+  .logo-text h1 {
+    font-size: 3.4rem;
+  }
+  .logo-text span {
+    font-size: 0.9rem;
+    margin-top: -0.8rem;
+  }
+  .logo-img {
+    width: 60px;
+    height: 50px;
+    margin-right: 20px;
+  }
+  .logo-img img {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+.search-box {
+  top: 1rem;
+  left: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+  z-index: 50;
+}
+
+.input-search {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background-color: #22a6b3;
+  padding-right: 40px;
+  color: #fff;
+}
+
+.input-search::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.input-search:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.input-search::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.input-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.btn-search {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color: transparent;
+  pointer-events: painted;
+}
+
+.btn-search:focus ~ .input-search {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+.input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+/*# sourceMappingURL=App.css.map */

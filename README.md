@@ -4,7 +4,7 @@ A Makers week 11 & 12 group project.
 
 ## Description
 
-> INSERT ONE-LINER HERE
+> Don't follow the crowd. Follow the pin!
 
 A website with a collection of hiking experiences viewable as a pin on a map shared by others. 
 Click on a pin to highlight the route and view pictures of the hike.
@@ -23,23 +23,24 @@ Click on a pin to highlight the route and view pictures of the hike.
 * [Ashley Slaney](https://github.com/Ashley-Slaney)
 
 ## Team Approach
-```
-INSERT ALL THE GOOD STUFF ABOUT AGILE HERE
-```
+* Miro Board - day 1 planning and communicating our goals
+* Trello
+* Agile
+* [XP Values](http://www.extremeprogramming.org/values.html)
+* Communication
+* Daily self-lead learning in the morning, pairing in the afternoon
+* Daily stand ups & retros
+* Feedback - Code Reviews, demos
+* Semantic commit messages
 
 ## Technology Used
 * MERN Stack (MongoDB, Express, React, Node)
+* DB Hosting: MongoDB Atlas
 * Testing: Jest
-* API Testing: Insomnia
+* API Testing: Insomnia, Postman
 * API: Google API
 * Linting: ESLint
 * CI: CircleCI
-* Heroku
-
-## APIs that need to be enabled:
-- Geocoding API
-- Maps JavaScript API
-- Places API
 
 ## Examples
 
@@ -55,11 +56,18 @@ INSERT SCREENSHOTS/GIFS HERE
 
 ### Set up env varibles
 1. Register for a Google Maps API Key.
+    APIs that need to be enabled:
+    * Geocoding API
+    * Geolocation API
+    * Maps JavaScript API
+    * Places API
+
 2. Retrieve your MongoDB URI:
     * Go to MongoDB Atlas > connect > connect your application
     * Copy the URI
     * Edit the URI so that `<password>` is replaced by your real MongoDB password
     * Edit the URI so that `myFirstDatabase` is replaced by `pin_my_hike`
+3. Retrieve your font awesome CDN.
 
 Create a .env file at the root and insert the following:
 ```
@@ -68,9 +76,17 @@ PIN_MY_HIKES_DB_URI=YOUR_MONGODB_ATLAS_URI
 FONT_AWESOME_CDN=YOUR_FONT_AWESOME_CDN
 ```
 
+### Set up
+```
+npm install
+cd client
+npm install
+```
+
 ### Testing
 ```
-INSERT HOW TO TEST HERE
+cd client
+npm run test
 ```
 
 ### Linting
@@ -134,3 +150,11 @@ As a user,
 So I can get an idea of how good a route is, 
 I want to be able to see ratings of pinned routes.
 ```
+
+## Model Diagram
+
+<img src="/readme_images/model.png" alt="model diagram"/>
+
+## Miro Board
+
+<img src="/readme_images/miro.png" alt="team miro board"/>
