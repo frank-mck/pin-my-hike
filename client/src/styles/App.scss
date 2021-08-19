@@ -50,8 +50,29 @@ body, .confirm-window {
   cursor: pointer;
   padding: 5px;
   border: 1px solid #ddd;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151)
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151);
 }
+
+.button-container {
+  animation: pulse 2s infinite;
+  width: 0px;
+  height: 0px;
+}
+
+@keyframes pulse {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    width: 60px;
+    height: 60px;
+    opacity: .1;
+    background-color: white;
+  }
+}
+
+
 
 .title-overlay {
   height: 0px;
@@ -88,6 +109,7 @@ body, .confirm-window {
   border-radius: 5px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281),
   2px 3px 6px rgba(0, 0, 0, 0.185);
+  animation: smooth .2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   & > header {
     display: flex;
@@ -134,10 +156,21 @@ body, .confirm-window {
       border: $primary-color 1px solid;
       border-radius: 5px;
       margin: 10px 0 5px 0;
-      transition: all .2s ease-in-out;
+      transition: all .4s ease-in-out;
 
       &:hover {
         transform: scale(1.1);
+      }
+    }
+
+    @keyframes smooth {
+      from {
+        width: 140px;
+        opacity: .3
+      }
+      to {
+        width: 400px;
+        opacity: 1;
       }
     }
 
@@ -228,7 +261,7 @@ body, .confirm-window {
 
 .confirmation {
   display: flex;
-  width: 220px;
+  width: 230px;
   align-items: center;
   justify-content: center;
   z-index: 22;
@@ -239,6 +272,21 @@ body, .confirm-window {
   color: white;
   border-radius: 5px;
   filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+  animation: smooth-confirm .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes smooth-confirm {
+  from {
+    display: none;
+    width: 200px;
+    opacity: .1;
+  }
+
+  to {
+    display: content;
+    width: 230px;
+    opacity: 1;
+  }
 }
 
 .confirmation button {
@@ -259,7 +307,7 @@ body, .confirm-window {
 .toggleDropPin {
   position: absolute;
   z-index: 20;
-  margin: 5px;
+  margin: 0 0 .4rem .4rem;
   background-color: $third-color;;
   display: flex;
   justify-content: space-evenly;
@@ -289,34 +337,66 @@ input[type='checkbox']:active {
   transition: .1s;
   transform: scale(1.9);
 }
-  
-@media (min-width:309px)  { 
-.logo{
-  height: 95px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
 
+@media(min-width: 280px) {
+  .logo{
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
   .logo-text {
 
     & h1 {
-      font-size: 2.8rem;
+      font-size: 2rem;
     }
 
     & span {
-      font-size: .7rem;
+      font-size: .9rem;
       margin-top: -.8rem;
     }
   } 
 
   .logo-img {
     & img {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .form {
+    width: 250px;
+  }
+  
+@media (min-width:309px)  { 
+  .logo{
+    height: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+
+    &-text {
+
+      & h1 {
+        display: inline-block;
+      }
+
+      & span {
+        font-size: 0.9rem;
+      }
     }
   }
 
+  .form {
+    width: 300px;
+  }
+}
+
+@media (min-width: 400px) {
+  .form {
+    width: 380px;
+  }
 }
   
 @media (min-width:600px)  { 
@@ -347,6 +427,10 @@ input[type='checkbox']:active {
       
       }
     }
+
+  .form {
+    width: 400px;
+  }
 }
 
 @media (min-width:801px)  { 
@@ -377,6 +461,7 @@ input[type='checkbox']:active {
       
       }
     }
+  }
 }
 
 .search-box{

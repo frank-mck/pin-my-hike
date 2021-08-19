@@ -70,6 +70,39 @@ body, .confirm-window {
           box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.151);
 }
 
+.button-container {
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+  width: 0px;
+  height: 0px;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    width: 60px;
+    height: 60px;
+    opacity: .1;
+    background-color: white;
+  }
+}
+
+@keyframes pulse {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    width: 60px;
+    height: 60px;
+    opacity: .1;
+    background-color: white;
+  }
+}
+
 .title-overlay {
   height: 0px;
 }
@@ -107,6 +140,8 @@ body, .confirm-window {
   border-radius: 5px;
   -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
           box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.281), 2px 3px 6px rgba(0, 0, 0, 0.185);
+  -webkit-animation: smooth 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation: smooth 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .form > header {
@@ -171,13 +206,35 @@ body, .confirm-window {
   border: #51646b 1px solid;
   border-radius: 5px;
   margin: 10px 0 5px 0;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
 .form-footer-logo-container:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+@-webkit-keyframes smooth {
+  from {
+    width: 140px;
+    opacity: .3;
+  }
+  to {
+    width: 400px;
+    opacity: 1;
+  }
+}
+
+@keyframes smooth {
+  from {
+    width: 140px;
+    opacity: .3;
+  }
+  to {
+    width: 400px;
+    opacity: 1;
+  }
 }
 
 .form-footer-photo-label {
@@ -283,7 +340,7 @@ body, .confirm-window {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 220px;
+  width: 230px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -302,6 +359,34 @@ body, .confirm-window {
   border-radius: 5px;
   -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
           filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+  -webkit-animation: smooth-confirm 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation: smooth-confirm 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@-webkit-keyframes smooth-confirm {
+  from {
+    display: none;
+    width: 200px;
+    opacity: .1;
+  }
+  to {
+    display: content;
+    width: 230px;
+    opacity: 1;
+  }
+}
+
+@keyframes smooth-confirm {
+  from {
+    display: none;
+    width: 200px;
+    opacity: .1;
+  }
+  to {
+    display: content;
+    width: 230px;
+    opacity: 1;
+  }
 }
 
 .confirmation button {
@@ -323,7 +408,7 @@ body, .confirm-window {
 .toggleDropPin {
   position: absolute;
   z-index: 20;
-  margin: 5px;
+  margin: 0 0 .4rem .4rem;
   background-color: #b8a6a0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -368,9 +453,9 @@ input[type='checkbox']:active {
           transform: scale(1.9);
 }
 
-@media (min-width: 309px) {
+@media (min-width: 280px) {
   .logo {
-    height: 95px;
+    height: 110px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -382,19 +467,53 @@ input[type='checkbox']:active {
             align-items: flex-start;
   }
   .logo-text h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
   }
   .logo-text span {
-    font-size: .7rem;
+    font-size: .9rem;
     margin-top: -.8rem;
   }
   .logo-img img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+  }
+  .form {
+    width: 250px;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 280px) and (min-width: 309px) {
+  .logo {
+    height: 95px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: center;
+  }
+  .logo-text h1 {
+    display: inline-block;
+  }
+  .logo-text span {
+    font-size: 0.9rem;
+  }
+  .form {
+    width: 300px;
+  }
+}
+
+@media (min-width: 280px) and (min-width: 400px) {
+  .form {
+    width: 380px;
+  }
+}
+
+@media (min-width: 280px) and (min-width: 600px) {
   .logo {
     height: 120px;
   }
@@ -414,9 +533,12 @@ input[type='checkbox']:active {
     width: 75px;
     height: 75px;
   }
+  .form {
+    width: 400px;
+  }
 }
 
-@media (min-width: 801px) {
+@media (min-width: 280px) and (min-width: 801px) {
   .logo {
     height: 120px;
   }

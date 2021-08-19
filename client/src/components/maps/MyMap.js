@@ -240,7 +240,7 @@ export const MyMap = () => {
     >
     
     {pins.map((hike) => (
-      <Marker
+      <Marker 
         key={hike._id}
         position={{ lat: hike.lat, lng: hike.lng }}
         icon={{
@@ -261,6 +261,7 @@ export const MyMap = () => {
         <div>
         {selectedHike ? (
         <InfoWindow
+          className="info-window"
           position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
           onCloseClick={() => {setSelectedHike(null)}}
         >
@@ -273,6 +274,7 @@ export const MyMap = () => {
              height="260px"
              width="250px"
             ></img>
+            
 
           </div>
         </InfoWindow>) : null }
@@ -292,23 +294,22 @@ export const MyMap = () => {
 
            {current.map(marker => {
               return <Marker key={marker.time.toISOString()}
+              className='button-container'
               position={{lat: marker.lat, lng: marker.lng}} 
               zoom={zoom}
               icon={{
-                url: 'https://image.flaticon.com/icons/png/512/3203/3203052.png',
+                url: 'https://image.flaticon.com/icons/png/512/4985/4985836.png',
                 scaledSize: new window.google.maps.Size(45,45),
-                anchor: new window.google.maps.Point(20,45),
+                anchor: new window.google.maps.Point(20,45),              
               }}
-              
             />
             })}
             
-
               {selected ? ( <div><Form setSelected={setSelected} pins={pins} setPins={setPins} onAdd={addNewPin}
                setMarkers={setMarkers} location={{lat: selected.lat, lng: selected.lng}} /></div> ) : null  }
 
                <Button getPosition={getPosition} />
-               {/* <input type='checkbox' value='Drop pin' onClick={toggle} className="add-pin"></input> */}
+               
                <AddPin toggle={toggle} />
                 { markers.length > 0 && <Confirmation toggle={toggle} setMarkers={setMarkers} confirm={() => setSelected(markers[0])}  />}
             </GoogleMap>
