@@ -9,7 +9,7 @@ export const Confirmation = ({ confirm, setMarkers, toggle }) => {
   return (
     <section className='confirm-window'>
       <div className ='confirmation'>
-        <h2>Are you sure?</h2>
+        <h2>Drop it?</h2>
         <div>
           <button onClick={confirm}  onChange={closeConfirm}>Yes</button>
           <button onChange={toggle} onClick={closeConfirm}>No</button>
