@@ -329,7 +329,6 @@ body,
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow-y: scroll;
   letter-spacing: .3mm;
   width: 240px;
 }
@@ -337,7 +336,6 @@ body,
 .gm-style-iw {
   width: 500px;
   margin-top: 9rem;
-  overflow-y: scroll;
   padding: 0;
   margin: 0;
 }
