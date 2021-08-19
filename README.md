@@ -60,17 +60,28 @@ INSERT SCREENSHOTS/GIFS HERE
     * Copy the URI
     * Edit the URI so that `<password>` is replaced by your real MongoDB password
     * Edit the URI so that `myFirstDatabase` is replaced by `pin_my_hike`
+3. Retrieve your font awesome CDN:
+    * INSERT HOW TO RETRIEVE FONT AWESOME CDN HERE
 
 Create a .env file at the root and insert the following:
 ```
 REACT_APP_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
+REACT_APP_GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
 PIN_MY_HIKES_DB_URI=YOUR_MONGODB_ATLAS_URI
 FONT_AWESOME_CDN=YOUR_FONT_AWESOME_CDN
 ```
 
+### Set up
+```
+npm install
+cd client
+npm install
+```
+
 ### Testing
 ```
-INSERT HOW TO TEST HERE
+cd client
+npm run test
 ```
 
 ### Linting
