@@ -206,8 +206,8 @@ body, .confirm-window {
   border: #51646b 1px solid;
   border-radius: 5px;
   margin: 10px 0 5px 0;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
 .form-footer-logo-container:hover {
@@ -217,7 +217,7 @@ body, .confirm-window {
 
 @-webkit-keyframes smooth {
   from {
-    width: 90px;
+    width: 140px;
     opacity: .3;
   }
   to {
@@ -228,7 +228,7 @@ body, .confirm-window {
 
 @keyframes smooth {
   from {
-    width: 90px;
+    width: 140px;
     opacity: .3;
   }
   to {
@@ -359,8 +359,8 @@ body, .confirm-window {
   border-radius: 5px;
   -webkit-filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
           filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
-  -webkit-animation: smooth-confirm 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-          animation: smooth-confirm 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-animation: smooth-confirm 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation: smooth-confirm 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @-webkit-keyframes smooth-confirm {
