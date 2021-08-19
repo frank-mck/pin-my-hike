@@ -273,17 +273,21 @@ export const MyMap = () => {
     </div>
 
         <div>
+          <div className="info-window">
         {selectedHike ? (
-
-        // InfoWindow to display each hikes attributes. 
-        
+          
         <InfoWindow
-          className="info-window"
+          style={{height: "200px"}}
           position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
           onCloseClick={() => {setSelectedHike(null)}}>
           <div className ='pin-description'>
-            <h2>Title - { selectedHike.title } </h2>
-            <p>Description - { selectedHike.description } </p>
+            <h3> { selectedHike.title } </h3>
+            <p>{ selectedHike.description } </p>
+            <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/happy-campers-live-here-unknown.jpg"
+             alt=""
+             height="260px"
+             width="250px"
+            ></img>
             
             {selectedHike.image ?
               (
@@ -304,6 +308,7 @@ export const MyMap = () => {
             }
           </div>
         </InfoWindow>) : null }
+        </div>
         </div>
 
             {markers.map(marker => {
@@ -341,3 +346,4 @@ export const MyMap = () => {
             </GoogleMap>
   )
 }
+
