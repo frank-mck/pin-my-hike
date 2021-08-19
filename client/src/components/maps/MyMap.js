@@ -148,7 +148,7 @@ export const MyMap = () => {
     >
     
     {pins.map((hike) => (
-      <Marker
+      <Marker 
         key={hike._id}
         position={{ lat: hike.lat, lng: hike.lng }}
         icon={{
@@ -165,6 +165,7 @@ export const MyMap = () => {
         <div>
         {selectedHike ? (
         <InfoWindow
+          className="info-window"
           position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
           onCloseClick={() => {setSelectedHike(null)}}
         >
@@ -177,6 +178,7 @@ export const MyMap = () => {
              height="260px"
              width="250px"
             ></img>
+            
 
           </div>
         </InfoWindow>) : null }
