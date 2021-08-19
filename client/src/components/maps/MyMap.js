@@ -214,8 +214,8 @@ export const MyMap = () => {
             }}
           >
             <div className="pin-description">
-              <h2>Title - {selectedHike.title} </h2>
-              <p>Description - {selectedHike.description} </p>
+              <h2> {selectedHike.title} </h2>
+              <p> {selectedHike.description} </p>
 
               {selectedHike.image ? (
                 <div>
