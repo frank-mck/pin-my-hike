@@ -65,6 +65,7 @@ body,
     width: 0px;
     height: 0px;
   }
+
   to {
     width: 60px;
     height: 60px;
@@ -74,11 +75,8 @@ body,
 }
 
 .title-overlay {
-  height: 0px;
-}
-
-.title-overlay {
   z-index: 10;
+  height: 0px;
 }
 
 .btn {
@@ -146,21 +144,26 @@ body,
     &-logo {
       color: $primary-color;
       cursor: pointer;
-    }
-
-    &-logo-container {
-      cursor: pointer;
-      background: #fff;
-      padding: 0.5rem 1rem;
-      border: $primary-color 1px solid;
-      border-radius: 5px;
-      margin: 10px 0 5px 0;
-      transition: all 0.4s ease-in-out;
-
-      &:hover {
-        transform: scale(1.1);
+      
+      &-container {
+        cursor: pointer;
+        background: #fff;
+        padding: 0.5rem 1rem;
+        border: $primary-color 1px solid;
+        border-radius: 5px;
+        margin: 10px 0 5px 0;
+        transition: all .4s ease-in-out;
+  
+        &:hover {
+          transform: scale(1.1);
+        }
       }
-    }
+
+      &-img img{
+        width: 75px;
+        margin-top: 1rem;
+        height: 75px;
+      }
 
     @keyframes smooth {
       from {
@@ -192,12 +195,6 @@ body,
   }
 }
 
-.logo-img img {
-  width: 75px;
-  margin-top: 0.7rem;
-  height: 75px;
-}
-
 .close-btn {
   background-image: url("https://image.flaticon.com/icons/png/512/106/106830.png");
   background-size: 20px;
@@ -227,19 +224,27 @@ body,
   pointer-events: none;
 }
 
-.logo h1 {
-  font-size: 3.8rem;
-  letter-spacing: 0.7mm;
+  & h1 {
+  font-size: 1.2rem;
+  letter-spacing: .7mm;
   color: rgb(255, 255, 255);
-}
+  margin-top: 0.5rem;
+  }
+  
+  & span {
+  display:block;
+  margin-top: 0.2rem;;
+  letter-spacing: .5mm;
 
-.logo span {
-  display: block;
-  margin-top: -1.4rem;
-  letter-spacing: 0.5mm;
   padding-left: 3px;
   color: $secondary-color;
   font-weight: 600;
+  font-size: 0.8rem;
+  }
+
+  &-img img {
+    margin-top: 1rem;
+  }
 }
 
 .hike-window {
@@ -250,6 +255,16 @@ body,
 .pin-description {
   display: flex;
   flex-direction: column;
+  padding: .6rem;
+  letter-spacing: .3mm;
+
+  & img {
+    padding: .2rem;
+    margin-top: 1rem;
+    width: 160px!important;
+    height: 230px;
+  }
+  
   letter-spacing: .3mm;
   width: 240px;
 }
@@ -262,11 +277,6 @@ body,
   margin: 0;
 }
 
-.pin-description img {
-  padding: 0.2rem;
-  margin-top: 1rem;
-  width: 160px!important;
-  height: 230px;
 }
 
 .confirmation {
@@ -283,6 +293,20 @@ body,
   border-radius: 5px;
   filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
   animation: smooth-confirm 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  & button {
+    padding: 10px;
+    border: none;
+    margin: 8px;
+    width: 65px;
+    border-radius: 5px;
+    background-color: $secondary-color;
+    filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
+
+    &:active {
+      transform: scaleY(0.9);
+    }
+  }
 }
 
 @keyframes smooth-confirm {
@@ -297,20 +321,6 @@ body,
     width: 230px;
     opacity: 1;
   }
-}
-
-.confirmation button {
-  padding: 10px;
-  border: none;
-  margin: 8px;
-  width: 65px;
-  border-radius: 5px;
-  background-color: $secondary-color;
-  filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.171));
-}
-
-.confirmation button:active {
-  transform: scaleY(0.9);
 }
 
 .toggleDropPin {
@@ -347,7 +357,7 @@ input[type="checkbox"]:active {
   transform: scale(1.9);
 }
 
-@media(min-width: 270px) {
+@media(min-width: 250px) {
   .gm-style-iw {
     width: 260px;
   }
@@ -359,30 +369,32 @@ input[type="checkbox"]:active {
       width: 110px;
     }
   }
-  .logo{
+  
+  .logo {
     height: 110px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-  }
+    
+    &-text {
+  
+      & h1 {
+        font-size: 1.7rem;
+      }
+  
+      & span {
+        font-size: .9rem;
+        margin-top: -.5rem;
+        margin-left: -.2rem;
+      }
+    } 
 
-  .logo-text {
-    & h1 {
-      font-size: 2rem;
-    }
-
-    & span {
-      font-size: 0.9rem;
-      margin-top: -0.8rem;
-    }
-  }
-
-  .logo-img {
-    & img {
+    &-img img{
       width: 50px;
       height: 50px;
     }
   }
+
   .form {
     width: 250px;
   }
@@ -439,31 +451,18 @@ input[type="checkbox"]:active {
     }
   }
 
-  @media (min-width: 400px) {
-    .form {
-      width: 380px;
-    }
-  }
-
-
-  
-
-
-@media (min-width:600px)  { 
-  
-  .logo{
-    height: 120px;
+@media(min-width: 400px) {
+  .form {
+    width: 380px;
   }
 }
-  
 
+@media(min-width: 600px)  { 
+  .logo {
+    height: 120px;
+    
+    &-text {
 
-  @media (min-width: 600px) {
-    .logo {
-      height: 120px;
-    }
-
-    .logo-text {
       & h1 {
         font-size: 3.4rem;
       }
@@ -473,8 +472,8 @@ input[type="checkbox"]:active {
         margin-top: -0.8rem;
       }
     }
-
-    .logo-img {
+    
+    &-img {
       width: 60px;
       height: 50px;
       margin-right: 20px;
@@ -484,12 +483,13 @@ input[type="checkbox"]:active {
         height: 75px;
       }
     }
-
-    .form {
-      width: 400px;
-    }
   }
+}
 
+  .form {
+    width: 400px;
+  }
+}
 
 @media (min-width:801px)  { 
 
@@ -504,7 +504,8 @@ input[type="checkbox"]:active {
     height: 120px;
   }
   
-    .logo-text {
+    &-text {
+      
       & h1 {
         font-size: 3.4rem;
       }
@@ -513,17 +514,12 @@ input[type="checkbox"]:active {
         font-size: 0.9rem;
         margin-top: -0.8rem;
       }
-    }
-
-    .logo-img {
+    } 
+  
+    &-img {
       width: 60px;
       height: 50px;
       margin-right: 20px;
-
-      & img {
-        width: 75px;
-        height: 75px;
-      }
     }
   }
 
