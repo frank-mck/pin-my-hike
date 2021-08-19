@@ -5,8 +5,8 @@ export const AddPin = ({ toggle }) => {
   return (
     <div className ='toggleDropPin'>
       <form>
-        <label>Drop pin</label>
-        <input onClick={toggle} type='checkbox' value='Drop pin' className="add-pin"></input>
+        <label>Pin Hike</label>
+        <input  onClick={toggle} type='checkbox' value='Pin location' className="add-pin "></input>
       </form>
     </div>
   )
