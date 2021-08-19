@@ -340,7 +340,7 @@ input[type='checkbox']:active {
 
 @media(min-width: 280px) {
   .logo{
-    height: 95px;
+    height: 110px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -365,36 +365,38 @@ input[type='checkbox']:active {
     }
   }
   .form {
-    width: 300px;
+    width: 250px;
   }
   
 @media (min-width:309px)  { 
-.logo{
-  height: 95px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
+  .logo{
+    height: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
 
-  .logo-text {
+    &-text {
 
-    & h1 {
-      font-size: 2.8rem;
-    }
+      & h1 {
+        display: inline-block;
+      }
 
-    & span {
-      font-size: .7rem;
-      margin-top: -.8rem;
-    }
-  } 
-
-  .logo-img {
-    & img {
-      width: 60px;
-      height: 60px;
+      & span {
+        font-size: 0.9rem;
+      }
     }
   }
 
+  .form {
+    width: 300px;
+  }
+}
+
+@media (min-width: 400px) {
+  .form {
+    width: 380px;
+  }
 }
   
 @media (min-width:600px)  { 
@@ -425,6 +427,10 @@ input[type='checkbox']:active {
       
       }
     }
+
+  .form {
+    width: 400px;
+  }
 }
 
 @media (min-width:801px)  { 
@@ -455,4 +461,5 @@ input[type='checkbox']:active {
       
       }
     }
+  }
 }
