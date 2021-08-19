@@ -4,11 +4,12 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-body, .confirm-window {
-  font-family: 'Poppins', sans-serif;
+body,
+.confirm-window {
+  font-family: "Poppins", sans-serif;
   height: 100vh;
   width: 100%;
   display: -webkit-box;
@@ -85,7 +86,7 @@ body, .confirm-window {
   to {
     width: 60px;
     height: 60px;
-    opacity: .1;
+    opacity: 0.1;
     background-color: white;
   }
 }
@@ -98,7 +99,7 @@ body, .confirm-window {
   to {
     width: 60px;
     height: 60px;
-    opacity: .1;
+    opacity: 0.1;
     background-color: white;
   }
 }
@@ -119,8 +120,8 @@ body, .confirm-window {
   color: #51646b;
   cursor: pointer;
   border-radius: 5px;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
@@ -206,8 +207,8 @@ body, .confirm-window {
   border: #51646b 1px solid;
   border-radius: 5px;
   margin: 10px 0 5px 0;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .form-footer-logo-container:hover {
@@ -218,7 +219,7 @@ body, .confirm-window {
 @-webkit-keyframes smooth {
   from {
     width: 140px;
-    opacity: .3;
+    opacity: 0.3;
   }
   to {
     width: 400px;
@@ -229,7 +230,7 @@ body, .confirm-window {
 @keyframes smooth {
   from {
     width: 140px;
-    opacity: .3;
+    opacity: 0.3;
   }
   to {
     width: 400px;
@@ -256,7 +257,7 @@ body, .confirm-window {
 
 .logo-img img {
   width: 75px;
-  margin-top: .7rem;
+  margin-top: 0.7rem;
   height: 75px;
 }
 
@@ -302,14 +303,14 @@ body, .confirm-window {
 
 .logo h1 {
   font-size: 3.8rem;
-  letter-spacing: .7mm;
+  letter-spacing: 0.7mm;
   color: white;
 }
 
 .logo span {
   display: block;
   margin-top: -1.4rem;
-  letter-spacing: .5mm;
+  letter-spacing: 0.5mm;
   padding-left: 3px;
   color: #c57a3c;
   font-weight: 600;
@@ -339,10 +340,11 @@ body, .confirm-window {
   overflow-y: scroll;
   padding: 0;
   margin: 0;
+
 }
 
 .pin-description img {
-  padding: .2rem;
+  padding: 0.2rem;
   margin-top: 1rem;
   width: 160px !important;
   height: 230px;
@@ -379,7 +381,7 @@ body, .confirm-window {
   from {
     display: none;
     width: 200px;
-    opacity: .1;
+    opacity: 0.1;
   }
   to {
     display: content;
@@ -392,7 +394,7 @@ body, .confirm-window {
   from {
     display: none;
     width: 200px;
-    opacity: .1;
+    opacity: 0.1;
   }
   to {
     display: content;
@@ -420,7 +422,7 @@ body, .confirm-window {
 .toggleDropPin {
   position: absolute;
   z-index: 20;
-  margin: 0 0 .4rem .4rem;
+  margin: 0 0 0.4rem 0.4rem;
   background-color: #b8a6a0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -433,7 +435,7 @@ body, .confirm-window {
           align-items: center;
   bottom: 0;
   left: 0;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 5px;
   height: 40px;
   width: 120px;
@@ -451,16 +453,16 @@ body, .confirm-window {
           align-items: center;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   width: 30px;
   height: 20px;
   background-color: #51646b;
 }
 
-input[type='checkbox']:active {
+input[type="checkbox"]:active {
   opacity: 0;
-  -webkit-transition: .1s;
-  transition: .1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
   -webkit-transform: scale(1.9);
           transform: scale(1.9);
 }
@@ -491,8 +493,8 @@ input[type='checkbox']:active {
     font-size: 2rem;
   }
   .logo-text span {
-    font-size: .9rem;
-    margin-top: -.8rem;
+    font-size: 0.9rem;
+    margin-top: -0.8rem;
   }
   .logo-img img {
     width: 50px;
@@ -556,8 +558,8 @@ input[type='checkbox']:active {
     font-size: 3.4rem;
   }
   .logo-text span {
-    font-size: .9rem;
-    margin-top: -.8rem;
+    font-size: 0.9rem;
+    margin-top: -0.8rem;
   }
   .logo-img {
     width: 60px;
@@ -585,8 +587,8 @@ input[type='checkbox']:active {
     font-size: 3.4rem;
   }
   .logo-text span {
-    font-size: .9rem;
-    margin-top: -.8rem;
+    font-size: 0.9rem;
+    margin-top: -0.8rem;
   }
   .logo-img {
     width: 60px;
@@ -600,6 +602,8 @@ input[type='checkbox']:active {
 }
 
 .search-box {
+  top: 1rem;
+  left: 1rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -619,8 +623,8 @@ input[type='checkbox']:active {
   letter-spacing: 2px;
   outline: none;
   border-radius: 25px;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   background-color: #22a6b3;
   padding-right: 40px;
   color: #fff;
