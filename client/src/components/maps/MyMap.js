@@ -275,7 +275,9 @@ export const MyMap = () => {
         <div>
           <div className="info-window">
         {selectedHike ? (
-          
+
+        // InfoWindow to display each hikes attributes. 
+
         <InfoWindow
           style={{height: "200px"}}
           position={{ "lat": parseFloat(selectedHike.lat), "lng": parseFloat(selectedHike.lng) }}
