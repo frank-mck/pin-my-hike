@@ -163,7 +163,8 @@ export const MyMap = () => {
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       zoom={zoom}
-      center={{ lat: latitude, lng: longitude }}
+      center={{ lat: markers.length > 0 ? markers.map((n) => n.lat)
+         : latitude, lng: markers.length > 0 ? markers.map((n) => n.lng) : longitude }}
       options={{
         styles: mapStyle,
         disableDefaultUI: true,
