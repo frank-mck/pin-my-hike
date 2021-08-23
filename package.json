@@ -7,8 +7,7 @@
   "scripts": {
     "devStart": "nodemon server",
     "test": "jest",
-    "client": "cd client && npm start",
-    "start": "concurrently \"npm run devStart\" \"npm run client\"",
+    "start": "npm run devStart",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
