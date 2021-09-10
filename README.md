@@ -2,6 +2,9 @@
 
 A Makers week 11 & 12 group project. 
 
+## Preview
+![Imgur](https://i.imgur.com/DGriDOG.png)
+
 ## Description
 
 > Don't follow the crowd. Follow the pin!
@@ -41,9 +44,6 @@ Click on a pin to highlight the route and view pictures of the hike.
 * API: Google API
 * Linting: ESLint
 * CI: CircleCI
-
-## Preview
-![Imgur](https://i.imgur.com/DGriDOG.png)
 
 ## Usage
 
